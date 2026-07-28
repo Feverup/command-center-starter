@@ -23,7 +23,7 @@ carry on with the rest. The briefing still works with nothing but the task file.
 
 Fill these in for yourself, or delete what doesn't apply:
 
-- **Your GitHub login:** `<your-gh-login>`
+- **Your GitHub login:** `{{GH_HANDLE}}` (filled in by `.claude/scripts/setup/apply-placeholders.sh`)
 - **Your Slack member ID:** `<your-slack-id>`
 - **Slack channels worth scanning:** `<#channel>`, `<#channel>`
 - **Timezone:** `<your TZ>`
@@ -61,8 +61,8 @@ Pipe through python to get `HH:MM - HH:MM  Title` per line.
 **1b. GitHub PR queue** — your open PRs and review requests:
 
 ```bash
-gh search prs --review-requested=<your-gh-login> --state=open
-gh search prs --assignee=<your-gh-login> --state=open
+gh search prs --review-requested={{GH_HANDLE}} --state=open
+gh search prs --assignee={{GH_HANDLE}} --state=open
 ```
 
 Buckets: (1) approved and waiting on your merge, (2) yours waiting on reviewers,

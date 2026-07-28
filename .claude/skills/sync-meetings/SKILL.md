@@ -27,8 +27,8 @@ Needs the `gws` CLI authenticated against your own Google account (see the
   `Meeting Summaries — <Bucket>` (one per bucket).
 - **Output:** `content/meetings/<slug>.md` (slug = bucket lowercased, spaces →
   hyphens).
-- **Owner filter:** the names that mean *you* in an action item — your first name,
-  your initials, "me", first person.
+- **Owner filter:** the names that mean *you* in an action item — `{{NAME}}`, your
+  initials, "me", first person.
 
 ## Steps
 

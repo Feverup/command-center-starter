@@ -22,6 +22,16 @@ config, nothing to authenticate:
 pnpm install
 ```
 
+> **Upgrading from an early copy of this template?** Delete any `.npmrc` in this
+> folder first. An earlier version told you to point the `@asucregonzalez` scope at
+> GitHub Packages; the packages now live on npm, and a leftover `.npmrc` sends the
+> install to the wrong registry and 404s. `.npmrc` is gitignored, so `git pull`
+> can't remove it for you:
+>
+> ```bash
+> rm -f .npmrc && pnpm install
+> ```
+
 **2. Configure.**
 
 ```bash
@@ -51,8 +61,8 @@ seeded files in `content/`, which double as format documentation.
 
 ## The skills
 
-`.claude/skills/` ships five Claude Code skills that keep the dashboard's data
-current, so you're not hand-editing markdown:
+`.claude/skills/` ships eight Claude Code skills. These five keep the dashboard's
+data current, so you're not hand-editing markdown:
 
 | Skill | What it does |
 |---|---|
@@ -70,7 +80,33 @@ rather than making something up.
 Ask for them in plain language ("what's my plan today?", "process yesterday's
 meetings") or invoke directly with `/daily-briefing`.
 
-`CLAUDE.md` documents the workspace conventions these skills follow — worth reading
+### A second brain, if you want one
+
+Four more skills turn `content/memory/` into a wiki that compounds:
+
+| Skill | What it does |
+|---|---|
+| `wiki` | Drop a document in `content/sources/`, ask to ingest it, and it becomes linked pages in `content/memory/`. Also queries and lints the knowledge base |
+| `memory-claude-md-sync` | Fires on every wiki write so the navigation hub never drifts from reality |
+| `claude-md-template` | Keeps every `CLAUDE.md` to one shape, so the hierarchy stays navigable |
+| `/weekly-done-cleanup` | Prunes completed tasks out of the backlog into `content/tasks/done-archive.md`, keeping ones that still give context |
+
+`content/memory/` ships empty with just its hub file. Nothing is pre-populated — it
+becomes useful only as you feed it.
+
+### Bootstrap scripts
+
+`.claude/scripts/setup/` holds the one-time setup machinery, all parameterized:
+
+| Script | Does |
+|---|---|
+| `apply-placeholders.sh` | Substitutes `{{NAME}}` / `{{EMAIL}}` / `{{GH_HANDLE}}` across the template |
+| `ensure-gws-config-dir.sh`, `verify-gws.sh` | Creates and checks an **isolated** Google Workspace config dir, so this assistant's auth never collides with anything else |
+| `generate-makefile.sh` | Writes a `makefile` whose `run` target launches Claude with the right env |
+| `init-settings-local.sh` | Seeds `.claude/settings.local.json` |
+| `fresh-git-init.sh` | Wipes template history for a clean first commit — **destructive**, run deliberately |
+
+`CLAUDE.md` documents the workspace conventions all of these follow — worth reading
 once.
 
 ## Your content
@@ -115,7 +151,9 @@ Then two edits:
 | Path | What it is |
 |---|---|
 | `CLAUDE.md` | Workspace map + the conventions the skills and dashboard share |
-| `.claude/skills/` | The five skills that maintain your content |
+| `.claude/skills/` | The skills that maintain your content and wiki |
+| `.claude/scripts/setup/` | One-time bootstrap scripts |
+| `content/memory/` | Your wiki — starts empty |
 | `src/sections.ts` | The one file that decides which sections you run |
 | `src/HomeView.tsx` | The Home page |
 | `src/App.tsx` | The shell: tab bar + the active section's view + host config |
