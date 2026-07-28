@@ -174,13 +174,27 @@ both — the sections read and write the same files.
 
 ```
 content/
-├─ tasks/active.md      ← Tasks tab. Standing quadrants + a Today block.
-├─ tasks/journal.md     ← Journal tab. One `## YYYY-MM-DD` entry per day.
-├─ team/task-labels.json ← the [@label] chips Tasks can put on a task
+├─ tasks/active.md         ← Tasks tab. Standing quadrants + a Today block.
+├─ tasks/journal.md        ← Journal tab. One `## YYYY-MM-DD` entry per day.
+├─ team/task-labels.json   ← the [@label] chips Tasks can put on a task
+├─ memory/CLAUDE.md        ← the wiki's hub (starts empty)
+├─ sources/                ← drop documents here for /wiki-ingest
 └─ meetings/
-   ├─ example.md        ← one file per bucket; `### YYYY-MM-DD — Title` per note
-   └─ archive/          ← notes archived from the UI
+   ├─ example.md           ← 2 example meetings, with action items owned by you and others
+   ├─ example-planning.md  ← a second bucket, so you can see the grouping
+   └─ archive/             ← notes archived from the UI (one example inside)
 ```
+
+**Want to see the Pull requests tab populated too?** It needs no token for that:
+
+```bash
+cp -R .data.example .data && make dev
+```
+
+That gives you one example squad and a **saved checkpoint** — PRs grouped by state,
+a Slack signal, and a ready-to-paste draft — rendered from stored JSON, so there are
+no GitHub calls at all. Delete `.data/` when you want to add your own squad; see
+`.data.example/README.md`.
 
 Two formats are strict, and the files show both:
 
@@ -220,6 +234,7 @@ Then two edits:
 | `tailwind.config.js` | Loads the shared theme preset, and scans installed sections for classes |
 | `content/` | Your markdown (see above) |
 | `.data/` | Pull-requests state: projects, squads, saved checkpoints — gitignored |
+| `.data.example/` | Committed example of the above — `cp -R .data.example .data` to see it |
 
 ## Gotchas
 

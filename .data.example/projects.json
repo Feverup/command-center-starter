@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "slug": "example-squad",
+      "name": "Example Squad",
+      "icon": "🧪",
+      "color": "#1FB8DD",
+      "mode": "team",
+      "organizations": ["example-org"],
+      "authors": ["octocat", "hubot", "mona"],
+      "labelFilter": [],
+      "slackChannels": [
+        { "id": "C0EXAMPLE01", "name": "example-squad-dev" }
+      ],
+      "jiraJql": "",
+      "postChannelId": "C0EXAMPLE01",
+      "postChannelName": "example-squad-dev"
+    }
+  ]
+}

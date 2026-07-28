@@ -1,0 +1,11 @@
+{
+  "squads": [
+    {
+      "slug": "example-squad",
+      "name": "Example Squad",
+      "icon": "🧪",
+      "color": "#1FB8DD",
+      "members": ["octocat", "hubot", "mona"]
+    }
+  ]
+}

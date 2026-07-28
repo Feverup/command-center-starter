@@ -98,6 +98,7 @@ you, rather than inventing data.
 | `content/` | Your tasks, journal, meeting notes, wiki | No |
 | `content/sources/` | Documents queued for wiki ingest (deleted once processed) | No |
 | `.data/` | Section runtime state | No — gitignored |
+| `.data.example/` | Example project + checkpoint, so the PR tab has something to show | Committed, and it's fake |
 | `.env` | Your tokens | No — gitignored |
 
 The installed `@asucregonzalez/*` packages are code only. They read the paths this

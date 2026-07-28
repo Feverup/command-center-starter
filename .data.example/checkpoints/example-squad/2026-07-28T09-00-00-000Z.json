@@ -1,0 +1,113 @@
+{
+  "id": "2026-07-28T09-00-00-000Z",
+  "projectSlug": "example-squad",
+  "createdAt": "2026-07-28T09:00:00.000Z",
+  "authors": [
+    "octocat",
+    "hubot",
+    "mona"
+  ],
+  "approved": [
+    {
+      "number": 412,
+      "title": "Cache partner lookups on the checkout path",
+      "url": "https://github.com/example-org/storefront/pull/412",
+      "repo": "storefront",
+      "author": "octocat",
+      "isDraft": false,
+      "reviewDecision": "APPROVED",
+      "status": "approved",
+      "createdAt": "2026-07-26T09:12:00Z",
+      "ageDays": 2,
+      "ticket": "EXA-118",
+      "labels": [
+        "performance"
+      ]
+    },
+    {
+      "number": 409,
+      "title": "Drop the unused legacy pricing adapter",
+      "url": "https://github.com/example-org/billing/pull/409",
+      "repo": "billing",
+      "author": "mona",
+      "isDraft": false,
+      "reviewDecision": "APPROVED",
+      "status": "approved",
+      "createdAt": "2026-07-24T09:12:00Z",
+      "ageDays": 4,
+      "ticket": "EXA-104",
+      "labels": []
+    }
+  ],
+  "waitingReview": [
+    {
+      "number": 415,
+      "title": "Add idempotency keys to refund creation",
+      "url": "https://github.com/example-org/billing/pull/415",
+      "repo": "billing",
+      "author": "hubot",
+      "isDraft": false,
+      "reviewDecision": "REVIEW_REQUIRED",
+      "status": "waiting_review",
+      "createdAt": "2026-07-27T09:12:00Z",
+      "ageDays": 1,
+      "ticket": "EXA-121",
+      "labels": [
+        "needs-review"
+      ]
+    },
+    {
+      "number": 407,
+      "title": "Split the reservation validator into its own module",
+      "url": "https://github.com/example-org/storefront/pull/407",
+      "repo": "storefront",
+      "author": "octocat",
+      "isDraft": false,
+      "reviewDecision": "CHANGES_REQUESTED",
+      "status": "changes_requested",
+      "createdAt": "2026-07-22T09:12:00Z",
+      "ageDays": 6,
+      "ticket": "EXA-96",
+      "labels": []
+    }
+  ],
+  "drafts": [
+    {
+      "number": 416,
+      "title": "WIP: seat-level availability endpoint",
+      "url": "https://github.com/example-org/storefront/pull/416",
+      "repo": "storefront",
+      "author": "mona",
+      "isDraft": true,
+      "reviewDecision": null,
+      "status": "draft",
+      "createdAt": "2026-07-27T09:12:00Z",
+      "ageDays": 1,
+      "ticket": null,
+      "labels": []
+    }
+  ],
+  "stuckTickets": [],
+  "channelSignals": [
+    {
+      "channelId": "C0EXAMPLE01",
+      "channelName": "example-squad-dev",
+      "messages": [
+        {
+          "ts": "1785308400.000100",
+          "user": "hubot",
+          "text": "Refund idempotency PR is up \u2014 needs a second pair of eyes before Thursday's release.",
+          "hasPrLink": true
+        },
+        {
+          "ts": "1785301200.000200",
+          "user": "mona",
+          "text": "Heads up: staging is on the old pricing adapter until 409 lands.",
+          "hasPrLink": false
+        }
+      ]
+    }
+  ],
+  "fetchErrors": [],
+  "draftMessage": "*Example Squad \u2014 PR checkpoint*\n\n*Ready to merge (2)*\n\u2022 <https://github.com/example-org/storefront/pull/412|#412> Cache partner lookups on the checkout path \u2014 Octocat \u00b7 2d\n\u2022 <https://github.com/example-org/billing/pull/409|#409> Drop the unused legacy pricing adapter \u2014 Mona \u00b7 4d\n\n*Waiting on review (2)*\n\u2022 <https://github.com/example-org/billing/pull/415|#415> Add idempotency keys to refund creation \u2014 Hubot \u00b7 1d\n\u2022 <https://github.com/example-org/storefront/pull/407|#407> Split the reservation validator \u2014 Octocat \u00b7 6d \u00b7 changes requested\n\n*Drafts (1)*\n\u2022 #416 WIP: seat-level availability endpoint \u2014 Mona \u00b7 1d\n\n_This is example data. Delete .data/ and add your own squad to replace it._"
+}
