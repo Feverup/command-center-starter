@@ -45,6 +45,7 @@ No child `CLAUDE.md` files yet. The places to look:
 | [.claude/scripts/setup/](.claude/scripts/setup/) | One-time bootstrap: placeholders, isolated `gws` config, makefile | setup, bootstrap, gws, auth |
 | [src/sections.ts](src/sections.ts) | The single list deciding which tabs you run | sections, tabs, registry |
 | [server/index.ts](server/index.ts) | Express server; mounts each section's API | api, routes, content root |
+| [makefile](makefile) | Shortcuts: dev, build, run Claude, bootstrap, link check | make, targets, setup, run |
 
 ## Skills
 

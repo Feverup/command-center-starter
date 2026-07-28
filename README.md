@@ -49,8 +49,12 @@ Tasks, Journal and Meetings need no tokens at all — they're just your markdown
 **3. Run.**
 
 ```bash
-pnpm dev
+pnpm dev          # or: make dev
 ```
+
+`make` on its own lists every shortcut — `make setup` does the one-time bootstrap
+(isolated Google Workspace config dir + local settings), `make run` launches Claude
+with this workspace's environment.
 
 Open http://localhost:5273. The API runs on :4320 and the dev server proxies
 `/api` to it.
@@ -150,6 +154,7 @@ Then two edits:
 
 | Path | What it is |
 |---|---|
+| `makefile` | Shortcuts — `make` lists them |
 | `CLAUDE.md` | Workspace map + the conventions the skills and dashboard share |
 | `.claude/skills/` | The skills that maintain your content and wiki |
 | `.claude/scripts/setup/` | One-time bootstrap scripts |
