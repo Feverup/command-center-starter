@@ -123,6 +123,43 @@ becomes useful only as you feed it.
 `CLAUDE.md` documents the workspace conventions all of these follow — worth reading
 once.
 
+## Recommended: rtk
+
+[rtk](https://github.com/rtk-ai/rtk) is a CLI proxy that compresses command output
+*before* the agent reads it — a single Rust binary, Apache-2.0. It's the cheapest
+efficiency win available here, because every oversized tool result gets re-read on
+every subsequent turn.
+
+```bash
+brew install rtk       # or: curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
+rtk init -g            # registers a global PreToolUse hook + ~/.claude/RTK.md
+                       # then restart Claude Code
+rtk init --show        # verify
+```
+
+Measured on this project's own repo:
+
+| Command | Raw | Via rtk |
+|---|---|---|
+| `ls -la` | 1615 B | 256 B (−84%) |
+| `git log -n 20` | 24.2 kB | 6.6 kB (−73%) |
+| `git status` | 636 B | 282 B (−56%) |
+| `git diff --stat` | 414 B | 413 B (−0%) |
+
+Read the claims precisely, because the honest version is less dramatic than "90%":
+
+- It compresses **bash output**, which is one input among your prompt, the system
+  prompt and the conversation history — and input is only part of the bill. The
+  reduction dilutes at each step.
+- Its token figures are `bytes / 4` estimates; the **percentages** are trustworthy,
+  the absolute token counts are not.
+- Already-terse commands gain nothing, as the `git diff --stat` row shows.
+- **`Read`, `Grep` and `Glob` bypass it** — the hook only intercepts the Bash tool.
+  For big files, reach for `rtk read` / `rtk grep`, or a ranged `Read`.
+
+Install it **globally** (`-g`), not as a hook in this repo: a committed hook would
+fail for anyone who hasn't installed the binary.
+
 ## Your content
 
 `content/` is a plain folder of markdown you can edit directly, in the app, or

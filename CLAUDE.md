@@ -46,6 +46,7 @@ No child `CLAUDE.md` files yet. The places to look:
 | [src/sections.ts](src/sections.ts) | The single list deciding which tabs you run | sections, tabs, registry |
 | [server/index.ts](server/index.ts) | Express server; mounts each section's API | api, routes, content root |
 | [makefile](makefile) | Shortcuts: dev, build, run Claude, bootstrap, link check | make, targets, setup, run |
+| [README.md#recommended-rtk](README.md) | rtk: compresses bash output before the agent reads it | rtk, tokens, efficiency, cost |
 
 ## Skills
 
@@ -83,6 +84,12 @@ you, rather than inventing data.
   Issues, write through that tracker's API — never edit a local mirror.
 - **Never put credentials or PII in `content/`.** Reference a message or ticket id
   instead. These files are git-tracked.
+- **Keep tool output small.** Every oversized result is re-read on every later turn,
+  so it costs repeatedly. Pipe Bash through `grep`/`head` rather than `cat`-ing whole
+  files, use ranged `Read`s, and delegate broad searches to a subagent so the bulk
+  stays out of the main context. [rtk](https://github.com/rtk-ai/rtk) automates most
+  of this for Bash — see the README. Note it does *not* cover `Read`/`Grep`/`Glob`,
+  which is where the discipline still has to be yours.
 
 ## Where your data lives
 
