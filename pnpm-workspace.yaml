@@ -1,0 +1,4 @@
+# esbuild (via Vite) needs its postinstall to fetch the platform binary; pnpm 11
+# blocks install scripts unless allowed here.
+allowBuilds:
+  esbuild: true

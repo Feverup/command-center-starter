@@ -1,0 +1,44 @@
+{
+  "name": "command-center-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal Command Center shell \u2014 install the sections you want and run your own dashboard.",
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"pnpm:dev:server\" \"pnpm:dev:web\"",
+    "dev:web": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "vite build",
+    "start": "node --import tsx server/index.ts"
+  },
+  "dependencies": {
+    "@asucregonzalez/content": "^0.1.0",
+    "@asucregonzalez/core": "^0.1.0",
+    "@asucregonzalez/http": "^0.1.0",
+    "@asucregonzalez/section-journal": "^0.1.0",
+    "@asucregonzalez/section-meetings": "^0.1.0",
+    "@asucregonzalez/section-pull-requests": "^0.1.0",
+    "@asucregonzalez/section-tasks": "^0.1.0",
+    "@asucregonzalez/theme": "^0.1.0",
+    "@asucregonzalez/ui": "^0.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "swr": "^2.2.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3"
+  }
+}

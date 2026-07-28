@@ -1,0 +1,8 @@
+# Copy to .npmrc. The @asucregonzalez packages live in GitHub Packages (private),
+# so npm/pnpm needs to know the registry for that scope and a token to read it.
+#
+# Create the token at https://github.com/settings/tokens (classic) with the single
+# scope `read:packages`, then either paste it below or export it in your shell as
+# GITHUB_PACKAGES_TOKEN (preferred — keeps it out of the repo).
+@asucregonzalez:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}

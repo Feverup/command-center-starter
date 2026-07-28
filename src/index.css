@@ -1,0 +1,11 @@
+/* Shared base + component styles used by section packages (.banner, .btn*,
+ * .cyan-card, .status-bar*, .rise).
+ *
+ * MUST stay above the @tailwind directives: postcss-import only inlines @import
+ * rules at the top of the file, so moving it down silently drops every component
+ * class and sections render half-styled. */
+@import '@asucregonzalez/theme/base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
