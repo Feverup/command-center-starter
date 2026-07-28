@@ -13,25 +13,16 @@ Four sections are wired up out of the box:
 | 📓 Journal | Per-day journal | `content/tasks/journal.md` |
 | 📅 Meetings | Meeting notes by bucket, with live action-item checkboxes and archiving | `content/meetings/` |
 
-## Setup (~5 minutes)
+## Setup (~2 minutes)
 
-**1. Authenticate to the package registry.** The sections are private packages, so
-you need a GitHub token that can read them:
-
-```bash
-cp .npmrc.example .npmrc
-# Create a classic token with ONLY the `read:packages` scope at
-# https://github.com/settings/tokens  — then:
-export GITHUB_PACKAGES_TOKEN=ghp_xxx        # add to ~/.zshrc to keep it
-```
-
-**2. Install.**
+**1. Install.** The section packages are public on npm — no token, no registry
+config, nothing to authenticate:
 
 ```bash
 pnpm install
 ```
 
-**3. Configure.**
+**2. Configure.**
 
 ```bash
 cp .env.example .env
@@ -45,7 +36,7 @@ cp .env.example .env
 
 Tasks, Journal and Meetings need no tokens at all — they're just your markdown.
 
-**4. Run.**
+**3. Run.**
 
 ```bash
 pnpm dev
@@ -109,7 +100,7 @@ and the sections read it instead — it just needs the same layout.
 ## Adding another section
 
 ```bash
-pnpm add @andreasucreg/section-<name>
+pnpm add @asucregonzalez/section-<name>
 ```
 
 Then two edits:
@@ -135,11 +126,11 @@ Then two edits:
 
 ## Gotchas
 
-- **`src/index.css`**: the `@import '@andreasucreg/theme/base.css'` must stay
+- **`src/index.css`**: the `@import '@asucregonzalez/theme/base.css'` must stay
   above the `@tailwind` directives. postcss-import only inlines `@import` at the
   top of a file, so moving it down silently drops every component class and
   sections render half-styled.
-- **`tailwind.config.js`**: keep the `./node_modules/@andreasucreg/*/dist/**/*.js`
+- **`tailwind.config.js`**: keep the `./node_modules/@asucregonzalez/*/dist/**/*.js`
   content glob. Sections ship compiled markup, and Tailwind purges any class it
   can't see.
 - **No "Regenerate" buttons?** Expected. Those re-run a Claude skill on the host;
@@ -148,3 +139,7 @@ Then two edits:
   `/api/refresh/<skill>` route, flip it to `true`.
 - **Sections render unstyled?** You're missing `presets: [ccPreset]` or one of the
   two points above.
+- **`pnpm install` edited `pnpm-workspace.yaml`?** Expected, and harmless. pnpm 11
+  quarantines very recently published packages as a supply-chain precaution; when
+  a section release is newer than that window it adds the versions to
+  `minimumReleaseAgeExclude` and proceeds. Commit it or discard it, either is fine.

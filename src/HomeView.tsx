@@ -55,7 +55,7 @@ export function HomeView() {
       </div>
 
       <p className="mt-8 text-xs text-ink-ghost">
-        Add a section with <code>pnpm add @andreasucreg/section-&lt;name&gt;</code>,
+        Add a section with <code>pnpm add @asucregonzalez/section-&lt;name&gt;</code>,
         then list it in <code>src/sections.ts</code>. See the README.
       </p>
     </div>

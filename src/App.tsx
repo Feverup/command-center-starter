@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DashboardConfigProvider, type DashboardConfig } from '@andreasucreg/ui';
+import { DashboardConfigProvider, type DashboardConfig } from '@asucregonzalez/ui';
 import { sections } from './sections';
 
 /**

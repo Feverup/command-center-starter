@@ -2,10 +2,10 @@ import 'dotenv/config';
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { registerPullRequestsRoutes } from '@andreasucreg/section-pull-requests/server';
-import { registerTasksRoutes } from '@andreasucreg/section-tasks/server';
-import { registerJournalRoutes } from '@andreasucreg/section-journal/server';
-import { registerMeetingsRoutes } from '@andreasucreg/section-meetings/server';
+import { registerPullRequestsRoutes } from '@asucregonzalez/section-pull-requests/server';
+import { registerTasksRoutes } from '@asucregonzalez/section-tasks/server';
+import { registerJournalRoutes } from '@asucregonzalez/section-journal/server';
+import { registerMeetingsRoutes } from '@asucregonzalez/section-meetings/server';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a

@@ -1,4 +1,4 @@
-import ccPreset from '@andreasucreg/theme/tailwind-preset';
+import ccPreset from '@asucregonzalez/theme/tailwind-preset';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,6 +11,6 @@ export default {
     './src/**/*.{ts,tsx}',
     // Sections ship their own compiled markup — Tailwind must scan it or every
     // class only they use gets purged from your CSS.
-    './node_modules/@andreasucreg/*/dist/**/*.js',
+    './node_modules/@asucregonzalez/*/dist/**/*.js',
   ],
 };
