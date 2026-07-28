@@ -58,6 +58,30 @@ Pull requests starts with **no projects** — add your first squad from its own 
 name plus the GitHub logins to track). Tasks, Journal and Meetings start from the
 seeded files in `content/`, which double as format documentation.
 
+## The skills
+
+`.claude/skills/` ships five Claude Code skills that keep the dashboard's data
+current, so you're not hand-editing markdown:
+
+| Skill | What it does |
+|---|---|
+| `task-management` | Creates and edits tasks in `content/tasks/active.md`, enforcing one action per task |
+| `daily-briefing` | Reconciles yesterday, gathers calendar + mail + Slack + PR queue + backlog, proposes today's Top 3, writes the Today block and archives yesterday to the journal |
+| `meeting-processor` | Pulls yesterday's meetings from Granola into `content/meetings/`, and their action items into your task list |
+| `sync-meetings` | Same, but from a Google Drive folder — use whichever matches where your notes live |
+| `google-workspace-cli` | Reference for the `gws` CLI, which the two Google-backed skills above rely on |
+
+**Each needs a few blanks filled in before first use** — your GitHub login, Slack
+member ID, Granola folder names or a Drive folder id. Every skill says so at the
+top. A skill whose tool you haven't authenticated skips that source and tells you,
+rather than making something up.
+
+Ask for them in plain language ("what's my plan today?", "process yesterday's
+meetings") or invoke directly with `/daily-briefing`.
+
+`CLAUDE.md` documents the workspace conventions these skills follow — worth reading
+once.
+
 ## Your content
 
 `content/` is a plain folder of markdown you can edit directly, in the app, or
@@ -99,6 +123,8 @@ Then two edits:
 
 | Path | What it is |
 |---|---|
+| `CLAUDE.md` | Workspace map + the conventions the skills and dashboard share |
+| `.claude/skills/` | The five skills that maintain your content |
 | `src/sections.ts` | The one file that decides which sections you run |
 | `src/HomeView.tsx` | The Home page |
 | `src/App.tsx` | The shell: tab bar + the active section's view + host config |
