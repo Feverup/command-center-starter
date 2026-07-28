@@ -109,7 +109,7 @@ and the sections read it instead — it just needs the same layout.
 ## Adding another section
 
 ```bash
-pnpm add @asucregonzalez/section-<name>
+pnpm add @andreasucreg/section-<name>
 ```
 
 Then two edits:
@@ -135,11 +135,11 @@ Then two edits:
 
 ## Gotchas
 
-- **`src/index.css`**: the `@import '@asucregonzalez/theme/base.css'` must stay
+- **`src/index.css`**: the `@import '@andreasucreg/theme/base.css'` must stay
   above the `@tailwind` directives. postcss-import only inlines `@import` at the
   top of a file, so moving it down silently drops every component class and
   sections render half-styled.
-- **`tailwind.config.js`**: keep the `./node_modules/@asucregonzalez/*/dist/**/*.js`
+- **`tailwind.config.js`**: keep the `./node_modules/@andreasucreg/*/dist/**/*.js`
   content glob. Sections ship compiled markup, and Tailwind purges any class it
   can't see.
 - **No "Regenerate" buttons?** Expected. Those re-run a Claude skill on the host;

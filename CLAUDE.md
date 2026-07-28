@@ -81,5 +81,5 @@ you, rather than inventing data.
 | `.data/` | Section runtime state | No — gitignored |
 | `.env` | Your tokens | No — gitignored |
 
-The installed `@asucregonzalez/*` packages are code only. They read the paths this
+The installed `@andreasucreg/*` packages are code only. They read the paths this
 app hands them and talk to no third party beyond the APIs you give tokens for.

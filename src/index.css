@@ -4,7 +4,7 @@
  * MUST stay above the @tailwind directives: postcss-import only inlines @import
  * rules at the top of the file, so moving it down silently drops every component
  * class and sections render half-styled. */
-@import '@asucregonzalez/theme/base.css';
+@import '@andreasucreg/theme/base.css';
 
 @tailwind base;
 @tailwind components;
