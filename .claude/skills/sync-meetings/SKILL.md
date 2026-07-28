@@ -30,6 +30,21 @@ Needs the `gws` CLI authenticated against your own Google account (see the
 - **Owner filter:** the names that mean *you* in an action item — `{{NAME}}`, your
   initials, "me", first person.
 
+**No such folder yet?** Then this skill has nothing to sync, and that's a fine
+place to be. Say so and offer these, in order:
+
+1. **You have meeting notes in Drive** — ask for the folder id (or its URL), sync
+   it, and write the id into this Setup block so the next run doesn't ask again.
+2. **You use Granola** — the `meeting-processor` skill pulls from there instead.
+   Its bucket mapping needs filling in the same way.
+3. **Neither** — leave `content/meetings/` alone. The Meetings tab renders
+   hand-written notes perfectly well; `content/meetings/example.md` shows the
+   shape. Add a task to configure a source later rather than forcing it now.
+
+**Never invent buckets** from whatever documents happen to be findable. A bucket is
+a decision about how someone organises their work, not something to guess at — a
+wrong guess costs them an afternoon of undoing it.
+
 ## Steps
 
 1. **List the folder** (build the params JSON with python to avoid quoting issues):

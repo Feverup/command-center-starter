@@ -27,6 +27,12 @@ dashboard's Meetings tab. Map your own Granola folders to bucket files here:
 Slug = folder name lowercased with spaces as hyphens. The dashboard title-cases
 unknown bucket names automatically, so you don't need to register them anywhere.
 
+**Table still empty, or no Granola?** Don't guess a mapping. Ask which Granola
+folders should become buckets, or point out the two alternatives: `sync-meetings`
+if the notes live in Drive, or writing notes straight into `content/meetings/`
+(the Meetings tab reads them either way). Leaving it unconfigured is a valid
+outcome — inventing someone's taxonomy is not.
+
 **Optional title overrides** — for recurring meetings that cut across projects and
 deserve their own bucket regardless of which folder they're filed under. Applied
 **before** the folder mapping:

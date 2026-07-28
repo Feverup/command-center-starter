@@ -81,6 +81,13 @@ member ID, Granola folder names or a Drive folder id. Every skill says so at the
 top. A skill whose tool you haven't authenticated skips that source and tells you,
 rather than making something up.
 
+The two meeting skills are the ones you'll hit first: both start with **no source
+configured**, so they'll ask instead of syncing. That's deliberate — a bucket is a
+decision about how you organise your work, not something to guess. Answer with a
+Drive folder id (`sync-meetings`), your Granola folder names (`meeting-processor`),
+or "neither, I'll write notes by hand" — the Meetings tab reads
+`content/meetings/*.md` either way.
+
 Ask for them in plain language ("what's my plan today?", "process yesterday's
 meetings") or invoke directly with `/daily-briefing`.
 

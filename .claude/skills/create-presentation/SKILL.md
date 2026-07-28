@@ -15,6 +15,21 @@ when_to_use: |
 
 Build a presentation that reads as a polished corporate-technical deck: bold, scannable, value-driven, on-brand. This skill carries **(A) the design+copy template**, **(B) the Fever brand kit**, and **(C) the Google-Slides build playbook with the API gotchas already solved**.
 
+## Which Google account
+
+**Decks are work artifacts — build them in the company account, never a personal
+one.** If you keep more than one authenticated `gws` config (common: one for work,
+one personal), name the work config dir explicitly on every call:
+
+```bash
+export GOOGLE_WORKSPACE_CLI_CONFIG_DIR="$HOME/.config/gws-<your-work-config>"
+gws auth status        # confirm it prints your WORK email before building anything
+```
+
+If `auth status` shows a personal address, stop and re-authenticate rather than
+continuing — a deck created under the wrong account lands in the wrong Drive, is
+invisible to colleagues, and has to be rebuilt to be shareable.
+
 ## A. Canonical template prompt (verbatim — apply exactly)
 
 Apply this prompt's rules exactly; fill `[INSERT YOUR NEW TOPIC HERE]` with the user's topic (ask if blank).
