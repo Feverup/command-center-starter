@@ -95,6 +95,16 @@ Four more skills turn `content/memory/` into a wiki that compounds:
 | `claude-md-template` | Keeps every `CLAUDE.md` to one shape, so the hierarchy stays navigable |
 | `/weekly-done-cleanup` | Prunes completed tasks out of the backlog into `content/tasks/done-archive.md`, keeping ones that still give context |
 
+And these are general-purpose, nothing to do with the dashboard:
+
+| Command / skill | What it does |
+|---|---|
+| `/setup` | Walks you through first-time setup — identity, placeholders, isolated Google auth, git history |
+| `/wiki-ingest` | Ingest one document into the wiki, proposing what to write before writing it |
+| `/grill-me` | Interrogates a plan branch by branch until the decisions are actually resolved |
+| `/compact-session` | Captures a long chat's context into notes plus a resume prompt for a fresh session |
+| `create-presentation` | Builds a Fever-brand deck in Google Slides — brand kit and the Slides-API gotchas already solved |
+
 `content/memory/` ships empty with just its hub file. Nothing is pre-populated — it
 becomes useful only as you feed it.
 

@@ -29,7 +29,9 @@ register it in the hub's Deep-Dive Navigation table.
 
 ### Ingest
 
-Process a raw source from `content/sources/` into wiki pages.
+Process a raw source from `content/sources/` into wiki pages. The `/wiki-ingest`
+command drives this for a single source, with a review step before anything is
+written.
 
 **Input:** path to a source file.
 

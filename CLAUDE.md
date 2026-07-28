@@ -60,6 +60,10 @@ No child `CLAUDE.md` files yet. The places to look:
 | `memory-claude-md-sync` | Keeps the memory navigation honest on every wiki write |
 | `claude-md-template` | Keeps every `CLAUDE.md` to a consistent shape |
 | `/weekly-done-cleanup` | Prunes completed tasks out of the backlog into an archive |
+| `create-presentation` | Building a Fever-brand deck in Google Slides |
+| `/setup` | First-time setup: identity, placeholders, isolated Google auth |
+| `/wiki-ingest` | Ingesting one document into the wiki |
+| `/grill-me` · `/compact-session` | Interrogating a plan · capturing a session's context |
 
 Each skill needs setting up for you before first use — your GitHub login, Slack ID,
 Granola folders or Drive folder id. They say so at the top; fill in the blanks.
