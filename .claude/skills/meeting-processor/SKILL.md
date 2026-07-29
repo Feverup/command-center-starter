@@ -13,6 +13,35 @@ Granola is only the **source**. Everything written is local and versioned by git
 Nothing is ever written back to Granola. You write the summaries, classify the
 action items, and save both with file tools.
 
+## Reading from Granola — `granola_api.py`
+
+Ships alongside this skill. It reads the Granola desktop app's local session, so
+there's nothing to configure beyond having the app installed and logged in — no
+API key, and no token is ever printed.
+
+```bash
+# every meeting for a day, grouped by bucket
+python3 .claude/skills/meeting-processor/granola_api.py fetch --date 2026-07-28
+
+# full transcript for one meeting
+python3 .claude/skills/meeting-processor/granola_api.py transcript --doc <meeting_id>
+```
+
+Tell it which Granola folders are yours — otherwise every meeting lands in
+`Uncategorized`, which is the safe default rather than a guessed taxonomy:
+
+```bash
+export GRANOLA_FOLDERS="Team meetings,Customer calls,<your folder>"
+```
+
+Use the same names as the folder mapping table below, so a folder and its bucket
+file stay in step.
+
+**If `fetch` returns 401/403:** open the Granola app once to refresh its token and
+re-run. If it still fails, the Granola MCP tools are the fallback for reading
+meetings — the write subcommands (`publish`, `prepend`, `set-note`) are
+deprecated and shouldn't be used either way.
+
 ## Setup — your buckets
 
 A **bucket** is one markdown file in `content/meetings/` and one group in the

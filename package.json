@@ -18,7 +18,7 @@
     "@asucregonzalez/section-journal": "^0.1.1",
     "@asucregonzalez/section-meetings": "^0.1.1",
     "@asucregonzalez/section-pull-requests": "^0.1.1",
-    "@asucregonzalez/section-tasks": "^0.1.1",
+    "@asucregonzalez/section-tasks": "^0.1.2",
     "@asucregonzalez/theme": "^0.1.1",
     "@asucregonzalez/ui": "^0.1.1",
     "dotenv": "^16.4.5",
