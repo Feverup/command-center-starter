@@ -17,15 +17,45 @@ npm install -g @googleworkspace/cli
 gws --version
 ```
 
-### 2. Create an OAuth client
+### 2. Point it at a GCP project
 
-`gws auth setup` enables the APIs it needs, but it **cannot create the OAuth client** — that part is
-manual, in the [Google Cloud Console](https://console.cloud.google.com/):
+Everything `gws` does is billed and authorised against one GCP project. There are two ways to bind
+it, and it's worth knowing both because they fail differently.
 
-1. Create or pick a GCP project.
+**a) `gws auth setup --project <PROJECT_ID>`** — the guided path. Requires `gcloud` installed and
+logged in; it enables the APIs the CLI needs on that project.
+
+```bash
+gcloud auth login                       # once, if gcloud isn't already authenticated
+gws auth setup --project my-project-id  # add --dry-run first to see what it will change
+```
+
+**b) The `client_secret.json` you download.** The file itself carries the project:
+
+```json
+{ "installed": { "project_id": "my-project-id", "client_id": "...", "client_secret": "..." } }
+```
+
+So downloading the OAuth client *from* a project **is** connecting to it — and swapping that file is
+how you move the CLI to a different project. Keep the old one alongside
+(`client_secret.<project>.bak.json`) if you might switch back.
+
+`gws auth setup` enables the APIs but **cannot create the OAuth client** — that part is always manual,
+in the [Google Cloud Console](https://console.cloud.google.com/):
+
+1. Create or pick a GCP project — note its **project ID**, not its display name.
 2. **APIs & Services → Credentials → Create credentials → OAuth client ID**.
 3. Application type: **Desktop app**.
 4. Download the JSON.
+
+**Check which project is live at any time:**
+
+```bash
+gws auth status     # reports project_id, client_config, and whether credentials exist
+```
+
+If `project_id` isn't what you expect, the `client_secret.json` in your config dir came from a
+different project — that's the file to replace, not a setting to change.
 
 ### 3. Give it an isolated config dir
 
