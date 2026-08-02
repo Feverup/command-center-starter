@@ -15,7 +15,7 @@ You are orchestrating a one-time setup flow that turns a fresh template clone in
 
 ## Principles
 
-- **Favor determinism.** Every side effect goes through one of the scripts in `.claude/scripts/setup/`. Don't use Write/StrReplace/Edit to replicate what a script can do. Reserve direct file edits for things the scripts don't cover (e.g. showing the generated makefile to the user).
+- **Favor determinism.** Every side effect goes through one of the scripts in `.claude/scripts/setup/`. Don't use Write/StrReplace/Edit to replicate what a script can do. Reserve direct file edits for things no script covers — in this flow that's only the optional task-label seed (step 3c) and any hand-tuning of `src/work-types.ts` the user asks for after seeing it.
 - **Verify after each side effect.** If a script runs, read back the file(s) it touched and confirm the change took. If verification fails, abort (see "Error handling" below).
 - **Track progress with `TodoWrite`.** Create the full todo list at the start of the flow, update status as you go. The user watches this to know where you are.
 - **Ask one question at a time** unless a group of questions is genuinely atomic (e.g. "name AND email"). Use the `AskQuestion` tool for multi-choice, plain text for free-form answers.
@@ -40,8 +40,10 @@ Briefly explain what this command does (one paragraph). Warn that some steps (Go
 
 Immediately after greeting, create the initial todo list with these items:
 
-- Identity: collect name, email, optional GitHub handle
-- Apply placeholders (substitute {{NAME}}, {{EMAIL}}, {{GH_HANDLE}})
+- Profile: collect name, email, GitHub handle, role, goal, team, timezone, Slack
+- Apply placeholders (substitute the profile tokens)
+- Work types for their role (`src/work-types.ts`)
+- Seed task labels (optional)
 - Init local settings
 - Google Workspace auth (optional, isolated config dir)
 - GitHub account pin for `gh auth token` (optional)
@@ -49,16 +51,78 @@ Immediately after greeting, create the initial todo list with these items:
 - Fresh git history (optional)
 - Print next steps
 
-### 2. Identity
+### 2. Profile
 
-Ask for:
+This is the step that decides how well everything else fits them, so don't rush
+it. Ask in three small batches (each batch is one message; the items inside a
+batch are atomic enough to ask together):
+
+**Batch 1 — identity**
 - Name
 - Email
-- GitHub username (optional — drives PR search in the `daily-briefing` skill; accept empty)
+- GitHub username (optional — drives PR search in `daily-briefing`; accept empty)
+
+**Batch 2 — situation.** Say plainly why you're asking: their role picks the work-type
+buckets on the task board, and their goal becomes the tiebreaker the briefing uses
+when ranking work.
+- **Role.** Their own words ("Senior backend engineer", "EM for two squads"). Then
+  map it to one of the preset keys by running
+  `.claude/scripts/setup/apply-work-types.mjs --list` and offering the closest
+  match with `AskQuestion`. **Confirm the mapping** — don't infer a manager from
+  the word "lead", and don't infer seniority from tenure. If nothing fits, tell
+  them you'll seed the closest and they can edit `src/work-types.ts` after.
+- **Current goal** — the one outcome the next quarter is judged on, one sentence.
+  If they give you three, ask which one wins when they conflict; the value of this
+  field is that it's a tiebreaker, and a list can't break ties. If they genuinely
+  don't have one, leave it empty rather than inventing something plausible.
+- **Team / squad name** (optional).
+- **Timezone** — offer the machine's (`date +%Z`, and `%z` for the offset) as the
+  default, since it's usually right.
+
+**Batch 3 — Slack** (optional, skip if they don't use it)
+- Slack member ID (their profile → "Copy member ID"; looks like `U0123456789`)
+- Channels worth scanning each morning, comma-separated with the `#`
+
+Nothing here is load-bearing enough to block on: an empty value leaves its
+placeholder token in place for later, and you'll tell them so at the end.
 
 ### 3. Apply placeholders
 
-Run `.claude/scripts/setup/apply-placeholders.sh "<name>" "<email>" "<gh_handle_or_empty>"`. Verify by grepping the repo for any remaining `{{NAME}}`, `{{EMAIL}}` or `{{GH_HANDLE}}` tokens outside `README.md` and `.claude/scripts/` (those two reference the tokens on purpose). Confirm; don't dump the content back.
+Run, with empty strings for anything they skipped:
+
+```bash
+.claude/scripts/setup/apply-placeholders.sh "<name>" "<email>" "<gh_handle_or_empty>" \
+  ROLE="<role in their words>" \
+  GOAL="<one-sentence goal>" \
+  TEAM="<team>" \
+  TIMEZONE="<tz>" \
+  SLACK_ID="<Uxxxx>" \
+  SLACK_CHANNELS="<#a, #b>"
+```
+
+Verify by grepping the repo for remaining `{{...}}` tokens outside `README.md` and
+`.claude/scripts/` (those two reference the tokens on purpose). Report which tokens
+are still unfilled and which file each is in — that list is the user's to-do, not a
+failure. Confirm; don't dump the content back.
+
+### 3b. Work types for their role
+
+Run `.claude/scripts/setup/apply-work-types.mjs <role-key>` with the key confirmed
+in step 2. It regenerates `src/work-types.ts` — ordinary TypeScript in their repo,
+so it survives `pnpm update` and they can edit it afterwards.
+
+Verify by reading back the generated file and showing them just the bucket list
+(`📦 Ship · 🧪 Quality · …`). Ask whether those are the right buckets for how their
+week actually splits. If not, either re-run with a different key or edit the file
+directly — renaming a `tag` is safe here because there are no tasks yet.
+
+### 3c. Seed task labels (optional)
+
+Labels are the *project* axis (`[@billing]`, `[@platform]`), orthogonal to work
+type. Offer to seed 3–5 from what they told you about their team and goal, written
+to `content/team/task-labels.json` (`{"labels":[{"slug","name","color"}]}`, colours
+from the Tailwind 500 range). Skip without argument if they'd rather add them in the
+UI later — the Tasks tab has an editor.
 
 ### 4. Init local settings
 
@@ -111,12 +175,16 @@ Print a final summary block covering:
 - How to launch: `make run`
 - How to test the daily briefing: ask "what's on my plate today?"
 - How to run the dashboard: `make dev` (web on :5273)
+- What their profile now drives: role → work-type buckets in the Tasks tab, goal →
+  the briefing's tiebreak. Both are editable — `src/work-types.ts` and the "Me"
+  section of `CLAUDE.md` — and worth revisiting when either changes.
+- Any placeholder token still unfilled, with the file to edit.
 
 End by marking all todos complete and wishing them well. The user can exit the session with Ctrl-D and run `make run` to start their configured assistant.
 
 ## Notes for the agent
 
-- The scripts are located relative to the repo root. Always invoke them as `.claude/scripts/setup/<name>.sh` (the repo root is the working directory when `/setup` runs).
-- The scripts use positional args, not env vars. Quote all args that could contain spaces.
+- The scripts are located relative to the repo root. Always invoke them as `.claude/scripts/setup/<name>.sh` — or `.mjs` for `apply-work-types`, which is Node so the role presets and the TypeScript it emits live in one file (the repo root is the working directory when `/setup` runs).
+- The scripts use positional args, not env vars. Quote all args that could contain spaces. `apply-placeholders.sh` takes name/email/gh positionally and then any number of `TOKEN=value` pairs.
 - Don't read the scripts' source unless debugging; trust their exit codes and stdout/stderr.
 - If the user asks "what exactly is this going to do?", describe the flow above and the scripts involved, but don't overwhelm them with implementation details.

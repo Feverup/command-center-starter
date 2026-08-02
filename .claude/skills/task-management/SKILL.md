@@ -26,7 +26,7 @@ No backups needed — `git diff content/` is the safety net.
 ## 🔭 Standing / Carrying
 
 ### 🔥 Urgent + Important
-- ☐ **[P0]** A single action [@label] — 3d
+- ☐ **[P0][Ship] A single action** [@label] — 3d
 
 ### 🎯 Important, Not Urgent
 ### ⚡ Urgent, Not Important
@@ -50,7 +50,17 @@ Conventions the dashboard understands:
   the parser takes whatever `###` headings it finds.
 - **`[@slug]` label chips** are defined in `content/team/task-labels.json` and get
   a colour in the UI. Keep the `[@slug]` *before* the `— Nd` age.
-- **`[P0]`/`[P1]`/`[P2]`** in the bold title means now / this cycle / later.
+- **Priority**, first marker in the bold title: `[P0]` now · `[P1]` this cycle ·
+  `[P2]` later · `[P3]` nice-to-have. `[P3]` is for work that is real but never
+  blocks anything — it's not a parking lot, and it never belongs in the Top 3. A
+  task with *no* marker sorts above `[P3]`, on the grounds that untriaged beats
+  explicitly-deprioritised, so omitting the marker doesn't bury anything.
+- **Work type**, second marker: `[Ship]`, `[Quality]`, … whichever set
+  `src/work-types.ts` declares — `/setup` generated it from your role, so an IC's
+  buckets differ from a manager's. Read that file rather than guessing tags. It
+  answers "what kind of work is this?", which is independent of urgency, and it's
+  what makes "where did my week go?" answerable. A leading glyph (`📦 **…**`) is
+  accepted as an equivalent marker; the dashboard writes the bracket tag.
 - **`**Top 3:**` must be written exactly like that**, with a numbered list under
   it, or the dashboard silently shows no Top 3.
 - The per-day archive is `content/tasks/journal.md`. Entries need `## YYYY-MM-DD`

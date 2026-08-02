@@ -21,12 +21,17 @@ Steps 1a and 1f need the `gws` CLI authenticated against your own Google account
 **Any source you haven't set up is skipped, not faked** — say so in one line and
 carry on with the rest. The briefing still works with nothing but the task file.
 
-Fill these in for yourself, or delete what doesn't apply:
+These are filled in by `.claude/scripts/setup/apply-placeholders.sh` during
+`/setup`. Edit them here when they change, or delete what doesn't apply:
 
-- **Your GitHub login:** `{{GH_HANDLE}}` (filled in by `.claude/scripts/setup/apply-placeholders.sh`)
-- **Your Slack member ID:** `<your-slack-id>`
-- **Slack channels worth scanning:** `<#channel>`, `<#channel>`
-- **Timezone:** `<your TZ>`
+- **Your GitHub login:** `{{GH_HANDLE}}`
+- **Your Slack member ID:** `{{SLACK_ID}}`
+- **Slack channels worth scanning:** {{SLACK_CHANNELS}}
+- **Timezone:** `{{TIMEZONE}}`
+- **Your role:** {{ROLE}} — shapes what counts as *your* work versus someone
+  else's. A lead's queue legitimately includes unblocking other people; an IC's
+  mostly doesn't.
+- **Your current goal:** {{GOAL}} — the tiebreaker when ranking the Top 3 in Step 2.
 
 ## When to trigger
 
@@ -118,6 +123,13 @@ with a 2–4 word tag and its `Nd` age. Show all open tasks — no silent filter
 **⭐ TOP 3 FOR TODAY** — THE one thing, plus 2 supporting, plus 1 thing NOT to do
 today (delegate or say no). Top 3 items are **deliverables and actions, never
 calendar meetings** — if a meeting matters, surface its *prep* as the task.
+
+Rank on urgency first, then break ties with the goal in Setup above ({{GOAL}}): of
+two equally pressing tasks, the one that moves the goal wins. Say which tiebreak
+you applied in one clause — "over X, because it moves {{GOAL}}" — so a wrong read
+of the goal is visible and correctable. Never promote a `[P3]` nice-to-have into
+the Top 3; if it genuinely belongs there, its priority was wrong, so fix the
+marker in Step 3 rather than quietly overriding it.
 
 **🚩 RED FLAGS** — needs attention but not top 3: stale items where live state was
 expected, unresponded asks from required attendees, no-buffer meetings, unprepped

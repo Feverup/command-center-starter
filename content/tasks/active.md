@@ -6,6 +6,9 @@ Tasks tab, both work. The structure below is what the parser expects:
 - `## 🔭 Standing / Carrying` holds the backlog, split into `###` groups. The four
   groups below are the Eisenhower quadrants; rename them to whatever you prefer.
 - Task lines are `- ☐ text`, with `✅` done, `🏗️` in progress, `❌` dropped.
+- Leading markers in the title: a priority — `[P0]` now, `[P1]` this cycle, `[P2]`
+  later, `[P3]` nice-to-have — then a work type from `../../src/work-types.ts`
+  (`/setup` picked that set for your role).
 - Optional trailing meta: `[@label]` chips (defined in `../team/task-labels.json`)
   and an age like `— 3d`.
 - `## 📌 Today — YYYY-MM-DD` holds today's plan. `**Top 3:**` must be written
@@ -15,19 +18,19 @@ Tasks tab, both work. The structure below is what the parser expects:
 
 ### 🔥 Urgent + Important
 
-- ☐ Replace this with something you actually need to do today
+- ☐ **[P0] Replace this with something you actually need to do today** — 0d
 
 ### 🎯 Important, Not Urgent
 
-- ☐ The work that matters but has no deadline pressure
+- ☐ **[P1] The work that matters but has no deadline pressure** — 0d
 
 ### ⚡ Urgent, Not Important
 
-- ☐ Interruptions and requests you could delegate
+- ☐ **[P2] Interruptions and requests you could delegate** — 0d
 
 ### 🌱 Neither — someday
 
-- ☐ Ideas worth keeping, not worth starting
+- ☐ **[P3] Ideas worth keeping, not worth starting** — 0d
 
 ## 📌 Today — 2026-01-01
 
