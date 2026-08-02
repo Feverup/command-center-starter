@@ -1,6 +1,11 @@
 {
   "name": "command-center-starter",
   "version": "0.1.0",
+  "packageManager": "pnpm@11.5.0",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "private": true,
   "type": "module",
   "description": "Minimal Command Center shell \u2014 install the sections you want and run your own dashboard.",

@@ -2,16 +2,17 @@
 name: setup
 description: >
   Interactive, agent-guided setup for this Personal Assistant. Walks the user
-  through identity (name/email/GitHub), Google Workspace authentication in an
-  isolated config dir, and makefile generation. Runs deterministic scripts from
+  through preflight, dependency install, identity and role, tokens, Google
+  Workspace authentication in an isolated config dir, and makefile generation —
+  then starts the stack and verifies it serves. Runs deterministic scripts from
   .claude/scripts/setup/ for everything that can be automated, and pauses to
-  confirm anything that requires the user (OAuth flows, etc).
-  Use this immediately after cloning the template.
+  confirm anything that requires the user (OAuth flows, pasting a token).
+  Use this immediately after cloning the template. It ends with the app running.
 ---
 
 # /setup — stand up this Personal Assistant
 
-You are orchestrating a one-time setup flow that turns a fresh template clone into a personalized, running assistant. The user just cloned the template repo and started a Claude session in it. Your job is to interview them, run the scripts under `.claude/scripts/setup/`, and at the end leave them with a working `make run` command plus clear next steps.
+You are orchestrating a one-time setup flow that turns a fresh template clone into a personalized, running assistant. The user just cloned the template repo and started a Claude session in it. Your job is to interview them, run the scripts under `.claude/scripts/setup/`, and end with the stack ACTUALLY RUNNING — a URL they can open, not a command to run next. Setup that stops one step short hands the last and most failure-prone step back to the person it was meant to help.
 
 ## Principles
 
@@ -40,6 +41,8 @@ Briefly explain what this command does (one paragraph). Warn that some steps (Go
 
 Immediately after greeting, create the initial todo list with these items:
 
+- Preflight: check node / pnpm / git are present
+- Install dependencies (pnpm install)
 - Profile: collect name, email, GitHub handle, role, goal, team, timezone, Slack
 - Apply placeholders (substitute the profile tokens)
 - Work types for their role (`src/work-types.ts`)
@@ -50,7 +53,28 @@ Immediately after greeting, create the initial todo list with these items:
 - GitHub account pin for `gh auth token` (optional)
 - Generate makefile
 - Fresh git history (optional)
+- Start the stack and verify it serves
 - Print next steps
+
+### 1a. Preflight — before touching anything
+
+Run `.claude/scripts/setup/preflight.sh`.
+
+It checks node 20+, pnpm and git, and reports gws / gh / rtk as optional. **If it
+exits non-zero, STOP** and relay its output verbatim — it prints the fix for each
+missing tool, not just the finding. Every later step writes something, so a
+missing toolchain discovered halfway through leaves a half-configured repo.
+
+### 1b. Install dependencies
+
+Run `.claude/scripts/setup/install-deps.sh`. Idempotent — a no-op on an
+up-to-date tree.
+
+If it exits **2**, the failure is not the user's: package.json pins a version of
+an `@asucregonzalez/*` package that has not been published yet. The script prints
+the diagnosis, the `npm view` check and the publish command. Relay it, say
+plainly that nothing on their machine will fix it, and stop — do not attempt
+workarounds like editing the pin or deleting the lockfile.
 
 ### 2. Profile
 
@@ -195,13 +219,28 @@ the top of the existing makefile.
 
 Ask: "Wipe template git history and re-init? (recommended unless you're customizing this repo as a fork)". If yes, run `.claude/scripts/setup/fresh-git-init.sh`. Warn that this is destructive before running.
 
-### 9. Next steps
+### 9. Start the stack
+
+Run `.claude/scripts/setup/start-stack.sh`.
+
+It starts the API and web together, then **polls the ports until both actually
+serve** — a dev server that boots and dies on a config error still looks started
+to anything watching the PID. On success it prints both URLs, the log path and
+the stop command. It is idempotent: if the stack is already up it says so rather
+than spawning a second one onto the same ports.
+
+If it exits non-zero, relay its diagnosis (it distinguishes a port clash from a
+missing dependency) and do not mark setup complete.
+
+### 10. Next steps
 
 Print a final summary block covering:
 
-- How to launch: `make run`
+- **It is already running** — web on http://localhost:5273. Give them the URL to
+  open, not a command to run.
+- How to stop it: `.claude/scripts/setup/start-stack.sh --stop`; to start it again
+  later, `make dev`.
 - How to test the daily briefing: ask "what's on my plate today?"
-- How to run the dashboard: `make dev` (web on :5273)
 - What their profile now drives: role → work-type buckets in the Tasks tab, goal →
   the briefing's tiebreak. Both are editable — `src/work-types.ts` and the "Me"
   section of `CLAUDE.md` — and worth revisiting when either changes.
