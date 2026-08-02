@@ -45,6 +45,7 @@ Immediately after greeting, create the initial todo list with these items:
 - Work types for their role (`src/work-types.ts`)
 - Seed task labels (optional)
 - Init local settings
+- Tokens: copy .env.example → .env, GITHUB_TOKEN for Pull requests
 - Google Workspace auth (optional, isolated config dir)
 - GitHub account pin for `gh auth token` (optional)
 - Generate makefile
@@ -128,6 +129,32 @@ UI later — the Tasks tab has an editor.
 
 Run `.claude/scripts/setup/init-settings-local.sh`. No verification needed — the script's output is self-explanatory.
 
+### 4b. Tokens (`.env`)
+
+**Do not skip this silently.** Without it the Pull requests tab renders an empty
+state with no explanation, and the user reasonably reports that as a bug rather
+than as unfinished setup — which is exactly how a previous install session stalled.
+
+```bash
+cp .env.example .env
+```
+
+Then walk them through which vars they actually need, and be explicit that most
+tabs need none:
+
+- `GITHUB_TOKEN` — **required** by Pull requests. Classic token, `repo` scope, so
+  it can read PRs in the orgs they track. Nothing else uses it.
+- `SLACK_BOT_TOKEN` — optional. Only for channel signals and posting the draft.
+- `VITE_OWNER_NAME` — their name as it appears in an `Owner:` field, so Meetings
+  can split action items into theirs vs everyone else's.
+- **Tasks, Journal, Meetings, Memory and Guide need no tokens at all** — they are
+  plain markdown in `content/`.
+
+Ask whether they want to add `GITHUB_TOKEN` now or later. If later, say plainly
+that Pull requests will be empty until they do, and that `.env` is gitignored so
+it is safe to hold a token there. Never read a token back into the transcript or
+echo it — have them paste it into the file themselves.
+
 ### 5. Google Workspace (optional)
 
 Ask whether to enable Google Workspace integration (Gmail, Calendar, Drive access via the `gws` CLI). If no, skip this step entirely.
@@ -179,6 +206,11 @@ Print a final summary block covering:
   the briefing's tiebreak. Both are editable — `src/work-types.ts` and the "Me"
   section of `CLAUDE.md` — and worth revisiting when either changes.
 - Any placeholder token still unfilled, with the file to edit.
+- Whether `GITHUB_TOKEN` is set. If not, name the consequence rather than the
+  omission: "Pull requests will be empty until you add it to `.env`."
+- Optional but worth mentioning once: `rtk` installed **globally** compresses
+  bash output before the agent reads it. Globally, not as a repo hook — a
+  committed hook fails for anyone who hasn't installed the binary.
 
 End by marking all todos complete and wishing them well. The user can exit the session with Ctrl-D and run `make run` to start their configured assistant.
 
