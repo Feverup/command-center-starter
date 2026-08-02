@@ -50,6 +50,7 @@ Immediately after greeting, create the initial todo list with these items:
 - Init local settings
 - Tokens: copy .env.example → .env, GITHUB_TOKEN for Pull requests
 - Google Workspace auth (optional, isolated config dir)
+- Observability & other tools (optional): /mcp connectors, per-machine CI auth
 - GitHub account pin for `gh auth token` (optional)
 - Generate makefile
 - Fresh git history (optional)
@@ -191,6 +192,48 @@ If yes:
 4. Wait for the user to confirm OAuth is done.
 5. Run `.claude/scripts/setup/verify-gws.sh "$HOME/.config/<dir_name>"`. Show the authenticated email and ask the user to confirm it's the right account.
 6. Remember `<dir_name>` for the makefile generation step. If the user skipped this whole section, treat it as empty.
+
+### 5b. Observability & other tools (optional, per tool)
+
+Ask which of these they'll actually use, and set up only those. Three DIFFERENT
+mechanisms live here, and treating them as one list of tokens is the mistake —
+none of these belongs in `.env`.
+
+**A — claude.ai MCP connectors.** Datadog, Sentry, Slack, Atlassian/Jira,
+Google Drive/Gmail/Calendar, Mixpanel, Figma. These are connected on the
+claude.ai side and authenticated **inside Claude Code with `/mcp`**, per user —
+not per repo, so nothing is committed and each teammate does their own.
+
+- Tell them to run `/mcp`, pick the connector, and complete the browser OAuth.
+- **An org admin must enable MCP connectors for the workspace first.** If a
+  connector is missing from the `/mcp` list entirely, that is the reason — it is
+  not something they can fix locally, and they should ask the admin rather than
+  hunting for an API key.
+- Datadog is worth it for anyone on call: SLOs, monitors, incidents and error
+  tracking become conversational. Sentry likewise for error triage.
+- **On an "auth token expired" error later: re-authenticate ONCE via `/mcp` and
+  move on.** Never retry a dead token repeatedly — blind retries burn compute and
+  inflate the error-rate guardrail that AI usage is measured against.
+
+**B — CLIs that authenticate themselves on first use.** `sentry-cli` prompts
+interactively the first time it needs credentials, and its skill says explicitly
+**not** to pre-authenticate or pre-resolve org/project. So do NOT add a login step
+for it here — just make sure the CLI is installed and let the first real command
+handle auth. Same shape for `gh` if they already use it.
+
+**C — Per-machine steps that cannot be committed.** Only relevant if they work on
+Fever CI:
+
+- `cloudflared access login https://ci.fevertools.com` — Jenkins sits behind
+  Cloudflare Access.
+- A Jenkins API token in `~/.netrc` (`chmod 600`), generated at
+  `https://ci.fevertools.com/user/<them>/security/`.
+
+Be straight with them about scope: **this starter ships no Datadog or Sentry
+skill.** Authenticating those connectors buys conversational access to the tools
+now, and means the auth is already done if they later install a skill that uses
+them. If they say "not yet", skip it — an unauthenticated connector fails loudly
+and skips its source rather than inventing data, so nothing breaks by deferring.
 
 ### 6. GitHub account pin (optional)
 
