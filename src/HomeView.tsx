@@ -3,6 +3,7 @@ import { jsonFetch } from '@asucregonzalez/http';
 import { useDashboardConfig, isOwnedByViewer } from '@asucregonzalez/ui';
 import type { TasksResponse } from '@asucregonzalez/section-tasks';
 import type { MeetingFile } from '@asucregonzalez/section-meetings';
+import { ClaudeSessionsPanel } from '@asucregonzalez/section-claude-sessions';
 import { sections, destinations } from './sections';
 
 /**
@@ -115,6 +116,13 @@ export function HomeView() {
           )}
         </div>
       )}
+
+      {/* Which Claude sessions are open right now, across every project — not just
+          this one. Reads ~/.claude/sessions and ~/.claude/projects, so it shows
+          nothing (rather than failing) on a machine that has never run Claude Code. */}
+      <div className="px-8 pb-6">
+        <ClaudeSessionsPanel />
+      </div>
 
       <div className="px-8 pb-8 max-w-3xl">
         <h2 className="text-label font-bold uppercase tracking-wider text-ink-fade">

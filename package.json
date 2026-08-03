@@ -20,6 +20,7 @@
     "@asucregonzalez/content": "^0.1.1",
     "@asucregonzalez/core": "^0.2.0",
     "@asucregonzalez/http": "^0.1.1",
+    "@asucregonzalez/section-claude-sessions": "^0.1.0",
     "@asucregonzalez/section-journal": "^0.1.2",
     "@asucregonzalez/section-meetings": "^0.2.0",
     "@asucregonzalez/section-pull-requests": "^0.3.0",

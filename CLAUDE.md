@@ -52,6 +52,7 @@ all three touch the same files, and git is the safety net.
 | Journal | `content/tasks/journal.md` |
 | Meetings | `content/meetings/` |
 | Guide | — (setup, how-to and FAQs; content lives in `src/GuideView.tsx`) |
+| Claude sessions (panel on Day) | reads `~/.claude/sessions` + `~/.claude/projects` — never written to |
 
 ## Deep-Dive Navigation
 

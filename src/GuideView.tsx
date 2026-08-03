@@ -126,6 +126,13 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: null, icon: '🤖', title: 'Claude sessions (on Day)',
+    items: [
+      { kind: 'in-app', text: 'Every Claude Code session you have open, across all projects — its project, what it is doing (busy / idle / waiting on a permission prompt), and the prompt it is working on. Useful when you have lost track of which window is mid-task.' },
+      { kind: 'both', text: 'It reads ~/.claude/sessions and ~/.claude/projects on your own machine. Nothing leaves it, and nothing in this repo is involved — so on a machine that has never run Claude Code the panel is simply empty rather than broken.' },
+    ],
+  },
+  {
     section: null, icon: '🌅', title: 'Morning briefing',
     items: [
       { kind: 'chat', text: 'Ask for the daily-briefing skill. It reads your calendar, mail, PRs and backlog and proposes today\'s Top 3, ranked against your current goal from CLAUDE.md.' },

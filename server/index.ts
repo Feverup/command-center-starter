@@ -6,6 +6,7 @@ import { registerPullRequestsRoutes } from '@asucregonzalez/section-pull-request
 import { registerTasksRoutes } from '@asucregonzalez/section-tasks/server';
 import { registerJournalRoutes } from '@asucregonzalez/section-journal/server';
 import { registerMeetingsRoutes } from '@asucregonzalez/section-meetings/server';
+import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-sessions/server';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a
@@ -55,6 +56,9 @@ const routers = [
   registerTasksRoutes,
   registerJournalRoutes,
   registerMeetingsRoutes,
+  // Reads ~/.claude/sessions and ~/.claude/projects — nothing in this repo. It
+  // reports no sessions rather than failing when those are absent or unreadable.
+  registerClaudeSessionsRoutes,
 ];
 
 for (const register of routers) {
