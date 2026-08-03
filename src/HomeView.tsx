@@ -3,7 +3,7 @@ import { jsonFetch } from '@asucregonzalez/http';
 import { useDashboardConfig, isOwnedByViewer } from '@asucregonzalez/ui';
 import type { TasksResponse } from '@asucregonzalez/section-tasks';
 import type { MeetingFile } from '@asucregonzalez/section-meetings';
-import { destinations } from './sections';
+import { sections, destinations } from './sections';
 
 /**
  * Home — a cockpit, not a landing page.
@@ -44,9 +44,13 @@ function StatCard({ icon, label, value, sub, footer, href }: {
 
 export function HomeView() {
   const config = useDashboardConfig();
-  // Leaf destinations, not the top-level groups — the groups are nav headings and
-  // listing them here would name three things you cannot open. Excludes this page.
+  // Two different lists, for two different jobs.
+  //  - `installed` is every leaf, used to decide which stat cards can be shown and
+  //    to resolve their links. Excludes this page.
+  //  - `shortcuts` is the GROUPS minus Today, because you are already in Today —
+  //    the same shape the nav uses, so Home stops repeating row 2 back at you.
   const installed = destinations.filter((s) => s.id !== 'day');
+  const shortcuts = sections.filter((s) => s.id !== 'today');
   const has = (id: string) => installed.some((s) => s.id === id);
   // Paths come from the registry rather than being retyped here — they moved when
   // the nav became grouped (/tasks -> /today/tasks) and a hardcoded href would have
@@ -114,21 +118,28 @@ export function HomeView() {
 
       <div className="px-8 pb-8 max-w-3xl">
         <h2 className="text-label font-bold uppercase tracking-wider text-ink-fade">
-          Installed sections
+          Elsewhere
         </h2>
-        <ul className="mt-3 divide-y divide-surface-rail border-y border-surface-rail">
-          {installed.map((s) => (
-            <li key={s.id} className="flex items-center gap-3 py-3">
-              <span className="text-lg">{s.icon}</span>
-              <a href={s.path} className="font-bold text-ink hover:text-cyan-700">{s.label}</a>
-              {s.requiredEnv?.length ? (
-                <span className="ml-auto text-meta text-ink-fade">
-                  needs {s.requiredEnv.join(', ')}
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {shortcuts.map((g) => (
+            <a
+              key={g.id}
+              href={g.path}
+              className="group rounded-lg border border-surface-rail bg-white p-4 transition-colors hover:border-cyan-400"
+            >
+              <div className="mb-1.5 flex items-center gap-2">
+                <span className="text-base">{g.icon}</span>
+                <span className="text-sm font-black text-ink transition-colors group-hover:text-cyan-700">
+                  {g.label}
                 </span>
-              ) : null}
-            </li>
+              </div>
+              <p className="text-xs leading-relaxed text-ink-mute">{g.blurb}</p>
+              <p className="mt-1.5 text-label text-ink-fade">
+                {(g.children ?? []).map((c) => c.label).join(' · ')}
+              </p>
+            </a>
           ))}
-        </ul>
+        </div>
 
         <div className="cyan-card mt-8">
           <h2 className="font-bold text-ink">Where your data lives</h2>
