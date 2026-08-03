@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { sections } from './sections';
+import { destinations } from './sections';
 
 /**
  * Guide — setup, how to use it, and the questions people actually ask.
@@ -79,7 +79,7 @@ const USAGE: Card[] = [
     ],
   },
   {
-    section: 'home', icon: '🏠', title: 'Home',
+    section: 'day', icon: '☀️', title: 'Today ▸ Day',
     items: [
       { kind: 'in-app', text: 'Two numbers: your standing backlog with today\'s Top 3 count, and the open action items that are yours across all meeting notes. Both link to their tab.' },
       { kind: 'in-app', text: '"Yours" is decided by the owner name in the dashboard config — with no name set, nothing counts as yours, which is honest rather than claiming everything.' },
@@ -154,37 +154,24 @@ const PARTS: Array<{ id: Part; label: string; cards: Card[] }> = [
   { id: 'faq', label: 'FAQs', cards: FAQ },
 ];
 
-export function GuideView() {
-  const [part, setPart] = useState<Part>('usage');
+export function GuideView({ part = 'usage' }: { part?: Part } = {}) {
   const [open, setOpen] = useState<Record<string, boolean>>({});
-  const active = PARTS.find((p) => p.id === part)!;
+  const active = PARTS.find((p) => p.id === part) ?? PARTS[1];
 
   // Cards are matched to installed sections so the guide cannot quietly drift from
   // sections.ts: a card for a section you removed is hidden, and a section with no
   // card is named at the bottom instead of going undocumented in silence.
-  const installedIds = new Set(sections.map((s) => s.id));
+  const installedIds = new Set(destinations.map((s) => s.id));
   const cards = active.cards.filter((c) => c.section === null || installedIds.has(c.section));
   const documented = new Set(active.cards.map((c) => c.section).filter(Boolean) as string[]);
+  // Counted against leaf destinations so a group heading never reads as an
+  // undocumented section. Only shown on How to use, which is where the cards are.
   const missing = part === 'usage'
-    ? sections.filter((s) => !documented.has(s.id)).map((s) => s.label)
+    ? destinations.filter((s) => !documented.has(s.id)).map((s) => s.label)
     : [];
 
   return (
     <div className="mx-auto max-w-3xl px-2 py-8">
-      <div className="flex gap-2">
-        {PARTS.map((p) => (
-          <button
-            key={p.id} type="button" onClick={() => setPart(p.id)}
-            className={`px-3 py-1.5 rounded border text-sm ${
-              p.id === part
-                ? 'border-cyan-500 bg-cyan-50 text-cyan-700 font-bold'
-                : 'border-surface-rail text-ink-mute hover:border-cyan-400'
-            }`}
-          >
-            {p.label}
-          </button>
-        ))}
-      </div>
 
       <div className="mt-6 space-y-2">
         {cards.map((c) => {

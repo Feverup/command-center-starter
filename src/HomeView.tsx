@@ -3,7 +3,7 @@ import { jsonFetch } from '@asucregonzalez/http';
 import { useDashboardConfig, isOwnedByViewer } from '@asucregonzalez/ui';
 import type { TasksResponse } from '@asucregonzalez/section-tasks';
 import type { MeetingFile } from '@asucregonzalez/section-meetings';
-import { sections } from './sections';
+import { destinations } from './sections';
 
 /**
  * Home — a cockpit, not a landing page.
@@ -44,8 +44,14 @@ function StatCard({ icon, label, value, sub, footer, href }: {
 
 export function HomeView() {
   const config = useDashboardConfig();
-  const installed = sections.filter((s) => s.id !== 'home');
+  // Leaf destinations, not the top-level groups — the groups are nav headings and
+  // listing them here would name three things you cannot open. Excludes this page.
+  const installed = destinations.filter((s) => s.id !== 'day');
   const has = (id: string) => installed.some((s) => s.id === id);
+  // Paths come from the registry rather than being retyped here — they moved when
+  // the nav became grouped (/tasks -> /today/tasks) and a hardcoded href would have
+  // quietly pointed at nothing.
+  const pathOf = (id: string) => installed.find((s) => s.id === id)?.path ?? '/';
 
   // `null` fetcher = SWR skips the request entirely, so a dashboard without the
   // Tasks or Meetings section never calls an endpoint its server does not mount.
@@ -89,7 +95,7 @@ export function HomeView() {
         <div className="px-8 pb-6 flex flex-wrap gap-4">
           {has('tasks') && (
             <StatCard
-              icon="📋" label="Backlog" href="/tasks"
+              icon="📋" label="Backlog" href={pathOf('tasks')}
               value={standingTotal > 0 ? String(standingTotal) : '—'}
               sub="standing tasks"
               footer={todayCount > 0 ? `${todayCount} in today's Top 3` : 'no Top 3 set today'}
@@ -97,7 +103,7 @@ export function HomeView() {
           )}
           {has('meetings') && (
             <StatCard
-              icon="✅" label="Action items" href="/meetings"
+              icon="✅" label="Action items" href={pathOf('meetings')}
               value={mine > 0 ? String(mine) : '—'}
               sub="open and yours"
               footer={others > 0 ? `${others} owned by others` : undefined}
