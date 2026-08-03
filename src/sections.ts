@@ -4,6 +4,7 @@ import { createTasksSection } from '@asucregonzalez/section-tasks';
 import { journalSection } from '@asucregonzalez/section-journal';
 import { meetingsSection } from '@asucregonzalez/section-meetings';
 import { HomeView } from './HomeView';
+import { GuideView } from './GuideView';
 import { WORK_TYPES } from './work-types';
 
 /**
@@ -22,4 +23,8 @@ export const sections: DashboardSection[] = [
   createTasksSection({ workTypes: WORK_TYPES }),
   journalSection,
   meetingsSection,
+  // Guide is app-local on purpose: its cards describe THIS dashboard's tabs, so it
+  // ships with the template rather than as a package. Edit src/GuideView.tsx when
+  // you add or remove a section — it tells you at the bottom if you forgot.
+  { id: 'guide', label: 'Guide', icon: '📖', path: '/guide', visibility: 'shared', View: GuideView },
 ];

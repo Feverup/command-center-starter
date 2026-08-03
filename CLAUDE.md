@@ -46,11 +46,12 @@ all three touch the same files, and git is the safety net.
 
 | Tab | Reads / writes |
 |---|---|
-| Home | — |
+| Home | reads `content/tasks/active.md` + `content/meetings/` (counts only) |
 | Pull requests | `.data/` (projects, squads, saved checkpoints) |
 | Tasks | `content/tasks/active.md` |
 | Journal | `content/tasks/journal.md` |
 | Meetings | `content/meetings/` |
+| Guide | — (setup, how-to and FAQs; content lives in `src/GuideView.tsx`) |
 
 ## Deep-Dive Navigation
 
@@ -64,6 +65,7 @@ No child `CLAUDE.md` files yet. The places to look:
 | [content/memory/CLAUDE.md](content/memory/CLAUDE.md) | The wiki: durable knowledge, and the hub every page must be listed in | memory, wiki, knowledge |
 | [.claude/scripts/setup/](.claude/scripts/setup/) | One-time bootstrap: placeholders, isolated `gws` config, makefile | setup, bootstrap, gws, auth |
 | [src/sections.ts](src/sections.ts) | The single list deciding which tabs you run | sections, tabs, registry |
+| [src/GuideView.tsx](src/GuideView.tsx) | The in-app guide — edit when you add or remove a section | guide, setup, faq, docs |
 | [src/work-types.ts](src/work-types.ts) | Your role's work-type buckets for the task board | work types, role, buckets |
 | [server/index.ts](server/index.ts) | Express server; mounts each section's API | api, routes, content root |
 | [makefile](makefile) | Shortcuts: dev, build, run Claude, bootstrap, link check | make, targets, setup, run |
