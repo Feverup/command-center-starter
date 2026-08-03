@@ -118,6 +118,14 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'guide', icon: '📖', title: 'Guide (this tab)',
+    items: [
+      { kind: 'in-app', text: 'Three parts: Setup for first-run, How to use for what each tab does, FAQs for what goes wrong. Cards start collapsed — the count on the right is how many notes are inside.' },
+      { kind: 'both', text: 'Its content lives in src/GuideView.tsx, not in a package, because it describes YOUR tabs. Add or remove a section and edit the cards here.' },
+      { kind: 'both', text: 'If you forget, the bottom of How to use names the sections with no card — that is how this very card came to exist.' },
+    ],
+  },
+  {
     section: null, icon: '🌅', title: 'Morning briefing',
     items: [
       { kind: 'chat', text: 'Ask for the daily-briefing skill. It reads your calendar, mail, PRs and backlog and proposes today\'s Top 3, ranked against your current goal from CLAUDE.md.' },
