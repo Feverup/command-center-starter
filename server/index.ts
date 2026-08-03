@@ -35,6 +35,15 @@ const ctx = {
   gwsConfigDir: process.env.GOOGLE_WORKSPACE_CLI_CONFIG_DIR ?? '',
 };
 
+// Identity, not just liveness. `start-stack.sh` used to accept any server that
+// answered on the API port — so with another Command Center already on 4320 it
+// reported "the stack is up" while THIS server had died with EADDRINUSE, and the
+// dashboard silently rendered the other workspace's tasks. Returning contentRoot
+// lets the caller check it reached the right app.
+app.get('/api/health', (_req, res) => {
+  res.json({ ok: true, app: 'command-center', contentRoot: ctx.contentRoot, pid: process.pid });
+});
+
 console.log(`[command-center] content root: ${ctx.contentRoot}`);
 
 // --- sections ---------------------------------------------------------------

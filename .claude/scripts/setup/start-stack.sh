@@ -18,13 +18,33 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 cd "$REPO_ROOT"
 
-WEB_PORT=5273     # vite.config.ts server.port
-API_PORT=4320     # server/index.ts PORT default
+# Both overridable, because a clash is the common case on a machine that already
+# runs one of these. PORT is the same variable server/index.ts and vite.config.ts
+# read, so exporting it moves the API and the dev proxy together.
+WEB_PORT="${WEB_PORT:-5273}"      # vite.config.ts server.port
+API_PORT="${PORT:-4320}"          # server/index.ts PORT default
 LOG="$REPO_ROOT/.dev-server.log"   # gitignored alongside .data/ and .env
 PIDFILE="$REPO_ROOT/.dev-server.pid"
 
 listening() { curl -fsS -o /dev/null --max-time 2 "http://localhost:$1/" 2>/dev/null; }
-api_up()    { curl -fsS -o /dev/null --max-time 2 "http://localhost:$API_PORT/api/tasks" 2>/dev/null; }
+
+# Identity, not liveness. Polling for "something answers on the API port" was the
+# bug: with another Command Center already on 4320, this returned true while THIS
+# server had died with EADDRINUSE, so the script printed "the stack is up" and the
+# dashboard served the OTHER workspace's tasks. /api/health returns contentRoot, so
+# we can insist it is ours.
+api_up() {
+  local body
+  body="$(curl -fsS --max-time 2 "http://localhost:$API_PORT/api/health" 2>/dev/null)" || return 1
+  case "$body" in *"\"contentRoot\""*) : ;; *) return 1 ;; esac
+  case "$body" in *"$REPO_ROOT"*) return 0 ;; *) return 1 ;; esac
+}
+
+# Someone else is on our API port. Distinguished from "not up yet" so the message
+# can say what to do instead of just failing.
+api_port_foreign() {
+  curl -fsS -o /dev/null --max-time 2 "http://localhost:$API_PORT/" 2>/dev/null && ! api_up
+}
 
 if [[ "${1:-}" == "--stop" ]]; then
   if [[ -f "$PIDFILE" ]] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
@@ -44,6 +64,15 @@ if listening "$WEB_PORT" && api_up; then
   echo "  web  http://localhost:$WEB_PORT"
   echo "  api  http://localhost:$API_PORT"
   exit 0
+fi
+
+if api_port_foreign; then
+  echo "✗ Port $API_PORT is already served by a DIFFERENT app (not this repo)."
+  echo "  Who:   $(lsof -nP -iTCP:"$API_PORT" -sTCP:LISTEN 2>/dev/null | awk 'NR==2{print "pid "$2" "$1}')"
+  echo "  Why it matters: this server would fail to bind and the dashboard would"
+  echo "  quietly render that other workspace's data as if it were yours."
+  echo "  Fix:   PORT=4321 .claude/scripts/setup/start-stack.sh"
+  exit 1
 fi
 
 echo "Starting the stack (pnpm dev)…"

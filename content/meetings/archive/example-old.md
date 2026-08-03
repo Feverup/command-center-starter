@@ -12,5 +12,5 @@ crowding what's current.
 - Scope agreed: refunds first, availability second.
 
 **Action items:**
-- [x] Write the one-pager (Owner: Your Name)
+- [x] Write the one-pager (Owner: {{NAME}})
 - [x] Book the partner intro call (Owner: Hubot)

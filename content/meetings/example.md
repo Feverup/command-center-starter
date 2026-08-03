@@ -23,9 +23,9 @@ whether an item counts as yours — matched against `VITE_OWNER_NAME` in `.env`.
 - Who owns the reconciliation report — us or finance?
 
 **Action items:**
-- [ ] Draft the flag-removal checklist (Owner: Your Name) — Deadline: 2026-07-31
+- [ ] Draft the flag-removal checklist (Owner: {{NAME}}) — Deadline: 2026-07-31
 - [ ] Confirm the reconciliation owner with finance (Owner: Mona)
-- [x] Post the staging-drift postmortem (Owner: Your Name)
+- [x] Post the staging-drift postmortem (Owner: {{NAME}})
 
 ### 2026-07-24 — Partner escalation
 
@@ -35,5 +35,5 @@ whether an item counts as yours — matched against `VITE_OWNER_NAME` in `.env`.
 - Hold the integration until the partner confirms their webhook retry policy.
 
 **Action items:**
-- [ ] Write up the retry requirements and send them over (Owner: Your Name)
+- [ ] Write up the retry requirements and send them over (Owner: {{NAME}})
 - [ ] Chase the partner's technical contact (Owner: Hubot) — Deadline: 2026-07-30
