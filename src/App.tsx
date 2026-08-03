@@ -33,7 +33,17 @@ export function App() {
     );
   }
 
-  const ActiveView = active.View;
+  // `View` is optional as of @asucregonzalez/core 0.2.0: a section may be a group
+  // that carries `children` instead of rendering anything itself. Every section in
+  // this template has a View, so this is a type guard rather than a real state —
+  // but reading an optional field as if it were required is exactly the kind of
+  // error `tsc` in the build script now catches before a teammate hits it.
+  const ActiveView = active.View ?? (() => (
+    <div className="p-8 text-ink-mute">
+      <code>{active.id}</code> has no <code>View</code> — give it one in{' '}
+      <code>src/sections.ts</code>.
+    </div>
+  ));
   const isFull = active.layout === 'full';
 
   return (
