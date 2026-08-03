@@ -1,8 +1,6 @@
 # Code owners for command-center-starter.
 #
-# The `main` ruleset requires a review from a code owner on every pull request.
-# More than one owner is listed on purpose: GitHub does not let an author's own
-# ownership satisfy that requirement, so a single-owner file would permanently
-# block that person's own PRs.
+# The `main` ruleset requires a review from a code owner on every pull request,
+# so every change to this repo needs @AndreaSucreG's approval.
 
-*   @AndreaSucreG @felixcarpena @raquelyuste
+*   @AndreaSucreG
