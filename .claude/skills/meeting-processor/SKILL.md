@@ -73,6 +73,19 @@ deserve their own bucket regardless of which folder they're filed under. Applied
 Classification is decided **first** by a title override, otherwise by the Granola
 folder. Never invent a bucket.
 
+## Optional — fan-out mode (and a second source)
+
+This skill reads Granola inline. There is an optional subagent architecture in
+`references/fanout-mode.md` that runs one agent per source concurrently and adds a critic to
+verify the merged draft before anything is written.
+
+Unlike the briefing's optional fan-out, this one usually earns its place: it adds **Google Meet
+"Notes by Gemini"** as a second source (meetings Granola never saw), and those docs are
+200KB-1.5MB each, so reading them inline dominates the context window.
+
+If you hit **HTTP 403** from `granola_api.py fetch` below, see that file — the Granola MCP tools
+were verified working against the same account.
+
 ## Steps
 
 **0. TARGET_DATE**
