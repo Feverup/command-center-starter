@@ -79,6 +79,7 @@ No child `CLAUDE.md` files yet. The places to look:
 | `task-management` | Creating or editing any task in `content/tasks/active.md` |
 | `daily-briefing` | The morning picture: calendar, mail, PRs, backlog → today's Top 3 |
 | `meeting-processor` | Pull yesterday's meetings from Granola into `content/meetings/` |
+| `leads-checkin` | Team health numbers for the async leads check-in — bug flow, SLOs, post-mortem & security SLAs → a drafted reply (leads only) |
 | `sync-meetings` | The same, from a Google Drive folder instead |
 | `google-workspace-cli` | Driving the `gws` CLI (Drive, Docs, Sheets, Gmail, Calendar) |
 | `wiki` | Ingest documents into `content/memory/`, query it, lint it |
