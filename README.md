@@ -220,8 +220,11 @@ the Tasks tab:
 - **Work type** — `[Ship]`, `[Quality]`, … whatever `src/work-types.ts` declares.
   `/setup` generates that file from your role, because the useful buckets differ:
   an IC's week splits into shipping / quality / support / growth, a manager's into
-  delivery / capacity / engineering-excellence. `.claude/scripts/setup/apply-work-types.mjs --list`
-  shows the presets; the file is plain TypeScript in your repo, so edit it freely
+  delivery / capacity / engineering-excellence, a PM's barely touches building at
+  all. Presets cover the engineering ladder plus product management and product
+  design — this board isn't engineering-only.
+  `.claude/scripts/setup/apply-work-types.mjs --list`
+  shows them; the file is plain TypeScript in your repo, so edit it freely
   (it survives `pnpm update`).
 
 Already keep notes somewhere else? Point `CONTENT_ROOT` at that folder in `.env`
@@ -233,12 +236,19 @@ and the sections read it instead — it just needs the same layout.
 pnpm add @asucregonzalez/section-<name>
 ```
 
-Then two edits:
+Then three edits:
 
-1. `src/sections.ts` — import the descriptor and add it to the array (this drives
-   the tab bar).
+1. `src/sections.ts` — import the descriptor and drop it into the right group's
+   `children` (this drives the tab bar).
 2. `server/index.ts` — if the section has a backend, add its `register…Routes` to
    the `routers` list.
+3. `src/GuideView.tsx` — add a card carrying `section: '<its id>'`. Nothing breaks
+   if you skip it, but the Guide's "How to use" lists the section at the bottom as
+   undocumented until you do.
+
+Removing one is the same list in reverse, minus the Guide: a card whose section is
+no longer installed hides itself, so only `sections.ts`, `server/index.ts` and the
+`pnpm remove` are yours to do.
 
 ## Layout
 

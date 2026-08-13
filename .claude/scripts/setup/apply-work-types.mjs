@@ -7,7 +7,9 @@
 // Work types are the "what kind of work is this?" axis on a task, and the useful
 // buckets depend on the role: an IC engineer's week splits into shipping /
 // quality / support / growth, a manager's into delivery / capacity / engineering
-// excellence. /setup asks for the role and calls this.
+// excellence, a PM's barely touches building at all. /setup asks for the role and
+// calls this. The presets span the engineering ladder plus product and design —
+// the board is not engineering-only.
 //
 // The output is ordinary TypeScript in YOUR repo, not config the dashboard reads
 // at runtime — so it survives `pnpm update` of the @asucregonzalez packages, and
@@ -76,6 +78,24 @@ const PRESETS = {
       { slug: 'delivery', tag: 'Delivery', name: 'Delivery', emoji: '📦', color: '#06b6d4' },
       { slug: 'leverage', tag: 'Leverage', name: 'Leverage', emoji: '🤝', color: '#22c55e' },
       { slug: 'eng',      tag: 'EngEx',    name: 'EngEx',    emoji: '⚙️', color: '#f59e0b' },
+    ],
+  },
+  'product-manager': {
+    blurb: 'Product manager — the week goes on deciding and defining the thing, not building it',
+    types: [
+      { slug: 'definition', tag: 'Define',    name: 'Define',    emoji: '📋', color: '#6366f1' },
+      { slug: 'discovery',  tag: 'Discovery', name: 'Discovery', emoji: '🔍', color: '#8b5cf6' },
+      { slug: 'delivery',   tag: 'Delivery',  name: 'Delivery',  emoji: '📦', color: '#06b6d4' },
+      { slug: 'align',      tag: 'Align',     name: 'Align',     emoji: '🤝', color: '#22c55e' },
+    ],
+  },
+  'product-designer': {
+    blurb: 'Product designer — the craft ships, but research and system work eat real slices',
+    types: [
+      { slug: 'delivery',  tag: 'Delivery',  name: 'Delivery',  emoji: '📦', color: '#06b6d4' },
+      { slug: 'discovery', tag: 'Discovery', name: 'Discovery', emoji: '🔍', color: '#8b5cf6' },
+      { slug: 'review',    tag: 'Review',    name: 'Review',    emoji: '👀', color: '#22c55e' },
+      { slug: 'system',    tag: 'System',    name: 'System',    emoji: '🧩', color: '#f59e0b' },
     ],
   },
 };

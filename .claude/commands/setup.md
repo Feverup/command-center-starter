@@ -91,11 +91,16 @@ batch are atomic enough to ask together):
 **Batch 2 — situation.** Say plainly why you're asking: their role picks the work-type
 buckets on the task board, and their goal becomes the tiebreaker the briefing uses
 when ranking work.
-- **Role.** Their own words ("Senior backend engineer", "EM for two squads"). Then
-  map it to one of the preset keys by running
-  `.claude/scripts/setup/apply-work-types.mjs --list` and offering the closest
-  match with `AskQuestion`. **Confirm the mapping** — don't infer a manager from
-  the word "lead", and don't infer seniority from tenure. If nothing fits, tell
+- **Role.** Their own words ("Senior backend engineer", "EM for two squads",
+  "Product manager for the marketplace", "Product designer"). Then map it to one of
+  the preset keys by running `.claude/scripts/setup/apply-work-types.mjs --list` and
+  offering the closest match with `AskQuestion`. The presets cross two axes —
+  **discipline** (engineering / product / design) and seniority — and discipline is
+  the one that picks the buckets, so settle it first. **Confirm the mapping** —
+  don't infer a manager from the word "lead", don't infer seniority from tenure,
+  and don't let "Product **manager**" land on `engineering-manager`: that name
+  collision is the likeliest mismapping here. A product or design lead is
+  `product-manager` / `product-designer`, not `tech-lead`. If nothing fits, tell
   them you'll seed the closest and they can edit `src/work-types.ts` after.
 - **Current goal** — the one outcome the next quarter is judged on, one sentence.
   If they give you three, ask which one wins when they conflict; the value of this
