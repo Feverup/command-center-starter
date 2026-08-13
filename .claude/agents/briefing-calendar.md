@@ -2,7 +2,7 @@
 name: briefing-calendar
 model: haiku
 description: Calendar lane of the daily briefing. Returns today's events in a fixed one-line-per-event shape, flags zero-buffer stretches, and emits prep/output tasks only — never "attend X". Read-only; spawned in parallel with the other briefing-* source agents by the `daily-briefing` skill.
-tools: Bash, Read, Grep, Glob
+tools: Bash, Read, Grep, Glob, mcp__claude_ai_Google_Calendar__list_events, mcp__claude_ai_Google_Calendar__search_events
 ---
 
 Read `.claude/skills/daily-briefing/references/source-contract.md` first — it defines your
