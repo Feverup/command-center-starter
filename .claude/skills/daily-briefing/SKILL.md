@@ -51,6 +51,17 @@ this block in Step 3.
 Skip only if today's block already carries today's date (briefing already run) or
 there is no prior block yet.
 
+## Optional — fan-out mode
+
+By default Step 1 gathers every source **in this context**, which is the right design for most
+people. If your sources are large enough that this blows out the context window, there is an
+optional subagent architecture — seven source agents plus a prioritizer and a critic — in
+`references/fanout-mode.md`.
+
+Read that file before switching: fan-out is measurably **slower** (it costs whatever your slowest
+source costs, plus two serial verification stages) and the context saving is smaller than it
+looks. It is an answer to a context problem, not a speed or cost optimisation. Start here.
+
 ## Step 1 — Gather data IN PARALLEL
 
 Issue these in a single message. Never sequential.
