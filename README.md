@@ -129,7 +129,7 @@ editable afterwards (the "Me" table in `CLAUDE.md`).
 
 | Script | Does |
 |---|---|
-| `apply-placeholders.sh` | Substitutes your profile — `{{NAME}}` / `{{EMAIL}}` / `{{GH_HANDLE}}` positionally, then any `TOKEN=value` pairs (`ROLE`, `GOAL`, `TEAM`, `TIMEZONE`, `SLACK_ID`, `SLACK_CHANNELS`) — across the template |
+| `apply-placeholders.sh` | Substitutes your profile — `{{NAME}}` / `{{EMAIL}}` / `{{GH_HANDLE}}` positionally, then any `TOKEN=value` pairs (`ROLE`, `GOAL`, `TEAM`, `TIMEZONE`, `SLACK_ID`, `SLACK_CHANNELS`, and for team leads `JIRA_PROJECT_KEY`, `DATADOG_TEAM_TAG`, `DATADOG_SERVICE`, `TEAM_REPOS`) — across the template |
 | `apply-work-types.mjs` | Bakes your role's work-type buckets into `src/work-types.ts`. `--list` shows the presets |
 | `ensure-gws-config-dir.sh`, `verify-gws.sh` | Creates and checks an **isolated** Google Workspace config dir, so this assistant's auth never collides with anything else |
 | `generate-makefile.sh` | Writes a `makefile` whose `run` target launches Claude with the right env |

@@ -114,8 +114,20 @@ when ranking work.
 - Slack member ID (their profile → "Copy member ID"; looks like `U0123456789`)
 - Channels worth scanning each morning, comma-separated with the `#`
 
+**Batch 4 — engineering-lead sources** (optional; **only ask if they lead a team** —
+these feed `leads-checkin`, which is useless to an IC. Skip the whole batch otherwise.)
+- **Jira project key** — uppercase, e.g. `ABCD`. The one their team's bugs live in.
+- **Datadog team tag** — the full tag, e.g. `team:my-squad`. Have them confirm it from
+  a monitor or SLO rather than guessing from the squad's name; the two often differ.
+- **Datadog service** — the service that is genuinely *theirs*, e.g. `api-my-squad`.
+  This is what separates their SLOs from shared-platform ones in the report, so a
+  wrong value produces a confident, wrong answer.
+- **Repos** — comma-separated, the ones their squad actually owns.
+
 Nothing here is load-bearing enough to block on: an empty value leaves its
-placeholder token in place for later, and you'll tell them so at the end.
+placeholder token in place for later, and you'll tell them so at the end. That
+matters most for Batch 4 — `leads-checkin` reads its own tokens and **asks** rather
+than guessing when one is unfilled, so leaving them empty is safe.
 
 ### 3. Apply placeholders
 
@@ -128,7 +140,11 @@ Run, with empty strings for anything they skipped:
   TEAM="<team>" \
   TIMEZONE="<tz>" \
   SLACK_ID="<Uxxxx>" \
-  SLACK_CHANNELS="<#a, #b>"
+  SLACK_CHANNELS="<#a, #b>" \
+  JIRA_PROJECT_KEY="<KEY>" \
+  DATADOG_TEAM_TAG="<team:xxx>" \
+  DATADOG_SERVICE="<service>" \
+  TEAM_REPOS="<repo-a, repo-b>"
 ```
 
 Verify by grepping the repo for remaining `{{...}}` tokens outside `README.md` and
