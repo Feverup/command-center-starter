@@ -51,8 +51,24 @@ console.log(`[command-center] content root: ${ctx.contentRoot}`);
 // Pull requests starts with no projects; add your squads from its own UI. To
 // pre-seed them in code, pass { seedProjects, seedSquads, displayNames } as a
 // third argument — written to .data on first run only.
+//
+// `defaultOrganizations` is the GitHub org(s) a project falls back to when it
+// names none. The package deliberately ships none: an org baked into a shared
+// package doesn't fail visibly, it quietly queries someone else's GitHub and
+// returns their PRs. Read from the same VITE_GITHUB_ORGS that src/App.tsx uses,
+// so the org the settings UI suggests is the org this server actually queries.
+// Leave it unset and a PR fetch says "no organizations configured" rather than
+// looking like an empty queue.
+const githubOrgs = (process.env.VITE_GITHUB_ORGS ?? '')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+const prRouter = express.Router();
+registerPullRequestsRoutes(prRouter, ctx, { defaultOrganizations: githubOrgs });
+app.use(prRouter);
+
 const routers = [
-  registerPullRequestsRoutes,
   registerTasksRoutes,
   registerJournalRoutes,
   registerMeetingsRoutes,

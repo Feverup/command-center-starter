@@ -10,11 +10,20 @@ import { sections } from './sections';
  *    VITE_OWNER_NAME in .env.
  *  - refreshEnabled: false because this app serves no /api/refresh route, so
  *    sections hide their "Regenerate" buttons instead of offering a dead one.
+ *  - defaultOrganizations: the GitHub orgs you track, from VITE_GITHUB_ORGS in
+ *    .env. The PR section ships with none — it must not guess an org — so a new
+ *    project is prefilled from this, and with it unset you name the org yourself
+ *    when you create one. `server/index.ts` reads the SAME variable, so the org
+ *    the UI suggests is always the org the server queries.
  * Module-level constant on purpose: its identity must stay stable across renders.
  */
 const DASHBOARD_CONFIG: DashboardConfig = {
   ownerName: import.meta.env.VITE_OWNER_NAME as string | undefined,
   refreshEnabled: false,
+  defaultOrganizations: ((import.meta.env.VITE_GITHUB_ORGS as string | undefined) ?? '')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean),
 };
 
 /** First child of a group, or the entry itself when it has none. */
