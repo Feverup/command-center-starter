@@ -1,5 +1,6 @@
 import type { DashboardSection } from '@asucregonzalez/core';
 import { pullRequestsSection } from '@asucregonzalez/section-pull-requests';
+import { roadmapSection } from '@asucregonzalez/section-roadmap';
 import { createTasksSection } from '@asucregonzalez/section-tasks';
 import { journalSection } from '@asucregonzalez/section-journal';
 import { meetingsSection } from '@asucregonzalez/section-meetings';
@@ -37,6 +38,16 @@ export const sections: DashboardSection[] = [
       // Work-type buckets come from ./work-types, generated per role by /setup.
       { ...createTasksSection({ workTypes: WORK_TYPES }), id: 'tasks', label: 'Tasks', path: '/today/tasks' },
       { ...pullRequestsSection, id: 'prs', label: 'PRs', path: '/today/prs' },
+    ],
+  },
+  {
+    // One roadmap per squad, read from `content/team/roadmaps/*.json` (or a single
+    // `content/team/roadmap.json` if that is all you have). Squads are files, so
+    // this grows by adding one — there is nothing to register here.
+    id: 'delivery', label: 'Delivery', icon: '📦', path: '/delivery', visibility: 'shared',
+    blurb: 'What you are shipping, and when.',
+    children: [
+      { ...roadmapSection, id: 'roadmap', label: 'Roadmap', path: '/delivery/roadmap' },
     ],
   },
   {

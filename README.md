@@ -3,13 +3,14 @@
 Your own dashboard, running only the sections you install. Nothing here reads
 anyone else's data: your notes live in this folder, and the tokens are yours.
 
-Wired up out of the box, grouped into **Today**, **Archives** and **Guide**:
+Wired up out of the box, grouped into **Today**, **Delivery**, **Archives** and **Guide**:
 
 | Tab | What it does | Reads / writes |
 |---|---|---|
 | ☀️ Today ▸ Day | The cockpit: backlog size, what you owe from meetings, and a panel listing every Claude Code session you have open | reads `content/` (counts); the sessions panel reads `~/.claude` |
 | ✅ Today ▸ Tasks | Eisenhower-quadrant backlog + a Today block | `content/tasks/active.md` |
 | 🔀 Today ▸ PRs | Per-squad PR checkpoints from GitHub, stacked-PR chains, Slack channel signals, and a ready-to-paste Slack draft | `.data/` |
+| 🗺️ Delivery ▸ Roadmap | One roadmap per squad — initiatives by objective, build/rollout state, effort, impact, capacity | `content/team/roadmaps/*.json` |
 | 📓 Archives ▸ Journal | Per-day journal | `content/tasks/journal.md` |
 | 📅 Archives ▸ Meetings | Meeting notes by bucket, with live action-item checkboxes and archiving | `content/meetings/` |
 | 📖 Guide | Setup, How to use, FAQs — describing *your* tabs | — (`src/GuideView.tsx`) |

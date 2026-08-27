@@ -7,6 +7,7 @@ import { registerTasksRoutes } from '@asucregonzalez/section-tasks/server';
 import { registerJournalRoutes } from '@asucregonzalez/section-journal/server';
 import { registerMeetingsRoutes } from '@asucregonzalez/section-meetings/server';
 import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-sessions/server';
+import { registerRoadmapRoutes } from '@asucregonzalez/section-roadmap/server';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a
@@ -69,6 +70,7 @@ registerPullRequestsRoutes(prRouter, ctx, { defaultOrganizations: githubOrgs });
 app.use(prRouter);
 
 const routers = [
+  registerRoadmapRoutes,
   registerTasksRoutes,
   registerJournalRoutes,
   registerMeetingsRoutes,
