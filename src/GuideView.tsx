@@ -127,6 +127,15 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'roadmap', icon: '🗺️', title: 'Roadmap',
+    items: [
+      { kind: 'in-app', text: 'One roadmap per squad: initiatives grouped by objective, with build and rollout state, effort, impact and owners. The left sidebar picks the squad — it is always there, even when you only have one.' },
+      { kind: 'both', text: 'Squads are files. content/team/roadmaps/<squad>.json, one document each — add a file and it appears in the sidebar. A single content/team/roadmap.json works too, and is what you get before you have a second squad.' },
+      { kind: 'in-app', text: 'Squad Settings edits what used to mean hand-editing JSON: vision, objectives, sequencing, the status vocabularies, effort and complexity, and capacity. Renaming a status moves every initiative using it; deleting one still in use is refused, with the count.' },
+      { kind: 'both', text: 'Impact is a vocabulary, not free text, so it can be sorted against effort. An initiative with no impact set shows nothing rather than a default — an unset priority is not a low one.' },
+    ],
+  },
+  {
     section: ['setup', 'how-to', 'faq'], icon: '📖', title: 'Guide (this tab)',
     items: [
       { kind: 'in-app', text: 'Three parts: Setup for first-run, How to use for what each tab does, FAQs for what goes wrong. Cards start collapsed — the count on the right is how many notes are inside.' },
