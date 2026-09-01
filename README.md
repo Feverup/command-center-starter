@@ -3,15 +3,16 @@
 Your own dashboard, running only the sections you install. Nothing here reads
 anyone else's data: your notes live in this folder, and the tokens are yours.
 
-Four sections are wired up out of the box:
+Wired up out of the box, grouped into **Today**, **Archives** and **Guide**:
 
 | Tab | What it does | Reads / writes |
 |---|---|---|
-| 🏠 Home | Empty page, yours to fill | — |
-| 🔀 Pull requests | Per-squad PR checkpoints from GitHub, Slack channel signals, and a ready-to-paste Slack draft | `.data/` |
-| ✅ Tasks | Eisenhower-quadrant backlog + a Today block | `content/tasks/active.md` |
-| 📓 Journal | Per-day journal | `content/tasks/journal.md` |
-| 📅 Meetings | Meeting notes by bucket, with live action-item checkboxes and archiving | `content/meetings/` |
+| ☀️ Today ▸ Day | The cockpit: backlog size, what you owe from meetings, and a panel listing every Claude Code session you have open | reads `content/` (counts); the sessions panel reads `~/.claude` |
+| ✅ Today ▸ Tasks | Eisenhower-quadrant backlog + a Today block | `content/tasks/active.md` |
+| 🔀 Today ▸ PRs | Per-squad PR checkpoints from GitHub, stacked-PR chains, Slack channel signals, and a ready-to-paste Slack draft | `.data/` |
+| 📓 Archives ▸ Journal | Per-day journal | `content/tasks/journal.md` |
+| 📅 Archives ▸ Meetings | Meeting notes by bucket, with live action-item checkboxes and archiving | `content/meetings/` |
+| 📖 Guide | Setup, How to use, FAQs — describing *your* tabs | — (`src/GuideView.tsx`) |
 
 ## Setup (~2 minutes)
 
@@ -65,7 +66,7 @@ seeded files in `content/`, which double as format documentation.
 
 ## The skills
 
-`.claude/skills/` ships eight Claude Code skills. These five keep the dashboard's
+`.claude/skills/` ships ten Claude Code skills. These five keep the dashboard's
 data current, so you're not hand-editing markdown:
 
 | Skill | What it does |

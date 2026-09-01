@@ -20,8 +20,17 @@ type Kind = 'in-app' | 'chat' | 'both';
 
 interface Item { kind: Kind; text: string }
 interface Card {
-  /** Matches a section id in `sections.ts`, or `null` for a concept card. */
-  section: string | null;
+  /**
+   * The section id(s) in `sections.ts` this card documents, or `null` for a
+   * concept card that describes no tab.
+   *
+   * An array when one card covers several destinations. `destinations` is the
+   * flattened LEAF list, so a card naming a *group* id matches nothing: it is
+   * filtered out of the render, and the group's leaves are reported undocumented
+   * forever. The Guide is exactly that shape — one card describing three
+   * sub-tabs — which is why a card may claim more than one id.
+   */
+  section: string | string[] | null;
   icon: string;
   title: string;
   items: Item[];
@@ -45,7 +54,7 @@ const SETUP: Card[] = [
   },
   {
     section: null, icon: '▶️', title: 'Start it',
-    pre: 'make dev        # dashboard + API\nmake claude      # Claude Code in this folder',
+    pre: 'make dev        # dashboard + API\nmake run        # Claude Code in this folder',
     items: [
       { kind: 'both', text: 'The dashboard and its API run as two processes; `make dev` starts both and prints the port. If a port is taken it picks the next one — check the line it prints rather than assuming 5173.' },
       { kind: 'both', text: 'A server-side change needs the API restarted; client changes hot-reload. If an edit seems to do nothing, that is the first thing to check.' },
@@ -118,7 +127,7 @@ const USAGE: Card[] = [
     ],
   },
   {
-    section: 'guide', icon: '📖', title: 'Guide (this tab)',
+    section: ['setup', 'how-to', 'faq'], icon: '📖', title: 'Guide (this tab)',
     items: [
       { kind: 'in-app', text: 'Three parts: Setup for first-run, How to use for what each tab does, FAQs for what goes wrong. Cards start collapsed — the count on the right is how many notes are inside.' },
       { kind: 'both', text: 'Its content lives in src/GuideView.tsx, not in a package, because it describes YOUR tabs. Add or remove a section and edit the cards here.' },
@@ -169,8 +178,12 @@ export function GuideView({ part = 'usage' }: { part?: Part } = {}) {
   // sections.ts: a card for a section you removed is hidden, and a section with no
   // card is named at the bottom instead of going undocumented in silence.
   const installedIds = new Set(destinations.map((s) => s.id));
-  const cards = active.cards.filter((c) => c.section === null || installedIds.has(c.section));
-  const documented = new Set(active.cards.map((c) => c.section).filter(Boolean) as string[]);
+  const claimed = (c: Card): string[] =>
+    c.section === null ? [] : Array.isArray(c.section) ? c.section : [c.section];
+  const cards = active.cards.filter(
+    (c) => c.section === null || claimed(c).some((id) => installedIds.has(id)),
+  );
+  const documented = new Set(active.cards.flatMap(claimed));
   // Counted against leaf destinations so a group heading never reads as an
   // undocumented section. Only shown on How to use, which is where the cards are.
   const missing = part === 'usage'
