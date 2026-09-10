@@ -45,6 +45,11 @@ function routeFromPath(pathname: string): [string, string] {
       if (c.path === pathname) return [g.id, c.id];
     }
   }
+  // A group's own path opens its first child. The nav documents this, and Home's
+  // Elsewhere cards link to the group path, so without it every group whose first
+  // child has a deeper path silently lands on the first section instead.
+  const group = sections.find((s) => s.path === pathname);
+  if (group) return [group.id, firstLeaf(group).id];
   const first = sections[0];
   return [first?.id ?? '', first ? firstLeaf(first).id : ''];
 }

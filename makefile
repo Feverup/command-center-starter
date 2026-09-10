@@ -11,14 +11,28 @@ NICK ?= command-center
 # assistant's auth never collides with another tool's. `make setup` creates it.
 GWS_CONFIG_DIR ?= $(HOME)/.config/gws-$(NICK)
 
+# The npm scope the sections are published under. `make update` moves every
+# dependency in it to its newest release.
+SCOPE ?= @asucregonzalez
+
 .DEFAULT_GOAL := help
-.PHONY: help install dev build start run setup verify-gws check-links clean
+.PHONY: help install update update-template dev build start run setup verify-gws check-links clean
 
 help: ## show this list
 	@grep -hE '^[a-z][a-z-]*:.*?## ' $(MAKEFILE_LIST) \
-		| awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
+		| awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-16s\033[0m %s\n", $$1, $$2}'
 
 install: ## install dependencies
+	pnpm install
+
+update: ## move the installed sections to their latest releases
+	@.claude/scripts/update-sections.sh $(SCOPE)
+
+update-template: ## fast-forward this clone's own files from where you cloned it
+	@git rev-parse --git-dir >/dev/null 2>&1 || { echo "Not a git clone, so there is nothing to fast-forward. Copy the files you want from the template repo by hand."; exit 1; }
+	@git remote get-url origin >/dev/null 2>&1 || { echo "No 'origin' remote — add one pointing at the template, or copy changes by hand."; exit 1; }
+	@test -z "$$(git status --porcelain)" || { echo "You have uncommitted changes. Commit or stash them first — this pulls onto your working tree."; exit 1; }
+	git pull --ff-only
 	pnpm install
 
 dev: ## run the dashboard — web on :5273, API on :4320

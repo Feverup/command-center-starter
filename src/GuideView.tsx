@@ -128,6 +128,14 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'roadmap', icon: '🗺️', title: 'Roadmap',
+    items: [
+      { kind: 'in-app', text: 'Initiatives with effort, impact, build and rollout state, plus KPIs, projects and sprints — from content/team/roadmaps/<squad>.json.' },
+      { kind: 'in-app', text: 'One file per squad, and the sidebar lists whichever files are there. Drop a JSON in by hand or add a squad from the tab; both show up the same way.' },
+      { kind: 'both', text: 'Whatever you put in it is committed to this repo like the rest of content/ — so check who can read the repo before you paste in revenue figures, named staffing or anything else you would not publish.' },
+    ],
+  },
+  {
     section: ['setup', 'how-to', 'faq'], icon: '📖', title: 'Guide (this tab)',
     items: [
       { kind: 'in-app', text: 'Three parts: Setup for first-run, How to use for what each tab does, FAQs for what goes wrong. Cards start collapsed — the count on the right is how many notes are inside.' },
