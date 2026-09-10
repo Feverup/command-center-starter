@@ -109,6 +109,9 @@ const USAGE: Card[] = [
     items: [
       { kind: 'in-app', text: 'Your open PRs and the ones waiting on your review, live from GitHub. Needs GITHUB_TOKEN in .env — if it is empty, that is the first thing to check.' },
       { kind: 'in-app', text: 'Each row carries its pipeline state — \u2705 passing, \u23f3 running, \u274c failing. It reads GitHub\u2019s check rollup, so it sees both Actions-style checks and CI that reports as a commit status (Jenkins, CircleCI). Click a red chip to jump straight to the failing build, not to the PR. No chip at all means the state was not fetched for that row \u2014 never that it is green.' },
+      { kind: 'in-app', text: 'Each row lists its reviewers and where each one stands — blocking, asked but silent, commented, approved. Nobody asked yet reads differently from asked and waiting: they are different problems for the author, so they render differently. No reviewer list at all means the row was not fetched for it, never that none are needed.' },
+      { kind: 'in-app', text: 'Review order ranks by the Jira backlog rank, then age, then how deeply a PR is stacked — so the top of the list is the one worth picking up. Oldest-first is one click away in the same dropdown, and without Jira the control renames itself rather than promising a ranking it cannot give.' },
+      { kind: 'in-app', text: 'Group by ticket collapses every PR on one ticket into a single card, rolling sub-tasks up to the story or epic above them, so work split across repos reads as one unit. Groups draw from two PRs up; a single-PR ticket stays an ordinary row.' },
       { kind: 'both', text: 'GitHub is already a review queue, so do not mirror PR reviews into Tasks. Non-review follow-ups a PR reveals — red CI, a merge conflict, changes to implement — do belong there.' },
     ],
   },

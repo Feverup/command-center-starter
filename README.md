@@ -10,7 +10,7 @@ Wired up out of the box, grouped into **Today**, **Archives**, **Plan** and
 |---|---|---|
 | ☀️ Today ▸ Day | The cockpit: backlog size, what you owe from meetings, and a panel listing every Claude Code session you have open | reads `content/` (counts); the sessions panel reads `~/.claude` |
 | ✅ Today ▸ Tasks | Eisenhower-quadrant backlog + a Today block | `content/tasks/active.md` |
-| 🔀 Today ▸ PRs | Per-squad PR checkpoints from GitHub, stacked-PR chains, per-PR CI status linking straight to the failing build, Slack channel signals, and a ready-to-paste Slack draft | `.data/` |
+| 🔀 Today ▸ PRs | Per-squad PR checkpoints from GitHub, stacked-PR chains, per-PR CI status linking straight to the failing build, who is reviewing each PR, a review order that answers what to pick up next, optional grouping by ticket, Slack channel signals, and a ready-to-paste Slack draft | `.data/` |
 | 📓 Archives ▸ Journal | Per-day journal | `content/tasks/journal.md` |
 | 📅 Archives ▸ Meetings | Meeting notes by bucket, with live action-item checkboxes and archiving | `content/meetings/` |
 | 🗺️ Plan ▸ Roadmap | Initiatives with effort, impact and build/rollout state, plus KPIs, projects and sprints — one roadmap per squad, picked from the sidebar | `content/team/roadmaps/` |
