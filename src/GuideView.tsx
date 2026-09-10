@@ -108,6 +108,7 @@ const USAGE: Card[] = [
     section: 'prs', icon: '🔀', title: 'Pull requests',
     items: [
       { kind: 'in-app', text: 'Your open PRs and the ones waiting on your review, live from GitHub. Needs GITHUB_TOKEN in .env — if it is empty, that is the first thing to check.' },
+      { kind: 'in-app', text: 'Each row carries its pipeline state — \u2705 passing, \u23f3 running, \u274c failing. It reads GitHub\u2019s check rollup, so it sees both Actions-style checks and CI that reports as a commit status (Jenkins, CircleCI). Click a red chip to jump straight to the failing build, not to the PR. No chip at all means the state was not fetched for that row \u2014 never that it is green.' },
       { kind: 'both', text: 'GitHub is already a review queue, so do not mirror PR reviews into Tasks. Non-review follow-ups a PR reveals — red CI, a merge conflict, changes to implement — do belong there.' },
     ],
   },
