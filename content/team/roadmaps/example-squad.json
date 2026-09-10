@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Example Squad — 2026",
+    "icon": "🚀",
+    "note": "Delete this file once you have a roadmap of your own. Every field here is editable in Squad Settings — nothing needs hand-editing."
+  },
+  "vision": "A one-line statement of where this squad is trying to get to. Shown under the title.",
+  "problemStatement": "What is actually in the way today. Kept separate from the vision so the plan can be argued against the problem rather than against the ambition.",
+  "targetRevenue": "",
+  "strategicObjectives": [
+    { "key": "reliability", "name": "Reliability", "note": "Stability Block", "description": "Make the thing work every time, not just on the happy path." },
+    { "key": "growth", "name": "Growth", "note": "Market Block", "description": "Unlock the segments the current product cannot serve." },
+    { "key": "platform", "name": "Platform", "note": "Foundation Block", "description": "Pay down what makes every other initiative slower than it should be." }
+  ],
+  "sequencing": [
+    { "key": "now", "label": "Now", "text": "What is in flight this quarter, and why it is first." },
+    { "key": "next", "label": "Next", "text": "What follows, and what has to land before it can start." },
+    { "key": "later", "label": "Later", "text": "Named so it stops being re-litigated every planning session." }
+  ],
+  "buildStatuses": [
+    { "key": "planned", "label": "Planned" },
+    { "key": "in_progress", "label": "In progress" },
+    { "key": "shipped", "label": "Shipped" },
+    { "key": "dropped", "label": "Dropped" }
+  ],
+  "rolloutStatuses": [
+    { "key": "not_started", "label": "Not started" },
+    { "key": "rolling_out", "label": "Rolling out" },
+    { "key": "fully_rolled_out", "label": "Fully rolled out" }
+  ],
+  "healthStatuses": [
+    { "key": "green", "label": "On track" },
+    { "key": "yellow", "label": "At risk" },
+    { "key": "red", "label": "Off track" }
+  ],
+  "impactLevels": ["high", "medium", "low"],
+  "effortLegend": [
+    { "key": "Days", "label": "Days" },
+    { "key": "Weeks", "label": "Weeks" },
+    { "key": "Months", "label": "Months" },
+    { "key": "Quarters", "label": "Quarters" }
+  ],
+  "effortWeeks": { "Days": 0.5, "Weeks": 2, "Months": 8, "Quarters": 24 },
+  "effortRanges": { "Days": "1–4 days", "Weeks": "1–3 weeks", "Months": "1–3 months", "Quarters": "a quarter or more" },
+  "complexityFactors": { "low": 1, "medium": 1.5, "high": 2.5 },
+  "quarterCapacityWeeks": 12,
+  "monthCapacityWeeks": 4,
+  "quarterOptions": ["Q1 2026", "Q2 2026", "Q3 2026", "Q4 2026"],
+  "monthOptions": ["Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026"],
+  "initiatives": [
+    {
+      "id": "example-shipped",
+      "name": "An initiative that already shipped",
+      "strategicArea": "reliability",
+      "description": "Initiatives group by objective. Build and rollout are tracked separately because shipping code and turning it on for everyone are different days.",
+      "effort": "Weeks",
+      "impact": "high",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "quarters": ["Q1 2026"],
+      "owners": []
+    },
+    {
+      "id": "example-in-flight",
+      "name": "An initiative in flight",
+      "strategicArea": "growth",
+      "description": "Set impact from the vocabulary rather than typing it, so it can be weighed against effort.",
+      "effort": "Months",
+      "impact": "medium",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "quarters": ["Q2 2026"],
+      "owners": []
+    },
+    {
+      "id": "example-unset-impact",
+      "name": "An initiative nobody has sized yet",
+      "strategicArea": "platform",
+      "description": "Impact is deliberately unset here. It renders as nothing rather than as a low priority — an unsized initiative is not the same as an unimportant one.",
+      "effort": "Weeks",
+      "impact": "",
+      "impactNote": "Free-text rationale lives here, alongside the picked level.",
+      "build": "planned",
+      "rollout": "not_started",
+      "quarters": [],
+      "owners": []
+    }
+  ],
+  "sprints": [],
+  "kpis": [],
+  "dashboards": [],
+  "capacityItems": [],
+  "team": [],
+  "projects": []
+}
