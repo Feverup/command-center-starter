@@ -24,6 +24,7 @@
     "@asucregonzalez/section-journal": "^0.1.2",
     "@asucregonzalez/section-meetings": "^0.2.0",
     "@asucregonzalez/section-pull-requests": "^0.5.0",
+    "@asucregonzalez/section-roadmap": "^0.1.1",
     "@asucregonzalez/section-tasks": "^0.3.0",
     "@asucregonzalez/theme": "^0.2.0",
     "@asucregonzalez/ui": "^0.3.0",

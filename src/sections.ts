@@ -3,6 +3,7 @@ import { pullRequestsSection } from '@asucregonzalez/section-pull-requests';
 import { createTasksSection } from '@asucregonzalez/section-tasks';
 import { journalSection } from '@asucregonzalez/section-journal';
 import { meetingsSection } from '@asucregonzalez/section-meetings';
+import { roadmapSection } from '@asucregonzalez/section-roadmap';
 import { HomeView } from './HomeView';
 import { GuideView } from './GuideView';
 import { WORK_TYPES } from './work-types';
@@ -45,6 +46,13 @@ export const sections: DashboardSection[] = [
     children: [
       { ...journalSection, id: 'journal', label: 'Journal', path: '/archives/journal' },
       { ...meetingsSection, id: 'meetings', label: 'Meetings', path: '/archives/meetings' },
+    ],
+  },
+  {
+    id: 'plan', label: 'Plan', icon: '🗺️', path: '/plan', visibility: 'shared',
+    blurb: 'Where you are going, and what it costs.',
+    children: [
+      { ...roadmapSection, id: 'roadmap', label: 'Roadmap', path: '/plan/roadmap' },
     ],
   },
   {
