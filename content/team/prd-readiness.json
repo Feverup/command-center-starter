@@ -1,60 +1,638 @@
 {
-  "generatedAt": "2026-01-15",
-  "_note": "Example content for the Delivery ▸ Projects section. Delete this file once you have a plan of your own — the section reports a gap rather than pretending you have no projects. Epics and stories are yours to edit; nothing here is hand-maintained by the package.",
+  "generatedAt": "2026-08-21",
   "projects": [
     {
-      "id": "example-project",
-      "name": "Example Project",
-      "icon": "🚀",
-      "color": "#1FB8DD",
-      "owner": "You",
-      "dueDate": "2026-06-30",
-      "progress": 35,
+      "id": "b2bm",
+      "name": "B2B Marketplace",
+      "icon": "🛒",
       "epics": [
-        { "code": "E1", "name": "Foundations", "short": "Foundations" },
-        { "code": "E2", "name": "Core Experience", "short": "Core" },
-        { "code": "E3", "name": "Reporting", "short": "Reporting" }
+        {
+          "code": "E1",
+          "name": "Foundations & Platform",
+          "short": "Foundations",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5120"
+        },
+        {
+          "code": "E2",
+          "name": "Onboarding & Registration",
+          "short": "Onboarding",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5123"
+        },
+        {
+          "code": "E3",
+          "name": "Discovery & Catalog",
+          "short": "Discovery",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5124"
+        },
+        {
+          "code": "E4",
+          "name": "Access Governance",
+          "short": "Access",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5125"
+        },
+        {
+          "code": "E5",
+          "name": "B2B Pricing",
+          "short": "Pricing",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5126"
+        },
+        {
+          "code": "E6",
+          "name": "Booking & Payments",
+          "short": "Booking",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5127"
+        },
+        {
+          "code": "E7",
+          "name": "Commissions & Invoicing",
+          "short": "Commissions",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5128"
+        },
+        {
+          "code": "E8",
+          "name": "Reporting & Analytics",
+          "short": "Reporting",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5129"
+        },
+        {
+          "code": "E9",
+          "name": "Sales-Ops Console & Admin",
+          "short": "Sales-Ops",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5130"
+        }
       ],
       "matrix": [
         {
-          "group": "Foundations — data model & contract",
+          "group": "Foundations (Sprint 1) — data model & contract",
           "rows": [
-            { "us": "F-01 Define the domain model and API contract", "epic": "E1", "status": "done", "ourPriority": "P0", "owners": "You" },
-            { "us": "F-02 Application shell, routing and test harness", "epic": "E1", "status": "done", "ourPriority": "P1" },
-            { "us": "F-03 Authentication and permission checks", "epic": "E1", "status": "in-progress", "ourPriority": "P0" }
+            {
+              "us": "F-01 Business as an organization + API/data contract (backend)",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E1"
+            },
+            {
+              "us": "F-03 Front shell + URL + design system + test harness/CI",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E1"
+            },
+            {
+              "us": "F-05 Enforce the Oso agreement at the auth layer and distributor roles",
+              "status": "todo",
+              "ourPriority": "P0",
+              "epic": "E1"
+            },
+            {
+              "us": "D-16 FeverZone for multi-partner distributors",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E1"
+            },
+            {
+              "us": "D-16b FeverZone for a partner working on behalf of a distributor (part 2)",
+              "status": "in-progress",
+              "epic": "E1"
+            },
+            {
+              "us": "F-09 Partner One-Time Announcements (Splash) — shared library + backend",
+              "status": "done",
+              "ourPriority": "P2",
+              "epic": "E1"
+            }
           ]
         },
         {
-          "group": "Core experience",
+          "group": "Discovery — publishing (organizer), reseller catalog, my requests",
           "rows": [
-            { "us": "C-01 Browse and filter the catalog", "epic": "E2", "status": "in-progress", "ourPriority": "P1" },
-            { "us": "C-02 Detail view with related items", "epic": "E2", "status": "todo", "ourPriority": "P2" },
-            { "us": "C-03 Checkout and confirmation", "epic": "E2", "status": "blocked", "ourPriority": "P0" },
-            { "us": "C-04 Saved items across devices", "epic": "E2", "status": "todo" }
+            {
+              "us": "O-01 Consolidated catalog overview",
+              "epic": "E3"
+            },
+            {
+              "us": "D-02 Browse & filter cross-Organizer catalog",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E3"
+            },
+            {
+              "us": "O-07 Set the catalog access mode",
+              "ourPriority": "P0",
+              "epic": "E4"
+            },
+            {
+              "us": "O-21 History of catalog requests",
+              "status": "todo",
+              "ourPriority": "P3",
+              "epic": "E4"
+            },
+            {
+              "us": "D-02b View organizer profile (discovery)",
+              "ourPriority": "P0",
+              "epic": "E3"
+            },
+            {
+              "us": "D-02d View plan / event detail (discovery)",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E3"
+            },
+            {
+              "us": "D-02r Catalog recommender API",
+              "epic": "E3"
+            },
+            {
+              "us": "D-03 Request access to a restricted Organizer",
+              "epic": "E4"
+            },
+            {
+              "us": "D-11 See access requests by status",
+              "epic": "E4"
+            },
+            {
+              "us": "O-16 Create & manage distributor groups",
+              "epic": "E5"
+            },
+            {
+              "us": "D-02p Resolve & show per-distributor prices on the catalog",
+              "ourPriority": "P0",
+              "epic": "E5"
+            }
           ]
         },
         {
-          "group": "Reporting",
+          "group": "Organizations — users, register, distributors list & mgmt, profile",
           "rows": [
-            { "us": "R-01 Usage dashboard for admins", "epic": "E3", "status": "todo", "ourPriority": "P3" },
-            { "us": "R-02 Scheduled CSV export", "epic": "E3", "status": "todo" }
+            {
+              "us": "O-09 Approve / reject an access request",
+              "epic": "E4"
+            },
+            {
+              "us": "SO-01 Browse & filter Distributors directory",
+              "epic": "E9"
+            },
+            {
+              "us": "SO-07 Basic distributors list",
+              "epic": "E2"
+            },
+            {
+              "us": "SO-04 Create the distributor organization from Salesforce (due-diligence complete)",
+              "epic": "E2"
+            },
+            {
+              "us": "SO-02 Review registrations → onboard / reject",
+              "epic": "E2"
+            },
+            {
+              "us": "D-09 Edit non-sensitive profile fields",
+              "ourPriority": "P1",
+              "epic": "E2"
+            },
+            {
+              "us": "D-10 Invite / manage members & roles",
+              "epic": "E9"
+            },
+            {
+              "us": "O-12 Unified Distributors list + block",
+              "epic": "E9"
+            },
+            {
+              "us": "O-19 Organizer's list of connected distributors",
+              "ourPriority": "P0",
+              "epic": "E4"
+            },
+            {
+              "us": "O-20 Organizer's distributor profile page",
+              "epic": "E4"
+            },
+            {
+              "us": "SO-08 Revoke a distributor across the whole marketplace",
+              "ourPriority": "P1",
+              "epic": "E4"
+            },
+            {
+              "us": "SO-05a Sales Ops distributor view (marketplace settings + cross-partner concessions)",
+              "epic": "E9"
+            },
+            {
+              "us": "SO-05b Sales Ops edits / creates distributor connections",
+              "epic": "E9"
+            },
+            {
+              "us": "SO-13 Sales-Ops distributor profile page (Information · Balances · Members · Connections)",
+              "epic": "E9"
+            },
+            {
+              "us": "SO-14 Balance movement history",
+              "status": "todo",
+              "ourPriority": "P2",
+              "epic": "E9"
+            },
+            {
+              "us": "SO-06 Audit log of Sales Ops actions",
+              "epic": "E9"
+            },
+            {
+              "us": "O-11 Bulk approve / reject",
+              "epic": "E4"
+            }
+          ]
+        },
+        {
+          "group": "Pricing — B2B discount, invoicing",
+          "rows": [
+            {
+              "us": "SYS-01 Resolve B2B price via priority cascade (incl. backend skeleton)",
+              "status": "done",
+              "ourPriority": "P0",
+              "epic": "E5"
+            },
+            {
+              "us": "O-04 Edit the B2B discount from the price list (per ticket type)",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E5"
+            },
+            {
+              "us": "O-05 Move Distributor to a new group",
+              "epic": "E9"
+            },
+            {
+              "us": "SYS-09 Monthly per-distributor commission statement",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-11 The event's jurisdiction sets the VAT rate",
+              "status": "done",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-12 Generate the wholesale B2BC invoice (B1) on payment",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-13 Generate the commission B2BC invoice (B2C) on payment",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-14 Generate a credit note on cancellation",
+              "ourPriority": "P1",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-15 Fever→partner B2B invoice (FA) reconciliation",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-16 Per-country e-invoicing / e-reporting compliance",
+              "ourPriority": "P3",
+              "epic": "E7"
+            },
+            {
+              "us": "SYS-19 Apply coupon to a booking",
+              "status": "todo",
+              "ourPriority": "P2",
+              "epic": "E7"
+            },
+            {
+              "us": "O-15 Organizer tops up a distributor's pre-paid balance",
+              "status": "todo",
+              "ourPriority": "P2",
+              "epic": "E5"
+            }
+          ]
+        },
+        {
+          "group": "Booking — checkout, list/modify/cancel/create reservations",
+          "rows": [
+            {
+              "us": "D-04 Book at wholesale",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E6"
+            },
+            {
+              "us": "D-06 Pay wholesale by card",
+              "ourPriority": "P0",
+              "epic": "E6"
+            },
+            {
+              "us": "SYS-05 Fiscal/jurisdiction VAT check at booking",
+              "ourPriority": "P1",
+              "epic": "E6"
+            },
+            {
+              "us": "D-07a View & edit customer info on reservations",
+              "status": "blocked",
+              "ourPriority": "P1",
+              "epic": "E6"
+            },
+            {
+              "us": "D-07b Modify & reschedule reservations",
+              "status": "todo",
+              "ourPriority": "P0",
+              "epic": "E6"
+            },
+            {
+              "us": "D-08 Download delivery note",
+              "ourPriority": "P2",
+              "epic": "E6"
+            },
+            {
+              "us": "SYS-03 Mask B2B price on issued tickets",
+              "ourPriority": "P1",
+              "epic": "E6"
+            },
+            {
+              "us": "D-06b Pay wholesale by balance",
+              "status": "in-progress",
+              "ourPriority": "P0",
+              "epic": "E6"
+            },
+            {
+              "us": "SYS-08 Enforce checkout-path restrictions",
+              "epic": "E1"
+            },
+            {
+              "us": "D-05 Book on commission + Pay-by-Link",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "D-15 View reservations list (overview)",
+              "ourPriority": "P0",
+              "epic": "E6"
+            },
+            {
+              "us": "D-15b View reservation / order detail",
+              "ourPriority": "P0",
+              "epic": "E6"
+            },
+            {
+              "us": "D-17 Global distributor balance across the distributor's organizations",
+              "status": "todo",
+              "ourPriority": "P2",
+              "epic": "E6"
+            },
+            {
+              "us": "D-04b Two parties on a booking, and a Hide prices toggle",
+              "status": "in-progress",
+              "epic": "E6"
+            },
+            {
+              "us": "D-28 Rekey payment settings to the distributor organization",
+              "status": "in-progress",
+              "epic": "E6"
+            },
+            {
+              "us": "D-46 Display payment instructions",
+              "status": "todo",
+              "ourPriority": "P2",
+              "epic": "E1"
+            }
+          ]
+        },
+        {
+          "group": "Reporting — reseller orders & gross revenue, dashboard, B2B sales",
+          "rows": [
+            {
+              "us": "SYS-02 Capture commission attribution at close",
+              "ourPriority": "P0",
+              "epic": "E7"
+            },
+            {
+              "us": "D-12 Dashboard KPIs",
+              "epic": "E8"
+            },
+            {
+              "us": "O-13 Monitor B2B sales + reconcile",
+              "epic": "E8"
+            },
+            {
+              "us": "O-14 Wholesale order export + commission invoicing data",
+              "epic": "E8"
+            }
           ]
         }
       ]
     },
     {
-      "id": "second-example",
-      "name": "Second Example",
-      "icon": "🧪",
-      "owner": "A teammate",
-      "progress": null,
-      "epics": [{ "code": "E1", "name": "Discovery", "short": "Discovery" }],
+      "id": "multipay-surcharge",
+      "name": "Multipayment — Surcharge",
+      "icon": "💳",
+      "epics": [],
       "matrix": [
         {
-          "group": "Discovery",
+          "group": "Surcharge tax behaviour across Multipay (B2BR-5403) — in flight",
           "rows": [
-            { "us": "D-01 Interview five users", "epic": "E1", "status": "done" },
-            { "us": "D-02 Write up the findings", "epic": "E1", "status": "in-progress" }
+            {
+              "us": "B2BR-5403 Management Surcharge — tax behaviour across Multipay (B2B deposits first)",
+              "status": "in-progress"
+            },
+            {
+              "us": "B2BR-5405 Stream A — re-home the EU gate onto surcharge_tax_point",
+              "status": "in-review"
+            },
+            {
+              "us": "B2BR-5406 Stream G — additive surcharge charging (correctness fix)",
+              "status": "in-progress"
+            },
+            {
+              "us": "B2BR-5433 Zero the surcharge on a rescheduled leg under FULL_AT_DEPOSIT",
+              "status": "planned"
+            },
+            {
+              "us": "B2BR-5444 Fix settlement reconciliation when Fever owns the surcharge and the deposit is cancelled",
+              "status": "planned"
+            },
+            {
+              "us": "B2BR-5407 Stream B — US unified proportional verification + gross deposit base",
+              "status": "done"
+            },
+            {
+              "us": "B2BR-5504 Make the b2b and accounting stores agree on the deposit/settlement split",
+              "status": "in-progress"
+            },
+            {
+              "us": "B2BR-5562 Stream H — Global FULL_AT_DEPOSIT enablement (the flip)",
+              "status": "todo"
+            },
+            {
+              "us": "B2BR-5565 Preserve FULL_AT_DEPOSIT attribution in the b2b deposit reattributor",
+              "status": "in-progress"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deposits",
+      "name": "Deposits",
+      "icon": "💰",
+      "epics": [],
+      "matrix": [
+        {
+          "group": "Phase 0-2 — Core reservation-with-deposit flow (done)",
+          "rows": [
+            {
+              "us": "Deposits - Phase 0: Foundations & Cleanup",
+              "status": "done"
+            },
+            {
+              "us": "Phase 1: Configuration of deposit update",
+              "status": "done"
+            },
+            {
+              "us": "Phase 1: Creation of reservation with deposit",
+              "status": "done"
+            },
+            {
+              "us": "Phase 1.5: Securing the reservation",
+              "status": "done"
+            },
+            {
+              "us": "Phase 2: Full payment of reservation",
+              "status": "done"
+            },
+            {
+              "us": "Phase 2: Cancel reservations",
+              "status": "done"
+            },
+            {
+              "us": "Phase 2: Refund deposits",
+              "status": "done"
+            }
+          ]
+        },
+        {
+          "group": "Phase 3 — Modify & cancel orders (done)",
+          "rows": [
+            {
+              "us": "Phase 3: Modify reservation",
+              "status": "done"
+            },
+            {
+              "us": "Phase 3: Cancel orders",
+              "status": "done"
+            },
+            {
+              "us": "Allow coupons on the cart of deposit-flow reservations",
+              "status": "done"
+            }
+          ]
+        },
+        {
+          "group": "Phase 4 — Finance & invoicing (Phase 4.3 in progress)",
+          "rows": [
+            {
+              "us": "Phase 4.1: Foundation: Schema & Domain",
+              "status": "done"
+            },
+            {
+              "us": "Phase 4.2: Fever2 → Finance Communication",
+              "status": "done"
+            },
+            {
+              "us": "Phase 4.3: B2BC Invoicing — Deposit Tax Documents",
+              "status": "done"
+            },
+            {
+              "us": "Phase 4.4: Rescheduling Handling (B2B)",
+              "status": "done"
+            },
+            {
+              "us": "Phase 4.5: Settlement & Reconciliation — Commission Billing",
+              "status": "done"
+            }
+          ]
+        },
+        {
+          "group": "Phase 5 — Observability & hardening (done)",
+          "rows": [
+            {
+              "us": "Phase 5: Observability & hardening",
+              "status": "done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "full-ticket-modification",
+      "name": "Full ticket modification on reservations",
+      "icon": "🎟️",
+      "epics": [],
+      "matrix": [
+        {
+          "group": "Core modification engine (Phase 0–2) — done",
+          "rows": [
+            {
+              "us": "Full Reservation Modification — Foundations — Phase 0",
+              "status": "done"
+            },
+            {
+              "us": "Full Reservation Modification — Phase 1 — Increase/Decrease",
+              "status": "done"
+            },
+            {
+              "us": "Full Reservation modification — Phase 1.1 — Decrease to Zero (Implicit Cancellation)",
+              "status": "done"
+            },
+            {
+              "us": "Full reservation modification — Phase 1.2 — Adjustment Editing + Below 0 Scenarios",
+              "status": "done"
+            },
+            {
+              "us": "Full Reservation Modification — Phase 2 — Advanced Booking Modifications: Multi-timeslot, New Sessions & Packs",
+              "status": "done"
+            },
+            {
+              "us": "Full Reservation Modification — Reschedule & performance & monitoring",
+              "status": "done"
+            }
+          ]
+        },
+        {
+          "group": "Rollout (opened to 100% except Patrimonio Nacional)",
+          "rows": [
+            {
+              "us": "Rollout, Monitoring, and Documentation",
+              "status": "done"
+            },
+            {
+              "us": "Reservation Modifications opened to 100% of partners (Patrimonio Nacional excluded)",
+              "status": "done"
+            },
+            {
+              "us": "Enable multi-time slot reservations for all partners",
+              "status": "done"
+            },
+            {
+              "us": "Remove multi-slot feature flag: gate multi-time-slot support on the endpoint response + add a disclaimer in the rules view",
+              "status": "in-progress"
+            }
+          ]
+        },
+        {
+          "group": "Legacy-flow cleanup (blocked on full rollout)",
+          "rows": [
+            {
+              "us": "Full Reservation Modification — Remove legacy flow & retire the feature flag (cleanup)",
+              "status": "todo"
+            },
+            {
+              "us": "[BE] Remove the legacy reservation-modification flow and retire the `enable_full_modification_flow` flag",
+              "status": "todo"
+            },
+            {
+              "us": "[FE] Remove the legacy modification UI and the `enable_full_modification_flow` branching",
+              "status": "todo"
+            }
           ]
         }
       ]

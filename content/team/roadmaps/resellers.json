@@ -1,0 +1,1113 @@
+{
+  "buildStatuses": [
+    "planned",
+    "in_progress",
+    "shipped",
+    "dropped"
+  ],
+  "complexityFactors": {
+    "Low": 1,
+    "Medium": 1.5,
+    "High": 2
+  },
+  "dashboards": [
+    {
+      "id": "b2bm-invoicing-artifact",
+      "name": "B2B invoicing models (artifact)",
+      "category": "Deposits",
+      "note": "Claude artifact — wholesale & commission invoicing, every leg detailed + the monthly Fever→Partner reconciliation. Also in the model-documentation repo (resellers/b2bm/invoicing-models.html).",
+      "url": "https://claude.ai/code/artifact/6d1b55af-2112-4531-80c6-0006e2428ad0"
+    },
+    {
+      "id": "fz-reservations",
+      "name": "FZ Reservations dashboard",
+      "category": "Reservations",
+      "url": "https://metabase.feverup.com/dashboard/40139-fz-reservations-dashboard?business_email=&business_name=&business_type=&city=&country=&employee_email=&exclude_partner=SO+Tests&exclude_partner=Private+Candlelight+%26+SSI+-+F4B&exclude_partner=Hamburg+Dungeon+Test&exclude_partner=Merlin+test&exclude_partner=Patrimonio+Nacional&exclude_partner=LIV+Golf&granularity=Month&status=Paid&status=To+be+paid&reservation_start_date=2024-09-01&tab=22364-reservations-summary",
+      "note": "Reservation adoption after full rollout (Metabase). Excludes test partners."
+    },
+    {
+      "id": "fz-businesses",
+      "name": "FZ Businesses",
+      "category": "Businesses",
+      "url": "https://metabase.feverup.com/dashboard/40137-fz-businesses?granularity=Month&exclude_partner_name=Brasil+-+So+Test&exclude_partner_name=SO+Tests&exclude_partner_name=Privateaser&exclude_partner_name=Patrimonio+Nacional&start_creation_date=2025-04-01",
+      "note": "FZ business signups (Metabase). Excludes test partners."
+    },
+    {
+      "id": "deposits-dashboard",
+      "name": "Deposit adoption",
+      "category": "Deposits",
+      "url": "https://metabase.feverup.com/dashboard/47093-deposits-adoption?created_date=2025-11-04&exlcude_partners=42355&exlcude_partners=8874",
+      "note": "Deposit adoption (Metabase). No real deposits yet beyond Fever Demo / SO Test."
+    },
+    {
+      "id": "mixpanel-deposit-funnel",
+      "name": "Deposit — Payment funnel & conversion",
+      "category": "Deposits",
+      "url": "https://mixpanel.com/project/2080475/view/20659/app/boards#id=11282469",
+      "note": "Mixpanel (Raquel). Deposit payment funnel, outcomes, failure reasons, top partners using deposit. Many events newly instrumented — charts fill as events ship. Excludes test partner 8874."
+    },
+    {
+      "id": "mixpanel-deposit-refunds",
+      "name": "Deposit — Refunds health",
+      "category": "Deposits",
+      "url": "https://mixpanel.com/project/2080475/view/20659/app/boards#id=11282485",
+      "note": "Mixpanel (Raquel). Refund volume, success vs failure, refunded amounts, error codes. Excludes test partner 8874."
+    },
+    {
+      "id": "mixpanel-deposit-settings",
+      "name": "Deposit — Settings configuration",
+      "category": "Deposits",
+      "url": "https://mixpanel.com/project/2080475/view/20659/app/boards#id=11282493",
+      "note": "Mixpanel (Raquel). How partners configure deposits: create/update/delete, types, amounts, payment windows. Excludes test partner 8874."
+    },
+    {
+      "id": "affiliates-active",
+      "name": "Active affiliates",
+      "category": "Affiliate network",
+      "url": "https://metabase.feverup.com/dashboard/39579-active-affiliates-dashboard",
+      "note": "Metabase (Fever-side). Active-affiliate counts."
+    },
+    {
+      "id": "affiliates-sales-report",
+      "name": "Affiliate network sales report",
+      "category": "Affiliate network",
+      "url": "https://metabase.feverup.com/dashboard/39630-affiliate-network-sales-report",
+      "note": "Metabase (Fever-side). Sales generated through the affiliate network."
+    },
+    {
+      "id": "ambassadors-insights",
+      "name": "Ambassadors Insights",
+      "category": "Ambassadors",
+      "url": "https://metabase.feverup.com/dashboard/39928-ambassadors-insights",
+      "note": "Metabase (Fever-side). Ambassador program insights."
+    },
+    {
+      "id": "ambassadors-overview-partner",
+      "name": "Ambassador overview (partner)",
+      "category": "Ambassadors",
+      "url": "https://feverzone.metabaseapp.com/dashboard/1916-fever-zone-ambassadors-points",
+      "note": "Metabase / FeverZone (partner-facing). Ambassador points overview."
+    },
+    {
+      "id": "ambassadors-points-won-user",
+      "name": "Ambassador points won (user)",
+      "category": "Ambassadors",
+      "url": "https://feverzone.metabaseapp.com/dashboard/1917-ambassadors-points-by-ambassador",
+      "note": "Metabase / FeverZone (user-facing). Points won per ambassador."
+    },
+    {
+      "id": "ambassadors-plan-detail-user",
+      "name": "Ambassador plan detail (user)",
+      "category": "Ambassadors",
+      "url": "https://feverzone.metabaseapp.com/dashboard/1948-ambassadors-ambassador-per-plan-dashboard",
+      "note": "Metabase / FeverZone (user-facing). Ambassador detail per plan."
+    },
+    {
+      "id": "ambassadors-redeemed-rewards",
+      "name": "Ambassadors redeemed rewards",
+      "category": "Ambassadors",
+      "url": "https://feverzone.metabaseapp.com/dashboard/8681",
+      "note": "Metabase / FeverZone (partner-facing). Rewards redeemed; filter by partner_id/plan_id + date range. KNOWN ISSUE: defaults to all-time so it shows 2025 — set the date filter (REDEEMED_AT/purchase date) to current year."
+    },
+    {
+      "id": "ambassadors-funnel-mixpanel",
+      "name": "Ambassadors Funnel",
+      "category": "Ambassadors",
+      "url": "https://mixpanel.com/project/2080475/view/20659/app/boards#id=9196301",
+      "note": "Mixpanel (Fever-side). Ambassadors conversion funnel."
+    },
+    {
+      "id": "use-cases",
+      "name": "Use cases",
+      "url": "https://docs.google.com/spreadsheets/d/1ps9AcoRa0X-j-u-0vjvrV5evdfoosv0w5jRQTNfqOH0/edit?gid=2050325246#gid=2050325246",
+      "category": "Use cases",
+      "note": "Distribution use cases "
+    },
+    {
+      "id": "salaries",
+      "name": "Salaries",
+      "url": "https://docs.google.com/spreadsheets/d/1SuGVW-b8aqlC3d0lyQ6B9OL1mrvTqkTKNjAczrRd2Ag/edit?gid=0#gid=0",
+      "category": "Salaries",
+      "note": ""
+    },
+    {
+      "id": "legal-tracker",
+      "name": "Legal tracker",
+      "url": "https://docs.google.com/spreadsheets/d/1DBam5k3Tng-tkPoAp6124BjzGJLvBEDxDziCmUlb178/edit?gid=365676490#gid=365676490",
+      "category": "Multipayment",
+      "note": ""
+    },
+    {
+      "id": "partner-feature",
+      "name": "Partner feature",
+      "url": "https://docs.google.com/spreadsheets/d/18KlD_eIK6NZgwcA_pCvaXlLKmbsOZB_mNUB9W-bJroY/edit?gid=0#gid=0",
+      "category": "Multipayment",
+      "note": ""
+    }
+  ],
+  "effortLegend": [
+    {
+      "key": "Days",
+      "desc": "1-2 weeks of work / 1 eng"
+    },
+    {
+      "key": "Weeks",
+      "desc": "2-5 weeks / 1 eng"
+    },
+    {
+      "key": "Months",
+      "desc": ">5 weeks / 1 eng"
+    },
+    {
+      "key": "Quarters",
+      "desc": "Break down!"
+    }
+  ],
+  "effortRanges": {
+    "Days": [
+      1,
+      2
+    ],
+    "Weeks": [
+      2,
+      5
+    ],
+    "Months": [
+      5,
+      12
+    ],
+    "Quarters": [
+      12,
+      12
+    ]
+  },
+  "effortWeeks": {
+    "Days": 2,
+    "Weeks": 5,
+    "Months": 10,
+    "Quarters": 12
+  },
+  "healthStatuses": [
+    "green",
+    "yellow",
+    "red"
+  ],
+  "initiatives": [
+    {
+      "id": "deposits",
+      "name": "Deposits",
+      "strategicArea": "expansion",
+      "businessValue": "By lowering the initial liquidity barrier for resellers, the feature directly increases conversion for high-value groups while protecting Fever and its partners from the financial loss of last-minute cancellations via a strict 24-hour commitment window. Furthermore, moving previously \"offline\" agreements into the FeverZone eliminates manual operational bottlenecks, ensures global financial and tax compliance",
+      "description": "Two-phase payment flow for large-group reservations. It allows resellers to secure inventory by paying a percentage of the total amount upfront, with the remaining balance due at a later date. This initiative integrates previously \"offline\" deposit agreements directly into the FeverZone platform and automated invoicing system.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Quarters",
+      "build": "shipped",
+      "rollout": "rolling_out",
+      "rolloutNote": "Prison Island live; rolling out by jurisdiction, Paradox next",
+      "quarters": [
+        "Q2 2026"
+      ],
+      "owners": [
+        "gustavo-aguilera",
+        "raquel-yuste",
+        "alexander-blair",
+        "adrian-lopez",
+        "andrea-sucre"
+      ],
+      "months": [
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026"
+      ]
+    },
+    {
+      "id": "full-ticket-modification-on-reservations",
+      "name": "Full ticket modification on reservations",
+      "strategicArea": "trust",
+      "businessValue": "Consolidating modifications into a single, atomic action eliminates the need for forced cancellations. This directly reduces the workflow bounce rate caused by the current multi-screen process and protects Partner inventory.",
+      "description": "Currently, modifying a reservation forces Partners through three fragmented screens and prohibits adding or removing ticket types without fully canceling the booking. To solve this, we need to build a unified \"single edit\" interface that allows Partners to simultaneously change dates, times, and ticket quantities in one atomic action, securing their inventory without ever having to start over.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Months",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "",
+      "quarters": [
+        "Q2 2026"
+      ],
+      "owners": [
+        "sara-mesa",
+        "sergio-sanz",
+        "ignacio-lupi",
+        "eloi-milego",
+        "felix-carpena"
+      ],
+      "months": [
+        "May 2026",
+        "Jun 2026"
+      ]
+    },
+    {
+      "id": "hide-prices-of-reservations-in-emails-and-ticket",
+      "name": "Hide prices of reservations in emails and tickets (only reservation scope)",
+      "strategicArea": "expansion",
+      "businessValue": "Partners like Rock In Rio and Primavera Sound, whose hospitality models rely on \"Paid Invitations.\" By removing the face value and third-party branding, we protect the \"gift\" experience for VIP guests and clients, ensuring they receive a professional invitation rather than a commercial receipt.",
+      "description": "Allow partners to hide the value of tickets and reservation totals from all automated business communications (emails) and the digital/PDF tickets themselves.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "Deprioritised this quarter",
+      "quarters": [
+        "Q2 2026"
+      ],
+      "owners": [
+        "felix-carpena"
+      ],
+      "months": [
+        "Apr 2026"
+      ],
+      "impactNote": "Prioritizing the first version based on the requirements of those partners"
+    },
+    {
+      "id": "multi-time-slot-multiplan-reservations",
+      "name": "Multi-time slot / multiplan reservations",
+      "strategicArea": "expansion",
+      "businessValue": "Closing the modification loop on our existing multi-slot foundation empowers resellers to sell seamless experience packages (e.g., Dinner + Show), effectively doubling the revenue per reservation.",
+      "description": "While the technical foundation for multi-slot reservations was partially implemented by the Games vertical, the system currently lacks the ability to modify these complex bookings. To close this product gap, we need to build a unified modification logic for reservation containers. (follow up to Games and Onsite implementations)",
+      "dependencies": "Game squad",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "",
+      "quarters": [
+        "Q2 2026"
+      ],
+      "owners": [
+        "sara-mesa",
+        "sergio-sanz",
+        "ignacio-lupi",
+        "eloi-milego",
+        "felix-carpena"
+      ],
+      "months": [
+        "Jun 2026"
+      ]
+    },
+    {
+      "id": "resellers-data-in-metabase",
+      "name": "Resellers data in Metabase",
+      "strategicArea": "tech",
+      "businessValue": "Enables product and ops to analyse reservation, concession, and affiliate/ambassador performance without ad-hoc DB access.",
+      "description": "Replicate reservation tables/views and aggregates; concession/org from b2b-iam; orders/carts with affiliate_code; dashboards by affiliate/ambassador. Coordinate with Data.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "",
+      "quarters": [
+        "Q2 2026"
+      ],
+      "owners": [
+        "andrea-sucre"
+      ],
+      "months": [
+        "Apr 2026"
+      ],
+      "impactNote": "Necessary to improve better decision making"
+    },
+    {
+      "id": "reservation-importer-pernod-ricard-prio-outdated",
+      "name": "Reservation importer (Pernod Ricard prio?) → Outdated, we did a custom importation of orders",
+      "strategicArea": "expansion",
+      "businessValue": "Removes a critical technical blocker during the onboarding of new B2B Partners by ensuring they don't lose their existing sales pipeline. By migrating unconfirmed reservations directly into Fever, we accelerate the Partner's full transition to our platform and guarantee that the final payment and conversion of those pending bookings happen within our ecosystem.",
+      "description": "When onboarding new Partners, we currently lack a way to migrate their pending, future reservations from their legacy systems. While we already have an \"Order Import\" mechanism for fully paid and finalized tickets, it does not support unconfirmed or partially paid holds. To solve this, we need to build a complementary \"Reservation Import\" feature that seamlessly migrates these pending reservations into Fever, allowing Partners to manage, modify, and finalize their existing pipeline directly within our platform.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "Handled manually for 3 partners — no product feature",
+      "quarters": [
+        "Q2 2026"
+      ],
+      "owners": [
+        "felix-carpena"
+      ],
+      "months": [
+        "Apr 2026"
+      ],
+      "impactNote": "Asked by Pernod Ricard"
+    },
+    {
+      "id": "observability-improvements-in-resellers",
+      "name": "Observability improvements in resellers",
+      "strategicArea": "tech",
+      "businessValue": "Speeds detection and diagnosis; clarifies ownership across fever2, partners, b2b-iam.",
+      "description": "fever2: spans on PartnerReserveCartView, reservation/affiliate/concession views. b2b-iam: spans on ambassador/concession endpoints. Propagate trace id across services.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Days",
+      "build": "in_progress",
+      "rollout": "rolling_out",
+      "rolloutNote": "",
+      "quarters": [
+        "Q3 2026",
+        "Q2 2026"
+      ],
+      "owners": [
+        "andrea-sucre",
+        "felix-carpena",
+        "gustavo-aguilera",
+        "alexander-blair"
+      ],
+      "months": [
+        "Jul 2026",
+        "Jun 2026"
+      ],
+      "impactNote": "Technical hygiene"
+    },
+    {
+      "id": "flexible-seating-modifications",
+      "name": "Flexible seating modifications",
+      "strategicArea": "trust",
+      "businessValue": "Capturing untapped gross revenue from seated venues (Stadiums/Theaters) that demand flexible ticketing, and drastically slashing support overhead by automating seat swaps",
+      "description": "Our current seating system is a dead-end that forces manual cancellations for simple changes. We need to implement atomic 'seat swap' logic to let users easily change seats, party sizes, or dates.",
+      "dependencies": "Full ticket modification on reservations",
+      "impact": "",
+      "effort": "Months",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "Uncertain — needs scoping",
+      "quarters": [
+        "Q3 2026"
+      ],
+      "owners": [],
+      "months": [
+        "Jul 2026"
+      ]
+    },
+    {
+      "id": "booking-questions-in-modifications",
+      "name": "Booking questions in modifications",
+      "strategicArea": "trust",
+      "businessValue": "Eliminates partner escalations and ordering friction by allowing immediate modifications to booking questions fields. By allowing partners to update attendee requirements (such as dietary restrictions, shoe sizes, or registration questions) directly within the active booking flow instead of resorting to manual support requests, we reduce operational ticket overhead and maintain clean customer data loops.",
+      "description": "Extend the unified modification logic to allow the updating of specific booking question answers at any time while a reservation is active",
+      "dependencies": "Full ticket modification on reservations",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "shipped",
+      "rollout": "fully_rolled_out",
+      "rolloutNote": "",
+      "quarters": [
+        "Q3 2026"
+      ],
+      "owners": [],
+      "months": [
+        "Jul 2026"
+      ]
+    },
+    {
+      "id": "b2bm-m1-internal-launch",
+      "name": "B2BM M1 — Internal launch (Sep 11)",
+      "strategicArea": "expansion",
+      "businessValue": "First internal end-to-end platform: distributors register and browse the catalog and request access; organizers manage catalog + exclusivity; Fever Ops vets and creates distributors; the multi-user org identity, foundation and data API are live. The base every later milestone builds on.",
+      "description": "Internal (not partner-facing) checkpoint. Includes: the Business → multi-user organization identity (FeverZone IAM extended for multi-org membership), distributor registration + Sales-Ops vetting console, catalog browsing, access requests, organizer catalog/exclusivity management, Fever-Ops distributor creation, and the foundation + data API.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Months",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "Milestone target: Sep 11 (internal).",
+      "quarters": [
+        "Q3 2026"
+      ],
+      "owners": [
+        "raquel-yuste",
+        "adrian-lopez",
+        "eloi-milego",
+        "sara-mesa",
+        "andrea-sucre",
+        "felix-carpena",
+        "sergio-sanz",
+        "ignacio-lupi",
+        "gustavo-aguilera",
+        "alexander-blair"
+      ],
+      "months": [
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026"
+      ]
+    },
+    {
+      "id": "b2bm-m2-first-e2e-booking",
+      "name": "B2BM M2 — First end-to-end booking, retail (~Sep 18)",
+      "strategicArea": "expansion",
+      "businessValue": "First real distributor booking flows end-to-end through the marketplace at retail price (no discount yet) — proves the full transaction path works.",
+      "description": "End-to-end booking at retail price, no wholesale discount. First live-transaction milestone.",
+      "dependencies": "B2BM M1 — Internal launch (Sep 11)",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "Milestone target: ~Sep 18.",
+      "quarters": [
+        "Q3 2026"
+      ],
+      "owners": [
+        "alexander-blair",
+        "gustavo-aguilera",
+        "adrian-lopez",
+        "raquel-yuste",
+        "andrea-sucre",
+        "felix-carpena",
+        "eloi-milego",
+        "ignacio-lupi",
+        "sergio-sanz",
+        "sara-mesa"
+      ],
+      "months": [
+        "Sep 2026"
+      ]
+    },
+    {
+      "id": "b2bm-m3-wholesale-pricing",
+      "name": "B2BM M3 — Wholesale pricing (late Sep)",
+      "strategicArea": "expansion",
+      "businessValue": "Organizers set a discounted B2B/wholesale price (e.g. €90 vs €100 retail) and the distributor keeps the margin — the first commercial model.",
+      "description": "Wholesale commercial model: organizer-set discounted B2B price with distributor margin.",
+      "dependencies": "B2BM M2 — First end-to-end booking, retail (~Sep 18)",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "Milestone target: late Sep.",
+      "quarters": [
+        "Q3 2026"
+      ],
+      "owners": [
+        "alexander-blair",
+        "gustavo-aguilera",
+        "adrian-lopez",
+        "raquel-yuste",
+        "andrea-sucre",
+        "felix-carpena",
+        "ignacio-lupi",
+        "eloi-milego",
+        "sergio-sanz",
+        "sara-mesa"
+      ],
+      "months": [
+        "Sep 2026"
+      ]
+    },
+    {
+      "id": "b2bm-m4-commission-full-mvp",
+      "name": "B2BM M4 — Full MVP: commission flow (Oct 30)",
+      "strategicArea": "expansion",
+      "businessValue": "Commission model live (distributor sells at retail, organizer pays a commission afterwards) — completes the full MVP. Minor Hotels (550+ properties) as launch distributor.",
+      "description": "Commission commercial model + reporting; full MVP. Minor Hotels launch distributor.",
+      "dependencies": "B2BM M3 — Wholesale pricing (late Sep)",
+      "impact": "",
+      "effort": "Months",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "Milestone target: Oct 30 (full MVP / commission live).",
+      "quarters": [
+        "Q4 2026"
+      ],
+      "owners": [
+        "alexander-blair",
+        "gustavo-aguilera",
+        "andrea-sucre",
+        "adrian-lopez",
+        "raquel-yuste",
+        "felix-carpena",
+        "eloi-milego",
+        "sergio-sanz",
+        "ignacio-lupi",
+        "sara-mesa"
+      ],
+      "months": [
+        "Oct 2026"
+      ]
+    },
+    {
+      "id": "flexible-contact-information-management-isolatio",
+      "name": "Flexible contact information management & isolation",
+      "strategicArea": "trust",
+      "businessValue": "Enhances platform flexibility for partners like Arte Museum by allowing optional end-customer emails while fixing a critical data integrity bug. By preventing accidental bulk updates to business data, it reduces manual Ops/Engineering intervention and partner escalations, ensuring a reliable, professional experience for enterprise clients.",
+      "description": "This initiative modifies the reservation flow to allow the modification of contact information at any time while a reservation is active. It also fixes a current technical issue where changing contact details for one reservation erroneously updates all reservations associated with those details.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [
+        "Q4 2026"
+      ],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "hide-prices-reservations-end-to-end",
+      "name": "Hide prices of reservations in emails and tickets (end to end, app, order, ….)",
+      "strategicArea": "expansion",
+      "businessValue": "Partners like Rock In Rio and Primavera Sound, whose hospitality models rely on \"Paid Invitations.\" By removing the face value and third-party branding, we protect the \"gift\" experience for VIP guests and clients, ensuring they receive a professional invitation rather than a commercial receipt.",
+      "description": "Allow partners to hide the value of tickets and reservation totals from all automated customer communications (emails) and the digital/PDF tickets themselves.",
+      "dependencies": "Hide prices of reservations in emails and tickets (only reservation scope)",
+      "impact": "",
+      "effort": "Months",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "connect-upgrade-orders-to-reservations",
+      "name": "Connect upgrade orders to reservations",
+      "strategicArea": "trust",
+      "businessValue": "Linking upgrade orders directly to reservations ensures total data integrity across the booking lifecycle",
+      "description": "Creates a direct technical link between \"Upgrade\" orders (e.g., moving from General Admission to VIP) and the original reservation record. It ensures that any modification to a booking—whether it’s a seat change, a tier upgrade, or an add-on—is also visible from the reservation (businesses often check reservations tab not orders)",
+      "dependencies": "Full modification on reservation and reservation timeline",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": [
+        "Oct 2026"
+      ]
+    },
+    {
+      "id": "strict-null-checks-in-feverzone",
+      "name": "Strict null checks in FeverZone",
+      "strategicArea": "tech",
+      "businessValue": "Fewer runtime crashes in resellers and safer refactors",
+      "description": "Strict null checks and guards in B2B flows; enable strictNullChecks for reservations",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "in_progress",
+      "rollout": "rolling_out",
+      "rolloutNote": "",
+      "quarters": [
+        "Q4 2026"
+      ],
+      "owners": [],
+      "months": [
+        "Aug 2026",
+        "Sep 2026",
+        "Jul 2026"
+      ]
+    },
+    {
+      "id": "split-reserve-endpoints-by-actor-to-avoid-securi",
+      "name": "Split /reserve endpoints by actor to avoid security concerns",
+      "strategicArea": "tech",
+      "businessValue": "Eliminates critical security risks by preventing one actor (like a Booking Agent) from executing actions or accessing data reserved for another (like a Partner). Segregating these endpoints ensures strict access control, protects the integrity of our inventory, and drastically reduces the engineering overhead of maintaining complex, error-prone permission rules within a single endpoint.",
+      "description": "Currently, the /reserve API endpoints process requests from different actors—specifically Partners and Booking Agents—using shared logic. This monolithic approach creates security vulnerabilities and increases the risk of unauthorized access or privilege escalation between them. To fix this, we need to architecturally split and segregate these endpoints strictly by actor, ensuring dedicated and secure authorization flows for both Partners and Booking Agents.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [
+        "Q3 2026"
+      ],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "advanced-reservation-rules-configurations",
+      "name": "Advanced reservation rules configurations",
+      "strategicArea": "expansion",
+      "businessValue": "Increase the platform's operational precision by allowing partners to customize how and when inventory is recaptured from resellers. By moving beyond basic settings to a more granular, rule-based logic, the platform ensures that unsold tickets are automatically released to the general public at the exact moment they are no longer likely to be sold by a partner.",
+      "description": "Expands the granularity of existing reservation rules, allowing for more complex configurations of inventory holds, expiry logic, and release triggers by plan or business.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "ambassadors-affiliates-e2e-testing-core-workflow",
+      "name": "Ambassadors + Affiliates E2E testing - Core workflows",
+      "strategicArea": "tech",
+      "businessValue": "Reduces production incidents and partner-facing regressions; validates ambassador and affiliate flows before release.",
+      "description": "Ambassadors + Affiliates (Backend + Frontend)",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Days",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "separate-tracking-code-from-channel",
+      "name": "Separate tracking code from channel",
+      "strategicArea": "tech",
+      "businessValue": "Allows resellers to build an unlimited team of influencers and sub-agents without breaking our database",
+      "description": "Decoupling affiliate codes from Channels. By allowing a single Channel to be linked to several tracking codes simultaneously, the system enables resellers to build unlimited sub-agent and influencer teams without creating redundant channel overhead.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "migration-to-async-controllers",
+      "name": "Migration to async controllers",
+      "strategicArea": "tech",
+      "businessValue": "Increases throughput and scalability of B2B APIs; reduces blocking and timeouts.",
+      "description": "Migrate B2B endpoints and workers to async; register under ASGI where applicable.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "distribute-multi-tickets-to-multi-users-post-pur",
+      "name": "Distribute multi-tickets to multi-users (post-purchase)",
+      "strategicArea": "self-service",
+      "businessValue": "Specifically designed to provide self-service autonomy for high-volume resellers and corporate planners. By automating the post-purchase distribution process, it eliminates the friction of manual ticket handling for group bookings, significantly reducing the support burden on Ops",
+      "description": "Single purchaser of a multi-ticket reservation to digitally distribute individual tickets to different end-users via email after the transaction is complete.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "partner-can-choose-when-the-tickets-are-distribu",
+      "name": "Partner can choose when the tickets are distribute",
+      "strategicArea": "expansion",
+      "businessValue": "Designed for partners like LIV Golf, this functionality provides the granular control needed to manage security and mitigate unauthorized reselling. Scheduling delivery close to the event date ensures tickets remain highly visible to guests and reduces the operational burden of resending 'lost' or buried emails",
+      "description": "Allow partners to decouple the moment of purchase from the moment of delivery. Resellers can pre-configure exactly when tickets are sent to end-users—whether immediately after purchase, at a specific scheduled date/time, or manually triggered by the partner at a later stage.",
+      "dependencies": "Post-purchase squad",
+      "impact": "",
+      "effort": "Days",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "reservation-timeline",
+      "name": "Reservation timeline",
+      "strategicArea": "trust",
+      "businessValue": "The historical audit trail provides absolute transparency and financial accountability over who altered a reservation and when.",
+      "description": "Because reservations are often handled by multiple agents over time, the system must include a comprehensive historical audit trail that logs every modification made throughout the reservation's lifecycle to prevent disputes and ensure total accountability.",
+      "dependencies": "Full ticket modification on reservations Connect upgrade orders to reservations",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "reservations-for-individual-groups",
+      "name": "Reservations for individual groups",
+      "strategicArea": "expansion",
+      "businessValue": "Unlocks a massive, untapped revenue stream by removing the Business creation friction that currently is not possible. By empowering Partners to effortlessly process group reservations for non-legal entities, we directly increase ticket sales",
+      "description": "Currently, requiring a formal business for simple social gatherings, like a birthday party or a group of friends, completely kills the group reservation funnel. To fix this, we need to enable \"Reservations Without Business,\" allowing Partners or final users to seamlessly create and manage large group bookings for individuals and non-legal entities without forcing them through a strict, corporate registration process.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Months",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "reservation-requests-approval",
+      "name": "Reservation requests approval",
+      "strategicArea": "expansion",
+      "businessValue": "Partners like Chelsea FC and Merlin need more control on the acceptance or not of the reservation and business creation. By transforming the intake of new business requests into a streamlined digital \"waiting room,\" the platform replaces manual, high-friction vetting with an automated, partner-centric gateway.",
+      "description": "It allows potential resellers to register and submit reservation requests through a public-facing webpage, which are then routed to the Partner through FeverZone for formal review and approval before any inventory is committed or tickets are issued. It could or not create a business once an approval",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Months",
+      "build": "in_progress",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "bank-transfer",
+      "name": "Bank transfer",
+      "strategicArea": "expansion",
+      "businessValue": "Accelerates cash flow by supporting automated wire-transfer matching and flexible deposit structures. By replacing error-prone, manual reconciliations with a multi-state payment lifecycle, we eliminate operational bottlenecks for the finance team and empower resellers to seamlessly close large-scale bookings.",
+      "description": "The current bank transfer flow in FZ is a disconnected, manual process that relies on an error-prone \"Mark as Paid\" button and completely lacks support for partial deposits. To modernize this, we need to build a multi-state reservation lifecycle (Provisionally Held → Partially Paid → Paid) and integrate a B2B payment gateway (e.g., Stripe/Adyen) to generate Unique Virtual IBANs. This will automatically reconcile incoming funds and confirm bookings with zero human intervention.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Months",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "promotional-page-b2c-sites-enable-it-in-feverzon",
+      "name": "Promotional page - B2C Sites Enable it in FeverZone",
+      "strategicArea": "self-service",
+      "businessValue": "Enabling “Promotional Pages in” FeverZone transforms the partner portal into a self-service marketing engine, allowing resellers to launch custom, high-conversion landing pages without manual intervention from Fever Ops. By giving partners the autonomy to build their own promotional pages, the platform drastically reduces \"time-to-market\" and increases the volume of active sales channels.",
+      "description": "Enables the \"Promotional Page\" feature directly within FeverZone, allowing partners to create dedicated, conversion-optimized landing pages for specific events or collections.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "category-page-in-feverup-employees-and-affiliate",
+      "name": "Category page in Feverup (employees and affiliates)",
+      "strategicArea": "self-service",
+      "businessValue": "Allows Fever to capture volume from employee benefit programs and affiliate networks through a branded experience that requires zero manual code distribution.",
+      "description": "Creation of landing branded category pages on Feverup specifically for corporate employees and affiliates. These pages serve as a list of enabled plans where users can access exclusive pricing, pre-sales, or specific inventories reserved for their organization.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "partner-balance-traceability",
+      "name": "Partner balance traceability",
+      "strategicArea": "self-service",
+      "businessValue": "Financial transparency is a major friction point; by providing full traceability, we eliminate the manual \"reconciliation\" for both our partners and Fever’s Finance/Ops teams. Detailed auditing capabilities build institutional trust, allowing partners to self-serve their financial reporting and quickly resolve discrepancies without opening support tickets.",
+      "description": "Tracking system for all financial movements within a partner's balance, providing a clear trail for every change in the balance with who and what.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "ambassadors-self-service",
+      "name": "Ambassadors self-service",
+      "strategicArea": "self-service",
+      "businessValue": "Removes internal operational bottlenecks and enables Partners to launch and scale ambassador campaigns with total autonomy and speed.",
+      "description": "Self-service CRUD within FeverZone where Partners can independently create reward structures, launch promotional plans, and manage influencer publications. It removes Fever Eng from the day-to-day coordination of ambassador campaigns.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "b2b-user-support-communications-amazon-chat-exam",
+      "name": "B2B user support communications (amazon chat example).",
+      "strategicArea": "self-service",
+      "businessValue": "Partner experience improves by replacing slow, manual email chains with a context-aware, chat system directly within the FeverZone. This would decentralizes partnership requests, speeding up the negotiation-to-sale cycle.",
+      "description": "Integrated chat system within the FeverZone similar to the Amazon customer service model, it allows partners to initiate support requests directly from a specific reservation directly with the reseller or customer but automatically attaching all relevant metadata to the conversation",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Months",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "self-service-business-management",
+      "name": "Self-service business management",
+      "strategicArea": "self-service",
+      "businessValue": "Remove support bottlenecks and accelerate partner agility. This autonomy is essential for managing thousands of resellers efficiently, ensuring a clean and accurate database while allowing Fever’s internal teams to focus on revenue growth rather than administrative tasks",
+      "description": "Allow partners to manage their business profiles, allowing them to independently delete legal entities and business units within the portal without requiring manual intervention from Fever’s internal teams.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Days",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "itinerary-event-schedule",
+      "name": "Itinerary event schedule",
+      "strategicArea": "self-service",
+      "businessValue": "This seamless post-checkout experience encourages resellers to buy more events per trip, while laying the critical UX groundwork for the upcoming B2B marketplace expansion.",
+      "description": "Currently, resellers and users booking multi-event days (e.g., a 10 AM Museum, 1 PM Lunch, and 6 PM Show) are forced to manage completely disconnected reservations. To solve this, we need to build an \"Itinerary Plan\" tool that seamlessly groups multiple separate bookings into a single, unified \"travel schedule\". This consolidates the post-purchase experience, eliminating the friction and confusion of managing multiple confirmation flows and QR codes for a single customer's trip.",
+      "dependencies": "N/A",
+      "impact": "",
+      "effort": "Months",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "reservation-settings-overview-templates-presets-",
+      "name": "Reservation settings (overview, templates, presets, easy setup)",
+      "strategicArea": "self-service",
+      "businessValue": "The primary value of this initiative is operational velocity and error reduction. By replacing manual, repetitive data entry with standardized presets, we ensure that complex reservation rules—such as deposit percentages, 24-hour expiry windows, and specific gateway assignments—are applied consistently across a partner’s entire portfolio, eliminating the risk of manual configuration errors that lead to financial discrepancies.",
+      "description": "Centralized management interface for reservation settings, allowing Ops and Partners to create, save, and apply configuration templates (presets) across multiple events. Similar to onsite setup",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Months",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "improve-testing-in-webclient3",
+      "name": "Improve testing in webclient3",
+      "strategicArea": "tech",
+      "businessValue": "Lowers regression risk on purchase/affiliate flows; ensures affiliate_code passed and mapped.",
+      "description": "In ts-api we need to add unit tests for map-plan-affiliate-code-apply and map-affiliation-apply. In ng-page-purchase, test create-cart includes affiliate_code; reserve/checkout with affiliate. We need to add a Playwright E2E purchase with ?affiliateCode",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "b2c-sites-renaming-to-promotional-page",
+      "name": "B2C sites renaming to Promotional Page",
+      "strategicArea": "tech",
+      "businessValue": "Aligns code, APIs, and permissions with product language (“promotional pages”).",
+      "description": "We need to modify the fever2: app and URL, b2b-iam permissions can_view_b2c_sites → can_view_promotional_pages. And  feverzoneclient permission type and UI.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "business-renaming-to-booking-agents",
+      "name": "Business renaming to booking agents",
+      "strategicArea": "tech",
+      "businessValue": "Aligns domain, APIs, roles, and UI with product language (“booking agents”).",
+      "description": "In b2b-iam, role labels and permissions (business_* → booking_agent_*). In fever2, b2b_business_*→b2b_booking_agent_*. In feverzoneclient + partners: permission strings and UI.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Weeks",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    },
+    {
+      "id": "iam-permissions-and-roles-explicit-naming",
+      "name": "IAM permissions and roles explicit naming",
+      "strategicArea": "tech",
+      "businessValue": "Makes permissions and roles explicit; improves auditability and reduces misconfiguration.",
+      "description": "Rename roles and permissions to be aligned with product language. In policy.polar + RoleLabel: rename can_view_b2c_sites, can_book_business_cart, can_reserve_cart_on_behalf_of_business, can_edit_my_business, can_get/edit/create_businesses, can_view_*business_payment_transactions; business_manager/cashier → booking_agent*. Update fever2 and feverzoneclient.",
+      "dependencies": "",
+      "impact": "",
+      "effort": "Days",
+      "build": "planned",
+      "rollout": "not_started",
+      "rolloutNote": "",
+      "quarters": [],
+      "owners": [],
+      "months": []
+    }
+  ],
+  "meta": {
+    "title": "Reseller Squad",
+    "strategySource": "https://docs.google.com/document/d/1JYXeHWivcZ9acfAuQxDg7m5q8oZBGZNrfQm_jtrBoJw/edit",
+    "sprintSource": "https://docs.google.com/document/d/1rwr-EAkeYX2Nti0t-eL8hvjP2alZUj-iMJ03DXtLo_c/edit",
+    "updated": "2026-07-17",
+    "note": "Seeded from the Strategy 2026 + Sprint Strategy docs; dashboard is now canonical. Strategic areas are a best-effort assignment — edit in-app. Quarters: Q2 = in-flight/closed this quarter; the rest is the updated Q3 Capacity Planning backlog.",
+    "icon": "🏭",
+    "accent": ""
+  },
+  "monthCapacityWeeks": 4,
+  "monthOptions": [
+    "Apr 2026",
+    "May 2026",
+    "Jun 2026",
+    "Jul 2026",
+    "Aug 2026",
+    "Sep 2026",
+    "Oct 2026",
+    "Nov 2026",
+    "Dec 2026",
+    "2027"
+  ],
+  "problemStatement": "In 2025, the B2B Reservations Module became a meaningful revenue driver, reaching $10M gross revenue ($29M inc. F4B, Patr. Nat. and LIV Golf) and scaling from ~$350K to >$2.1M in monthly run rate. We also generated incremental volume via Ambassadors and Affiliates of ~$39K + ~$3.98M. This strengthens the case that partner-facing B2B distribution can expand meaningfully beyond today’s baseline.\n\nFever’s overall commercial scale and large sponsorship-driven distribution partners such as Formula 1 ($360M GR) indicate that Reservations has significant headroom to capture more ticket distribution volume, if we remove the product and operating constraints that currently cap adoption.\n\nOur next growth step is to make Reservations repeatably scalable by addressing three scaling gates:\n\nStability Block: functional gaps create high-priority partner escalations and reduce trust in the platform. (e.g. weekly escalations from LIV Golf, Primavera Sound, Cirque de Soleil, currently 50% of engineering focused on “fire fighting”)\n\nMarket Block: missing advanced capabilities lock us out of high-value segments and larger partners. (e.g. sponsor ticket distribution tool for Formula1 and sports segment, partial deposit payments for indoor leisure segment)\n\nGrowth Block: onboarding and configuration still rely on manual work, which limits the rate at which we can scale. (e.g. Fever Opx manually approves 4000+ new businesses a month)\n\nIn 2026, the Reseller Squad will pivot from “managing tickets” to “architecting a platform” by (1) closing the core functionality gap to reduce escalations and increase trust, (2) unlocking new segments via advanced reservation capabilities, and (3) automating onboarding so growth is not gated by manual setup. This strategy targets $25M gross revenue by EOY 2026 and enables the launch of the B2B Marketplace: a self-service system where partners can publish B2B-ready inventory and resellers can discover, contract, and sell autonomously end-to-end.",
+  "projectRolloutStatuses": [
+    "in_progress",
+    "partially_rolled_out",
+    "fully_rolled_out"
+  ],
+  "quarterCapacityWeeks": 12,
+  "quarterOptions": [
+    "Q2 2026",
+    "Q3 2026",
+    "Q4 2026",
+    "Q1 2027",
+    "Q2 2027",
+    "Q3 2027",
+    "Q4 2027",
+    "2027"
+  ],
+  "rolloutStatuses": [
+    "not_started",
+    "rolling_out",
+    "fully_rolled_out"
+  ],
+  "sequencing": [
+    {
+      "period": "Q2",
+      "detail": "Make core reservation flows transaction-grade for our high revenue partners so growth doesn’t scale issues/escalations linearly. Unlock high-value segments by building the advanced reservation primitives required for enterprise/sponsorship models."
+    },
+    {
+      "period": "H2",
+      "detail": "Keep improving core reservations functionality and focus on building a end to end B2B distributions system for tickets. Invest in technical initiatives to stabilise Ambassadors & Affiliates functionality to allow future growth. We also might start with specific B2B Marketplace initiatives depending on what the B2B Marketplace project will offer once specified (in Q2)."
+    },
+    {
+      "period": "Later (2027)",
+      "detail": "We will mainly focus on fully enabling and launching the B2B Marketplace."
+    }
+  ],
+  "strategicObjectives": [
+    {
+      "key": "trust",
+      "label": "Trust & reliability",
+      "block": "Stability Block",
+      "desc": "Make Reservations transaction-grade beyond the happy path (modifications, exceptions, auditability) so partners operate without frequent escalations."
+    },
+    {
+      "key": "expansion",
+      "label": "Expansion",
+      "block": "Market Block",
+      "desc": "Unlock high-value segments via advanced reservation primitives (deposits/guarantees, delayed distribution, commercial terms) and establish core marketplace mechanisms."
+    },
+    {
+      "key": "self-service",
+      "label": "Self-service autonomy",
+      "block": "Growth Block",
+      "desc": "Remove onboarding as a bottleneck: self-serve setup, faster time-to-first-booking, discovery/matchmaking."
+    },
+    {
+      "key": "tech",
+      "label": "Technical improvements",
+      "block": "",
+      "desc": "Strengthen the platform to support any partner and channel at scale: observability, strict null checks, shared testing & quality."
+    }
+  ],
+  "targetRevenue": "$25M gross revenue by EOY 2026",
+  "team": [
+    {
+      "key": "alexander-blair",
+      "name": "Alexander Blair"
+    },
+    {
+      "key": "gustavo-aguilera",
+      "name": "Gustavo Aguilera"
+    },
+    {
+      "key": "adrian-lopez",
+      "name": "Adrian Lopez"
+    },
+    {
+      "key": "raquel-yuste",
+      "name": "Raquel Yuste"
+    },
+    {
+      "key": "sara-mesa",
+      "name": "Sara Mesa"
+    },
+    {
+      "key": "sergio-sanz",
+      "name": "Sergio Sanz"
+    },
+    {
+      "key": "ignacio-lupi",
+      "name": "Ignacio Lupi"
+    },
+    {
+      "key": "eloi-milego",
+      "name": "Eloi Milego"
+    },
+    {
+      "key": "felix-carpena",
+      "name": "Felix Carpena"
+    },
+    {
+      "key": "andrea-sucre",
+      "name": "Andrea Sucre"
+    }
+  ],
+  "vision": "“Evolving the B2B Reservations Module from a Managed Service to a High-Performance, Self-Scaling B2B Marketplace.”"
+}
