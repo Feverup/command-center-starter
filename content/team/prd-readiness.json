@@ -70,6 +70,68 @@
         "Design",
         "Tech"
       ],
+      "tracks": [
+        {
+          "id": "T1",
+          "label": "Platform",
+          "epics": [
+            "E1",
+            "E2",
+            "E4",
+            "E8"
+          ],
+          "hue": "#0891b2"
+        },
+        {
+          "id": "T2",
+          "label": "Discovery",
+          "epics": [
+            "E3",
+            "E9"
+          ],
+          "hue": "#6366f1"
+        },
+        {
+          "id": "T3",
+          "label": "Checkout",
+          "epics": [
+            "E5",
+            "E6",
+            "E7"
+          ],
+          "hue": "#db2777"
+        }
+      ],
+      "milestones": [
+        {
+          "code": 1,
+          "name": "Discovery"
+        },
+        {
+          "code": 2,
+          "name": "Wholesales"
+        },
+        {
+          "code": 3,
+          "name": "Commissions"
+        },
+        {
+          "code": 4,
+          "name": "Post-MVP",
+          "postLaunch": true
+        }
+      ],
+      "epicOwners": {
+        "E1": "Raquel",
+        "E2": "Raquel",
+        "E3": "Sergio",
+        "E4": "Nacho",
+        "E5": "Gustavo",
+        "E6": "Alexander",
+        "E7": "Gustavo",
+        "E8": "Raquel",
+        "E9": "Adrián"
+      },
       "epicTeams": {
         "E1": "Raquel + Nacho + Eloi + Javier B. + Ismail + Miguel Cabrera",
         "E2": "Raquel + Nacho + Eloi + Javier B. + Ismail + Miguel Cabrera",
@@ -359,6 +421,7 @@
                 "p",
                 "o"
               ],
+              "track": "T2",
               "epic": "E3",
               "issueKey": "B2BR-5360"
             },
@@ -448,6 +511,7 @@
                 "p",
                 "o"
               ],
+              "track": "T2",
               "epic": "E5",
               "issueKey": "B2BR-5282"
             },
@@ -472,6 +536,7 @@
                 "p",
                 "o"
               ],
+              "track": "T2",
               "epic": "E5",
               "issueKey": "B2BR-5151"
             }
@@ -542,6 +607,7 @@
                 "p",
                 "o"
               ],
+              "track": "T2",
               "epic": "E2",
               "issueKey": "B2BR-5135"
             },
@@ -631,6 +697,7 @@
                 "p",
                 "o"
               ],
+              "track": "T1",
               "epic": "E9",
               "issueKey": "B2BR-5181"
             },
@@ -676,6 +743,7 @@
                 "p",
                 "o"
               ],
+              "track": "T1",
               "epic": "E4",
               "issueKey": "B2BR-5531"
             },
@@ -1415,6 +1483,7 @@
                 "o",
                 "o"
               ],
+              "track": "T3",
               "issueKey": "B2BR-5885"
             },
             {
@@ -1493,6 +1562,7 @@
                 "-",
                 "-"
               ],
+              "track": "T3",
               "issueKey": "B2BR-5966"
             }
           ]
