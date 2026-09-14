@@ -133,15 +133,45 @@
         "E9": "Adrián"
       },
       "epicTeams": {
-        "E1": "Raquel + Nacho + Eloi + Javier B. + Ismail + Miguel Cabrera",
-        "E2": "Raquel + Nacho + Eloi + Javier B. + Ismail + Miguel Cabrera",
+        "E1": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
+        "E2": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
         "E3": "Sergio + Adrián + Sara",
-        "E4": "Raquel + Nacho + Eloi + Javier B. + Ismail + Miguel Cabrera",
+        "E4": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
         "E5": "Alexander + Gustavo + Carmine",
         "E6": "Alexander + Gustavo + Carmine",
         "E7": "Alexander + Gustavo + Carmine",
-        "E8": "Raquel + Nacho + Eloi + Javier B. + Ismail + Miguel Cabrera",
+        "E8": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
         "E9": "Sergio + Adrián + Sara"
+      },
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
+      ],
+      "planning": {
+        "weekOneStart": "2026-07-06",
+        "firefighterRotation": [
+          "Raquel",
+          "Sergio",
+          "Adrián",
+          "Nacho",
+          "Alexander",
+          "Sara",
+          "Gustavo",
+          "Eloi"
+        ],
+        "capacityPairs": 4,
+        "firefighterLossPair": 0.5
       },
       "trackerBaseUrl": "https://feverup.atlassian.net/browse",
       "tracker": {
@@ -1683,6 +1713,21 @@
         "Finance & Commissions",
         "Tech"
       ],
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
+      ],
       "matrix": [
         {
           "group": "Surcharge tax behaviour across Multipay (B2BR-5403) — in flight",
@@ -1841,6 +1886,21 @@
         "Finance & Commissions",
         "Data",
         "Tech"
+      ],
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
       ],
       "matrix": [
         {
@@ -2131,6 +2191,21 @@
         "Tech",
         "QA",
         "Support"
+      ],
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
       ],
       "matrix": [
         {
