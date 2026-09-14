@@ -140,6 +140,14 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'worktrees', icon: '🌳', title: 'Worktrees',
+    items: [
+      { kind: 'in-app', text: 'Every git worktree across your repositories, with the branch, how far it has drifted and whether it is dirty — so a checkout you forgot about stops being invisible.' },
+      { kind: 'in-app', text: 'Promote merges a worktree branch back and removes it; remove just deletes it. Both refuse rather than discard when there is uncommitted work.' },
+      { kind: 'both', text: 'Set WORKTREES_SCAN_ROOT to the directory holding your repositories. It defaults to ~/Documents/fever, which is almost certainly not yours — a missing root is reported, not shown as "no worktrees".' },
+    ],
+  },
+  {
     section: 'roadmap', icon: '🗺️', title: 'Roadmap',
     items: [
       { kind: 'in-app', text: 'Initiatives with effort, impact, build and rollout state, plus KPIs, projects and sprints — from content/team/roadmaps/<squad>.json.' },
