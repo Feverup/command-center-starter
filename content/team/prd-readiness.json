@@ -61,6 +61,124 @@
           "url": "https://feverup.atlassian.net/browse/B2BR-5130"
         }
       ],
+      "disciplines": [
+        "Product",
+        "Business Growth",
+        "Legal",
+        "Finance",
+        "Fees & comm.",
+        "Design",
+        "Tech"
+      ],
+      "tracks": [
+        {
+          "id": "T1",
+          "label": "Platform",
+          "epics": [
+            "E1",
+            "E2",
+            "E4",
+            "E8"
+          ],
+          "hue": "#0891b2"
+        },
+        {
+          "id": "T2",
+          "label": "Discovery",
+          "epics": [
+            "E3",
+            "E9"
+          ],
+          "hue": "#6366f1"
+        },
+        {
+          "id": "T3",
+          "label": "Checkout",
+          "epics": [
+            "E5",
+            "E6",
+            "E7"
+          ],
+          "hue": "#db2777"
+        }
+      ],
+      "milestones": [
+        {
+          "code": 1,
+          "name": "Discovery"
+        },
+        {
+          "code": 2,
+          "name": "Wholesales"
+        },
+        {
+          "code": 3,
+          "name": "Commissions"
+        },
+        {
+          "code": 4,
+          "name": "Post-MVP",
+          "postLaunch": true
+        }
+      ],
+      "epicOwners": {
+        "E1": "Raquel",
+        "E2": "Raquel",
+        "E3": "Sergio",
+        "E4": "Nacho",
+        "E5": "Gustavo",
+        "E6": "Alexander",
+        "E7": "Gustavo",
+        "E8": "Raquel",
+        "E9": "Adrián"
+      },
+      "epicTeams": {
+        "E1": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
+        "E2": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
+        "E3": "Sergio + Adrián + Sara",
+        "E4": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
+        "E5": "Alexander + Gustavo + Carmine",
+        "E6": "Alexander + Gustavo + Carmine",
+        "E7": "Alexander + Gustavo + Carmine",
+        "E8": "Raquel + Nacho + Eloi + Javier B. + Isabel + Miguel Cabrera",
+        "E9": "Sergio + Adrián + Sara"
+      },
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
+      ],
+      "planning": {
+        "weekOneStart": "2026-07-06",
+        "firefighterRotation": [
+          "Raquel",
+          "Sergio",
+          "Adrián",
+          "Nacho",
+          "Alexander",
+          "Sara",
+          "Gustavo",
+          "Eloi"
+        ],
+        "capacityPairs": 4,
+        "firefighterLossPair": 0.5
+      },
+      "trackerBaseUrl": "https://feverup.atlassian.net/browse",
+      "tracker": {
+        "project": "B2BR",
+        "label": "b2bm",
+        "issueType": "Story"
+      },
       "matrix": [
         {
           "group": "Foundations (Sprint 1) — data model & contract",
@@ -69,36 +187,128 @@
               "us": "F-01 Business as an organization + API/data contract (backend)",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E1"
+              "effort": "> 5 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "startWeek": 1,
+              "phase": 1,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "n"
+              ],
+              "epic": "E1",
+              "issueKey": "B2BR-5121"
             },
             {
               "us": "F-03 Front shell + URL + design system + test harness/CI",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E1"
+              "effort": "3 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "startWeek": 1,
+              "phase": 1,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d",
+                "n"
+              ],
+              "epic": "E1",
+              "issueKey": "B2BR-5122"
             },
             {
               "us": "F-05 Enforce the Oso agreement at the auth layer and distributor roles",
               "status": "todo",
               "ourPriority": "P0",
-              "epic": "E1"
+              "effort": "2 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "deps": [
+                "F-01"
+              ],
+              "startWeek": 7,
+              "phase": 2,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "n"
+              ],
+              "epic": "E1",
+              "issueKey": "B2BR-5528"
             },
             {
               "us": "D-16 FeverZone for multi-partner distributors",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E1"
+              "effort": "> 5 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "F-01"
+              ],
+              "startWeek": 4,
+              "phase": 2,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "n",
+                "n"
+              ],
+              "epic": "E1",
+              "issueKey": "B2BR-5529"
             },
             {
               "us": "D-16b FeverZone for a partner working on behalf of a distributor (part 2)",
               "status": "in-progress",
-              "epic": "E1"
+              "epic": "E1",
+              "phase": 4,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "issueKey": "B2BR-5924"
             },
             {
               "us": "F-09 Partner One-Time Announcements (Splash) — shared library + backend",
               "status": "done",
               "ourPriority": "P2",
-              "epic": "E1"
+              "epic": "E1",
+              "effort": "Days",
+              "complexity": "Med",
+              "impact": "Med",
+              "startWeek": 1,
+              "phase": 1,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "issueKey": "B2BR-5347"
             }
           ]
         },
@@ -107,56 +317,258 @@
           "rows": [
             {
               "us": "O-01 Consolidated catalog overview",
-              "epic": "E3"
+              "effort": "2 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "startWeek": 11,
+              "phase": 1,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E3",
+              "issueKey": "B2BR-5141"
             },
             {
               "us": "D-02 Browse & filter cross-Organizer catalog",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E3"
+              "epic": "E3",
+              "effort": "> 5 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "F-03",
+                "F-01"
+              ],
+              "startWeek": 1,
+              "phase": 1,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "issueKey": "B2BR-5138"
             },
             {
               "us": "O-07 Set the catalog access mode",
               "ourPriority": "P0",
-              "epic": "E4"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "O-01"
+              ],
+              "startWeek": 11,
+              "phase": 1,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5143"
             },
             {
               "us": "O-21 History of catalog requests",
               "status": "todo",
               "ourPriority": "P3",
-              "epic": "E4"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "O-09"
+              ],
+              "startWeek": 22,
+              "phase": 4,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5534"
             },
             {
               "us": "D-02b View organizer profile (discovery)",
               "ourPriority": "P0",
-              "epic": "E3"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "D-02"
+              ],
+              "startWeek": 21,
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E3",
+              "issueKey": "B2BR-5139"
             },
             {
               "us": "D-02d View plan / event detail (discovery)",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E3"
+              "effort": "4 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "D-02",
+                "D-02p"
+              ],
+              "startWeek": 5,
+              "phase": 2,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "track": "T2",
+              "epic": "E3",
+              "issueKey": "B2BR-5360"
             },
             {
               "us": "D-02r Catalog recommender API",
-              "epic": "E3"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "D-02"
+              ],
+              "startWeek": 34,
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E3",
+              "issueKey": "B2BR-5140"
             },
             {
               "us": "D-03 Request access to a restricted Organizer",
-              "epic": "E4"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "D-02",
+                "O-07",
+                "SO-04"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5144"
             },
             {
               "us": "D-11 See access requests by status",
-              "epic": "E4"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "D-03"
+              ],
+              "startWeek": 12,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5147"
             },
             {
               "us": "O-16 Create & manage distributor groups",
-              "epic": "E5"
+              "effort": "4 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "deps": [
+                "F-01"
+              ],
+              "startWeek": 10,
+              "phase": 2,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "p",
+                "p",
+                "o"
+              ],
+              "track": "T2",
+              "epic": "E5",
+              "issueKey": "B2BR-5282"
             },
             {
               "us": "D-02p Resolve & show per-distributor prices on the catalog",
               "ourPriority": "P0",
-              "epic": "E5"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "D-02",
+                "SYS-01"
+              ],
+              "startWeek": 7,
+              "phase": 2,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "track": "T2",
+              "epic": "E5",
+              "issueKey": "B2BR-5151"
             }
           ]
         },
@@ -165,76 +577,380 @@
           "rows": [
             {
               "us": "O-09 Approve / reject an access request",
-              "epic": "E4"
+              "effort": "1 week",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "D-03"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "p",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5145"
             },
             {
               "us": "SO-01 Browse & filter Distributors directory",
-              "epic": "E9"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "F-03"
+              ],
+              "startWeek": 13,
+              "phase": 2,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5177"
             },
             {
               "us": "SO-07 Basic distributors list",
-              "epic": "E2"
+              "effort": "Days",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "SO-04"
+              ],
+              "startWeek": 9,
+              "phase": 1,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "track": "T2",
+              "epic": "E2",
+              "issueKey": "B2BR-5135"
             },
             {
               "us": "SO-04 Create the distributor organization from Salesforce (due-diligence complete)",
-              "epic": "E2"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "F-03"
+              ],
+              "startWeek": 10,
+              "phase": 1,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E2",
+              "issueKey": "B2BR-5134"
             },
             {
               "us": "SO-02 Review registrations → onboard / reject",
-              "epic": "E2"
+              "effort": "3 weeks",
+              "complexity": "Low",
+              "impact": "Low",
+              "deps": [
+                "SO-04"
+              ],
+              "startWeek": 22,
+              "phase": 4,
+              "cells": [
+                "p",
+                "p",
+                "x|T&C",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E2",
+              "issueKey": "B2BR-5133"
             },
             {
               "us": "D-09 Edit non-sensitive profile fields",
               "ourPriority": "P1",
-              "epic": "E2"
+              "effort": "1 week",
+              "complexity": "Low",
+              "impact": "Low",
+              "deps": [
+                "F-01"
+              ],
+              "startWeek": 11,
+              "phase": 1,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E2",
+              "issueKey": "B2BR-5136"
             },
             {
               "us": "D-10 Invite / manage members & roles",
-              "epic": "E9"
+              "effort": "1 week",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "SO-04"
+              ],
+              "startWeek": 12,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "track": "T1",
+              "epic": "E9",
+              "issueKey": "B2BR-5181"
             },
             {
               "us": "O-12 Unified Distributors list + block",
-              "epic": "E9"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "O-09"
+              ],
+              "startWeek": 34,
+              "phase": 4,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5180"
             },
             {
               "us": "O-19 Organizer's list of connected distributors",
               "ourPriority": "P0",
-              "epic": "E4"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "O-09"
+              ],
+              "startWeek": 9,
+              "phase": 2,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "track": "T1",
+              "epic": "E4",
+              "issueKey": "B2BR-5531"
             },
             {
               "us": "O-20 Organizer's distributor profile page",
-              "epic": "E4"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "O-09"
+              ],
+              "startWeek": 11,
+              "phase": 2,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5532"
             },
             {
               "us": "SO-08 Revoke a distributor across the whole marketplace",
               "ourPriority": "P1",
-              "epic": "E4"
+              "effort": "Days",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "F-01"
+              ],
+              "phase": 4,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5283"
             },
             {
               "us": "SO-05a Sales Ops distributor view (marketplace settings + cross-partner concessions)",
-              "epic": "E9"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SO-02"
+              ],
+              "startWeek": 14,
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5176"
             },
             {
               "us": "SO-05b Sales Ops edits / creates distributor connections",
-              "epic": "E9"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SO-02"
+              ],
+              "startWeek": 16,
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5525"
             },
             {
               "us": "SO-13 Sales-Ops distributor profile page (Information · Balances · Members · Connections)",
-              "epic": "E9"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SO-01"
+              ],
+              "startWeek": 14,
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5533"
             },
             {
               "us": "SO-14 Balance movement history",
               "status": "todo",
               "ourPriority": "P2",
-              "epic": "E9"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SO-13"
+              ],
+              "phase": 4,
+              "cells": [
+                "o",
+                "-",
+                "-",
+                "-",
+                "-",
+                "o",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5757"
             },
             {
               "us": "SO-06 Audit log of Sales Ops actions",
-              "epic": "E9"
+              "effort": "2 weeks",
+              "complexity": "Low",
+              "impact": "Low",
+              "deps": [
+                "SO-01"
+              ],
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5179"
             },
             {
               "us": "O-11 Bulk approve / reject",
-              "epic": "E4"
+              "effort": "1 week",
+              "complexity": "High",
+              "impact": "Low",
+              "deps": [
+                "O-09"
+              ],
+              "phase": 4,
+              "cells": [
+                "p",
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E4",
+              "issueKey": "B2BR-5148"
             }
           ]
         },
@@ -245,65 +961,274 @@
               "us": "SYS-01 Resolve B2B price via priority cascade (incl. backend skeleton)",
               "status": "done",
               "ourPriority": "P0",
-              "epic": "E5"
+              "effort": "3 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "startWeek": 1,
+              "phase": 2,
+              "cells": [
+                "d",
+                "d",
+                "-",
+                "d",
+                "-",
+                "-",
+                "o"
+              ],
+              "epic": "E5",
+              "issueKey": "B2BR-5150"
             },
             {
               "us": "O-04 Edit the B2B discount from the price list (per ticket type)",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E5"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "SYS-01"
+              ],
+              "phase": 2,
+              "cells": [
+                "d",
+                "d",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E5",
+              "issueKey": "B2BR-5154"
             },
             {
               "us": "O-05 Move Distributor to a new group",
-              "epic": "E9"
+              "effort": "1 week",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "O-16"
+              ],
+              "startWeek": 12,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "p",
+                "o"
+              ],
+              "epic": "E9",
+              "issueKey": "B2BR-5155"
             },
             {
               "us": "SYS-09 Monthly per-distributor commission statement",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "3 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SYS-02"
+              ],
+              "startWeek": 20,
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "x",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5169"
             },
             {
               "us": "SYS-11 The event's jurisdiction sets the VAT rate",
               "status": "done",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "Days",
+              "complexity": "Med",
+              "impact": "High",
+              "startWeek": 3,
+              "phase": 3,
+              "cells": [
+                "d",
+                "-",
+                "d",
+                "d",
+                "-",
+                "-",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5284"
             },
             {
               "us": "SYS-12 Generate the wholesale B2BC invoice (B1) on payment",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "2 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "deps": [
+                "SYS-11",
+                "D-04"
+              ],
+              "startWeek": 13,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "p",
+                "x",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5285"
             },
             {
               "us": "SYS-13 Generate the commission B2BC invoice (B2C) on payment",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "2 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "deps": [
+                "SYS-11",
+                "D-05"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "p",
+                "x",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5286"
             },
             {
               "us": "SYS-14 Generate a credit note on cancellation",
               "ourPriority": "P1",
-              "epic": "E7"
+              "effort": "Days",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SYS-12"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "p",
+                "x",
+                "p",
+                "-",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5287"
             },
             {
               "us": "SYS-15 Fever→partner B2B invoice (FA) reconciliation",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "SYS-02"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "p",
+                "x",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5288"
             },
             {
               "us": "SYS-16 Per-country e-invoicing / e-reporting compliance",
               "ourPriority": "P3",
-              "epic": "E7"
+              "effort": "4 weeks",
+              "complexity": "High",
+              "impact": "High",
+              "deps": [
+                "SYS-12"
+              ],
+              "startWeek": 21,
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "p",
+                "x",
+                "-",
+                "-",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5289"
             },
             {
               "us": "SYS-19 Apply coupon to a booking",
               "status": "todo",
               "ourPriority": "P2",
-              "epic": "E7"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "Med",
+              "deps": [
+                "D-05",
+                "SYS-02"
+              ],
+              "startWeek": 23,
+              "phase": 4,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "n",
+                "n",
+                "-",
+                "n"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5526"
             },
             {
               "us": "O-15 Organizer tops up a distributor's pre-paid balance",
               "status": "todo",
               "ourPriority": "P2",
-              "epic": "E5"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "D-06b"
+              ],
+              "startWeek": 14,
+              "phase": 3,
+              "cells": [
+                "n",
+                "-",
+                "-",
+                "n",
+                "-",
+                "-",
+                "n"
+              ],
+              "epic": "E5",
+              "issueKey": "B2BR-5535"
             }
           ]
         },
@@ -314,86 +1239,361 @@
               "us": "D-04 Book at wholesale",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E6"
+              "effort": "2 weeks",
+              "complexity": "Low",
+              "impact": "High",
+              "deps": [
+                "SYS-01",
+                "D-02"
+              ],
+              "startWeek": 5,
+              "phase": 2,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "n",
+                "n",
+                "p",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5157"
             },
             {
               "us": "D-06 Pay wholesale by card",
               "ourPriority": "P0",
-              "epic": "E6"
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 12,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "p",
+                "-",
+                "o",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5158"
             },
             {
               "us": "SYS-05 Fiscal/jurisdiction VAT check at booking",
               "ourPriority": "P1",
-              "epic": "E6"
+              "effort": "Days",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 13,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "x",
+                "p",
+                "-",
+                "n",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5164"
             },
             {
               "us": "D-07a View & edit customer info on reservations",
               "status": "blocked",
               "ourPriority": "P1",
-              "epic": "E6"
+              "effort": "2 weeks",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 10,
+              "phase": 2,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "o",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5160"
             },
             {
               "us": "D-07b Modify & reschedule reservations",
               "status": "todo",
               "ourPriority": "P0",
-              "epic": "E6"
+              "effort": "2 weeks",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "D-07a"
+              ],
+              "startWeek": 20,
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "o",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5527"
             },
             {
               "us": "D-08 Download delivery note",
               "ourPriority": "P2",
-              "epic": "E6"
+              "effort": "Days",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 13,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5161"
             },
             {
               "us": "SYS-03 Mask B2B price on issued tickets",
               "ourPriority": "P1",
-              "epic": "E6"
+              "effort": "3 weeks",
+              "complexity": "Med",
+              "impact": "Low",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 12,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5163"
             },
             {
               "us": "D-06b Pay wholesale by balance",
               "status": "in-progress",
               "ourPriority": "P0",
-              "epic": "E6"
+              "effort": "4 weeks",
+              "complexity": "High",
+              "impact": "Low",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 5,
+              "phase": 2,
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "n",
+                "n",
+                "p",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5159"
             },
             {
               "us": "SYS-08 Enforce checkout-path restrictions",
-              "epic": "E1"
+              "effort": "1 week",
+              "complexity": "Med",
+              "impact": "Low",
+              "deps": [
+                "D-04"
+              ],
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "p",
+                "-",
+                "o"
+              ],
+              "epic": "E1",
+              "issueKey": "B2BR-5149"
             },
             {
               "us": "D-05 Book on commission + Pay-by-Link",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "3 weeks",
+              "complexity": "Med",
+              "impact": "High",
+              "deps": [
+                "D-04",
+                "SYS-05"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "x|VAT",
+                "p",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5171"
             },
             {
               "us": "D-15 View reservations list (overview)",
               "ourPriority": "P0",
-              "epic": "E6"
+              "effort": "1 week",
+              "complexity": "Low",
+              "impact": "High",
+              "deps": [
+                "D-04"
+              ],
+              "startWeek": 8,
+              "phase": 2,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5530"
             },
             {
               "us": "D-15b View reservation / order detail",
               "ourPriority": "P0",
-              "epic": "E6"
+              "epic": "E6",
+              "effort": "1 week",
+              "complexity": "Low",
+              "impact": "High",
+              "deps": [
+                "D-04",
+                "D-15"
+              ],
+              "startWeek": 11,
+              "phase": 1,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "o",
+                "o"
+              ],
+              "track": "T3",
+              "issueKey": "B2BR-5885"
             },
             {
               "us": "D-17 Global distributor balance across the distributor's organizations",
               "status": "todo",
               "ourPriority": "P2",
-              "epic": "E6"
+              "effort": "3 weeks",
+              "complexity": "High",
+              "impact": "Med",
+              "deps": [
+                "D-06b",
+                "O-15"
+              ],
+              "startWeek": 23,
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "p",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E6",
+              "issueKey": "B2BR-5536"
             },
             {
               "us": "D-04b Two parties on a booking, and a Hide prices toggle",
               "status": "in-progress",
-              "epic": "E6"
+              "epic": "E6",
+              "phase": 4,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "issueKey": "B2BR-5898"
             },
             {
               "us": "D-28 Rekey payment settings to the distributor organization",
               "status": "in-progress",
-              "epic": "E6"
+              "epic": "E6",
+              "phase": 4,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "issueKey": "B2BR-5736"
             },
             {
               "us": "D-46 Display payment instructions",
               "status": "todo",
               "ourPriority": "P2",
-              "epic": "E1"
+              "epic": "E1",
+              "effort": "2 weeks",
+              "complexity": "Med",
+              "impact": "Low",
+              "startWeek": 20,
+              "phase": 4,
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "track": "T3",
+              "issueKey": "B2BR-5966"
             }
           ]
         },
@@ -403,19 +1603,93 @@
             {
               "us": "SYS-02 Capture commission attribution at close",
               "ourPriority": "P0",
-              "epic": "E7"
+              "effort": "1 week",
+              "complexity": "High",
+              "impact": "High",
+              "deps": [
+                "D-04"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "o",
+                "o",
+                "p",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E7",
+              "issueKey": "B2BR-5165"
             },
             {
               "us": "D-12 Dashboard KPIs",
-              "epic": "E8"
+              "effort": "Days",
+              "complexity": "Low",
+              "impact": "Med",
+              "deps": [
+                "D-04",
+                "D-06"
+              ],
+              "startWeek": 20,
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "-",
+                "-",
+                "p",
+                "o"
+              ],
+              "epic": "E8",
+              "issueKey": "B2BR-5174"
             },
             {
               "us": "O-13 Monitor B2B sales + reconcile",
-              "epic": "E8"
+              "effort": "Days",
+              "complexity": "High",
+              "impact": "Med",
+              "deps": [
+                "SYS-02",
+                "D-04"
+              ],
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "p",
+                "p",
+                "o",
+                "o"
+              ],
+              "epic": "E8",
+              "issueKey": "B2BR-5175"
             },
             {
               "us": "O-14 Wholesale order export + commission invoicing data",
-              "epic": "E8"
+              "effort": "Days",
+              "complexity": "Med",
+              "impact": "Low",
+              "deps": [
+                "D-04",
+                "SYS-02",
+                "SYS-09"
+              ],
+              "startWeek": 20,
+              "phase": 3,
+              "cells": [
+                "p",
+                "-",
+                "-",
+                "p",
+                "-",
+                "o",
+                "o"
+              ],
+              "epic": "E8",
+              "issueKey": "B2BR-5173"
             }
           ]
         }
@@ -425,46 +1699,155 @@
       "id": "multipay-surcharge",
       "name": "Multipayment — Surcharge",
       "icon": "💳",
-      "epics": [],
+      "epics": [
+        {
+          "code": "G1",
+          "name": "Surcharge tax behaviour across Multipay (B2BR-5403) — in flight",
+          "short": "Surcharge tax behaviour "
+        }
+      ],
+      "disciplines": [
+        "Product",
+        "Legal",
+        "Tax",
+        "Finance & Commissions",
+        "Tech"
+      ],
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
+      ],
       "matrix": [
         {
           "group": "Surcharge tax behaviour across Multipay (B2BR-5403) — in flight",
           "rows": [
             {
               "us": "B2BR-5403 Management Surcharge — tax behaviour across Multipay (B2B deposits first)",
-              "status": "in-progress"
+              "status": "in-progress",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5403"
             },
             {
               "us": "B2BR-5405 Stream A — re-home the EU gate onto surcharge_tax_point",
-              "status": "in-review"
+              "status": "in-review",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5405"
             },
             {
               "us": "B2BR-5406 Stream G — additive surcharge charging (correctness fix)",
-              "status": "in-progress"
+              "status": "in-progress",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5406"
             },
             {
               "us": "B2BR-5433 Zero the surcharge on a rescheduled leg under FULL_AT_DEPOSIT",
-              "status": "planned"
+              "status": "planned",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5433"
             },
             {
               "us": "B2BR-5444 Fix settlement reconciliation when Fever owns the surcharge and the deposit is cancelled",
-              "status": "planned"
+              "status": "planned",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5444"
             },
             {
               "us": "B2BR-5407 Stream B — US unified proportional verification + gross deposit base",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5407"
             },
             {
               "us": "B2BR-5504 Make the b2b and accounting stores agree on the deposit/settlement split",
-              "status": "in-progress"
+              "status": "in-progress",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5504"
             },
             {
               "us": "B2BR-5562 Stream H — Global FULL_AT_DEPOSIT enablement (the flip)",
-              "status": "todo"
+              "status": "todo",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5562"
             },
             {
               "us": "B2BR-5565 Preserve FULL_AT_DEPOSIT attribution in the b2b deposit reattributor",
-              "status": "in-progress"
+              "status": "in-progress",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-5565"
             }
           ]
         }
@@ -474,38 +1857,158 @@
       "id": "deposits",
       "name": "Deposits",
       "icon": "💰",
-      "epics": [],
+      "epics": [
+        {
+          "code": "G1",
+          "name": "Phase 0-2 — Core reservation-with-deposit flow (done)",
+          "short": "Phase 0-2"
+        },
+        {
+          "code": "G2",
+          "name": "Phase 3 — Modify & cancel orders (done)",
+          "short": "Phase 3"
+        },
+        {
+          "code": "G3",
+          "name": "Phase 4 — Finance & invoicing (Phase 4.3 in progress)",
+          "short": "Phase 4"
+        },
+        {
+          "code": "G4",
+          "name": "Phase 5 — Observability & hardening (done)",
+          "short": "Phase 5"
+        }
+      ],
+      "disciplines": [
+        "Product",
+        "Legal",
+        "Tax",
+        "Finance & Commissions",
+        "Data",
+        "Tech"
+      ],
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
+      ],
       "matrix": [
         {
           "group": "Phase 0-2 — Core reservation-with-deposit flow (done)",
           "rows": [
             {
               "us": "Deposits - Phase 0: Foundations & Cleanup",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4178"
             },
             {
               "us": "Phase 1: Configuration of deposit update",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4186"
             },
             {
               "us": "Phase 1: Creation of reservation with deposit",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4187"
             },
             {
               "us": "Phase 1.5: Securing the reservation",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4188"
             },
             {
               "us": "Phase 2: Full payment of reservation",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4188"
+              ],
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4189"
             },
             {
               "us": "Phase 2: Cancel reservations",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4191"
             },
             {
               "us": "Phase 2: Refund deposits",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4191"
+              ],
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "d",
+                "-",
+                "d"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4190"
             }
           ]
         },
@@ -514,15 +2017,49 @@
           "rows": [
             {
               "us": "Phase 3: Modify reservation",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G2",
+              "issueKey": "B2BR-4192"
             },
             {
               "us": "Phase 3: Cancel orders",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4191",
+                "B2BR-4190"
+              ],
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G2",
+              "issueKey": "B2BR-4193"
             },
             {
               "us": "Allow coupons on the cart of deposit-flow reservations",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "-",
+                "d"
+              ],
+              "epic": "G2",
+              "issueKey": "B2BR-4772"
             }
           ]
         },
@@ -531,23 +2068,79 @@
           "rows": [
             {
               "us": "Phase 4.1: Foundation: Schema & Domain",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "d",
+                "-",
+                "d"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-4505"
             },
             {
               "us": "Phase 4.2: Fever2 → Finance Communication",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4505"
+              ],
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "d",
+                "-",
+                "d"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-4504"
             },
             {
               "us": "Phase 4.3: B2BC Invoicing — Deposit Tax Documents",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4508"
+              ],
+              "cells": [
+                "-",
+                "-",
+                "p",
+                "p",
+                "-",
+                "p"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-4506"
             },
             {
               "us": "Phase 4.4: Rescheduling Handling (B2B)",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "d",
+                "-",
+                "d"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-4507"
             },
             {
               "us": "Phase 4.5: Settlement & Reconciliation — Commission Billing",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "-",
+                "-",
+                "-",
+                "d",
+                "-",
+                "d"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-4508"
             }
           ]
         },
@@ -556,7 +2149,17 @@
           "rows": [
             {
               "us": "Phase 5: Observability & hardening",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "d",
+                "-",
+                "-",
+                "-",
+                "p",
+                "d"
+              ],
+              "epic": "G4",
+              "issueKey": "B2BR-4195"
             }
           ]
         }
@@ -566,34 +2169,134 @@
       "id": "full-ticket-modification",
       "name": "Full ticket modification on reservations",
       "icon": "🎟️",
-      "epics": [],
+      "epics": [
+        {
+          "code": "G1",
+          "name": "Core modification engine (Phase 0–2) — done",
+          "short": "Core modification engine"
+        },
+        {
+          "code": "G2",
+          "name": "Rollout (opened to 100% except Patrimonio Nacional)",
+          "short": "Rollout"
+        },
+        {
+          "code": "G3",
+          "name": "Legacy-flow cleanup (blocked on full rollout)",
+          "short": "Legacy-flow cleanup"
+        }
+      ],
+      "disciplines": [
+        "Product",
+        "Tech",
+        "QA",
+        "Support"
+      ],
+      "people": [
+        "Alexander",
+        "Sergio",
+        "Raquel",
+        "Gustavo",
+        "Nacho",
+        "Adrián",
+        "Eloi",
+        "Sara",
+        "Javier B.",
+        "Isabel",
+        "Carmine",
+        "Miguel Cabrera",
+        "Andrea"
+      ],
       "matrix": [
         {
           "group": "Core modification engine (Phase 0–2) — done",
           "rows": [
             {
               "us": "Full Reservation Modification — Foundations — Phase 0",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "-",
+                "d",
+                "-",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4555"
             },
             {
               "us": "Full Reservation Modification — Phase 1 — Increase/Decrease",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4555"
+              ],
+              "cells": [
+                "d",
+                "d",
+                "d",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4558"
             },
             {
               "us": "Full Reservation modification — Phase 1.1 — Decrease to Zero (Implicit Cancellation)",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4555"
+              ],
+              "cells": [
+                "d",
+                "d",
+                "d",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4767"
             },
             {
               "us": "Full reservation modification — Phase 1.2 — Adjustment Editing + Below 0 Scenarios",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4558"
+              ],
+              "cells": [
+                "-",
+                "d",
+                "d",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4859"
             },
             {
               "us": "Full Reservation Modification — Phase 2 — Advanced Booking Modifications: Multi-timeslot, New Sessions & Packs",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4859"
+              ],
+              "cells": [
+                "d",
+                "d",
+                "d",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4807"
             },
             {
               "us": "Full Reservation Modification — Reschedule & performance & monitoring",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4807"
+              ],
+              "cells": [
+                "d",
+                "d",
+                "d",
+                "-"
+              ],
+              "epic": "G1",
+              "issueKey": "B2BR-4934"
             }
           ]
         },
@@ -602,19 +2305,59 @@
           "rows": [
             {
               "us": "Rollout, Monitoring, and Documentation",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-4934"
+              ],
+              "cells": [
+                "d",
+                "d",
+                "-",
+                "p"
+              ],
+              "epic": "G2",
+              "issueKey": "B2BR-5008"
             },
             {
               "us": "Reservation Modifications opened to 100% of partners (Patrimonio Nacional excluded)",
-              "status": "done"
+              "status": "done",
+              "deps": [
+                "B2BR-5008"
+              ],
+              "cells": [
+                "-",
+                "x",
+                "-",
+                "-"
+              ],
+              "epic": "G2"
             },
             {
               "us": "Enable multi-time slot reservations for all partners",
-              "status": "done"
+              "status": "done",
+              "cells": [
+                "p",
+                "x",
+                "-",
+                "-"
+              ],
+              "epic": "G2",
+              "issueKey": "B2BR-4428"
             },
             {
               "us": "Remove multi-slot feature flag: gate multi-time-slot support on the endpoint response + add a disclaimer in the rules view",
-              "status": "in-progress"
+              "status": "in-progress",
+              "deps": [
+                "B2BR-4428"
+              ],
+              "cells": [
+                "-",
+                "p",
+                "-",
+                "-"
+              ],
+              "epic": "G2",
+              "issueKey": "B2BR-5098"
             }
           ]
         },
@@ -623,15 +2366,48 @@
           "rows": [
             {
               "us": "Full Reservation Modification — Remove legacy flow & retire the feature flag (cleanup)",
-              "status": "todo"
+              "status": "todo",
+              "deps": [
+                "B2BR-5008"
+              ],
+              "cells": [
+                "-",
+                "o",
+                "-",
+                "-"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-5182"
             },
             {
               "us": "[BE] Remove the legacy reservation-modification flow and retire the `enable_full_modification_flow` flag",
-              "status": "todo"
+              "status": "todo",
+              "deps": [
+                "B2BR-5182"
+              ],
+              "cells": [
+                "-",
+                "o",
+                "-",
+                "-"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-5183"
             },
             {
               "us": "[FE] Remove the legacy modification UI and the `enable_full_modification_flow` branching",
-              "status": "todo"
+              "status": "todo",
+              "deps": [
+                "B2BR-5182"
+              ],
+              "cells": [
+                "-",
+                "o",
+                "-",
+                "-"
+              ],
+              "epic": "G3",
+              "issueKey": "B2BR-5184"
             }
           ]
         }
