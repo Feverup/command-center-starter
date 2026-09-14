@@ -1,5 +1,6 @@
 import type { DashboardSection } from '@asucregonzalez/core';
 import { pullRequestsSection } from '@asucregonzalez/section-pull-requests';
+import { worktreesSection } from '@asucregonzalez/section-worktrees';
 import { createTasksSection } from '@asucregonzalez/section-tasks';
 import { journalSection } from '@asucregonzalez/section-journal';
 import { meetingsSection } from '@asucregonzalez/section-meetings';
@@ -39,6 +40,10 @@ export const sections: DashboardSection[] = [
       // Work-type buckets come from ./work-types, generated per role by /setup.
       { ...createTasksSection({ workTypes: WORK_TYPES }), id: 'tasks', label: 'Tasks', path: '/today/tasks' },
       { ...pullRequestsSection, id: 'prs', label: 'PRs', path: '/today/prs' },
+      // `visibility: 'shared'` overrides the package's own 'personal': that flag exists to keep
+      // one machine's checkouts out of a TEAMMATE's build, and in your own dashboard you are the
+      // teammate. Set WORKTREES_SCAN_ROOT (see .env.example) or it looks somewhere you are not.
+      { ...worktreesSection, id: 'worktrees', label: 'Worktrees', path: '/today/worktrees', visibility: 'shared' },
     ],
   },
   {
