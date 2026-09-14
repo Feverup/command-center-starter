@@ -131,6 +131,15 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'projects', icon: '📦', title: 'Projects',
+    items: [
+      { kind: 'in-app', text: 'Your projects, their epics and their stories — from content/team/prd-readiness.json. The sidebar lists the projects; Status says where one stands, Scope holds the epics and the story matrix.' },
+      { kind: 'in-app', text: 'Each epic is rolled up from its own stories, so its state is derived rather than maintained by hand. A blocked story outranks in-progress, because the epic holding it is the one that needs a decision.' },
+      { kind: 'in-app', text: 'Epic and P0–P3 priority are editable in the table and written straight back to the file, one story at a time — two people editing different rows will not overwrite each other.' },
+      { kind: 'both', text: 'The sample file ships two fictional projects so the tab shows something on a fresh clone. Delete it and the tab says the source is missing rather than pretending you have no projects.' },
+    ],
+  },
+  {
     section: 'roadmap', icon: '🗺️', title: 'Roadmap',
     items: [
       { kind: 'in-app', text: 'Initiatives with effort, impact, build and rollout state, plus KPIs, projects and sprints — from content/team/roadmaps/<squad>.json.' },

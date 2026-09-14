@@ -80,6 +80,9 @@ const routers = [
   // Reads ~/.claude/sessions and ~/.claude/projects — nothing in this repo. It
   // reports no sessions rather than failing when those are absent or unreadable.
   registerClaudeSessionsRoutes,
+  // Reads content/team/prd-readiness.json and writes single-story patches back
+  // to it. Absent file: the tab reports the gap rather than showing no projects.
+  registerDeliveryProjectsRoutes,
 ];
 
 for (const register of routers) {
