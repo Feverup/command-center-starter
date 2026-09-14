@@ -8,6 +8,7 @@ import { registerJournalRoutes } from '@asucregonzalez/section-journal/server';
 import { registerMeetingsRoutes } from '@asucregonzalez/section-meetings/server';
 import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-sessions/server';
 import { registerRoadmapRoutes } from '@asucregonzalez/section-roadmap/server';
+import { registerDeliveryProjectsRoutes } from '@asucregonzalez/section-delivery-projects/server';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a

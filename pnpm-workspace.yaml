@@ -2,3 +2,5 @@
 # blocks install scripts unless allowed here.
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@asucregonzalez/section-delivery-projects@0.2.0'

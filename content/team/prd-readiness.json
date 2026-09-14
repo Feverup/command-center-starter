@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-01-15",
+  "_note": "Example content for the Delivery ▸ Projects section. Delete this file once you have a plan of your own — the section reports a gap rather than pretending you have no projects. Epics and stories are yours to edit; nothing here is hand-maintained by the package.",
+  "projects": [
+    {
+      "id": "example-project",
+      "name": "Example Project",
+      "icon": "🚀",
+      "color": "#1FB8DD",
+      "owner": "You",
+      "dueDate": "2026-06-30",
+      "progress": 35,
+      "epics": [
+        { "code": "E1", "name": "Foundations", "short": "Foundations" },
+        { "code": "E2", "name": "Core Experience", "short": "Core" },
+        { "code": "E3", "name": "Reporting", "short": "Reporting" }
+      ],
+      "matrix": [
+        {
+          "group": "Foundations — data model & contract",
+          "rows": [
+            { "us": "F-01 Define the domain model and API contract", "epic": "E1", "status": "done", "ourPriority": "P0", "owners": "You" },
+            { "us": "F-02 Application shell, routing and test harness", "epic": "E1", "status": "done", "ourPriority": "P1" },
+            { "us": "F-03 Authentication and permission checks", "epic": "E1", "status": "in-progress", "ourPriority": "P0" }
+          ]
+        },
+        {
+          "group": "Core experience",
+          "rows": [
+            { "us": "C-01 Browse and filter the catalog", "epic": "E2", "status": "in-progress", "ourPriority": "P1" },
+            { "us": "C-02 Detail view with related items", "epic": "E2", "status": "todo", "ourPriority": "P2" },
+            { "us": "C-03 Checkout and confirmation", "epic": "E2", "status": "blocked", "ourPriority": "P0" },
+            { "us": "C-04 Saved items across devices", "epic": "E2", "status": "todo" }
+          ]
+        },
+        {
+          "group": "Reporting",
+          "rows": [
+            { "us": "R-01 Usage dashboard for admins", "epic": "E3", "status": "todo", "ourPriority": "P3" },
+            { "us": "R-02 Scheduled CSV export", "epic": "E3", "status": "todo" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "second-example",
+      "name": "Second Example",
+      "icon": "🧪",
+      "owner": "A teammate",
+      "progress": null,
+      "epics": [{ "code": "E1", "name": "Discovery", "short": "Discovery" }],
+      "matrix": [
+        {
+          "group": "Discovery",
+          "rows": [
+            { "us": "D-01 Interview five users", "epic": "E1", "status": "done" },
+            { "us": "D-02 Write up the findings", "epic": "E1", "status": "in-progress" }
+          ]
+        }
+      ]
+    }
+  ]
+}

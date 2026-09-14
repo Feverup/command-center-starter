@@ -4,6 +4,7 @@ import { createTasksSection } from '@asucregonzalez/section-tasks';
 import { journalSection } from '@asucregonzalez/section-journal';
 import { meetingsSection } from '@asucregonzalez/section-meetings';
 import { roadmapSection } from '@asucregonzalez/section-roadmap';
+import { deliveryProjectsSection } from '@asucregonzalez/section-delivery-projects';
 import { HomeView } from './HomeView';
 import { GuideView } from './GuideView';
 import { WORK_TYPES } from './work-types';
@@ -52,6 +53,10 @@ export const sections: DashboardSection[] = [
     id: 'plan', label: 'Plan', icon: '🗺️', path: '/plan', visibility: 'shared',
     blurb: 'Where you are going, and what it costs.',
     children: [
+      // Projects reads `content/team/prd-readiness.json`: its projects, their epics and
+      // their story matrix. Like Roadmap, the plan is content in your own repo — the
+      // package ships the table and none of anyone's stories.
+      { ...deliveryProjectsSection, id: 'projects', label: 'Projects', path: '/plan/projects' },
       { ...roadmapSection, id: 'roadmap', label: 'Roadmap', path: '/plan/roadmap' },
     ],
   },
