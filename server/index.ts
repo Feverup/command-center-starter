@@ -8,6 +8,7 @@ import { registerJournalRoutes } from '@asucregonzalez/section-journal/server';
 import { registerMeetingsRoutes } from '@asucregonzalez/section-meetings/server';
 import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-sessions/server';
 import { registerRoadmapRoutes } from '@asucregonzalez/section-roadmap/server';
+import { registerDeliveryProjectsRoutes } from '@asucregonzalez/section-delivery-projects/server';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a
@@ -79,6 +80,9 @@ const routers = [
   // Reads ~/.claude/sessions and ~/.claude/projects — nothing in this repo. It
   // reports no sessions rather than failing when those are absent or unreadable.
   registerClaudeSessionsRoutes,
+  // Reads content/team/prd-readiness.json and writes single-story patches back
+  // to it. Absent file: the tab reports the gap rather than showing no projects.
+  registerDeliveryProjectsRoutes,
 ];
 
 for (const register of routers) {
