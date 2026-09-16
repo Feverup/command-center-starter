@@ -10,6 +10,7 @@ import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-ses
 import { registerRoadmapRoutes } from '@asucregonzalez/section-roadmap/server';
 import { registerDeliveryProjectsRoutes } from '@asucregonzalez/section-delivery-projects/server';
 import { registerWorktreesRoutes } from '@asucregonzalez/section-worktrees/server';
+import { registerBacklogRoutes } from './backlog.js';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a
@@ -78,6 +79,10 @@ const routers = [
   // Reads content/team/roadmaps/*.json — one file per squad, discovered from
   // disk. With none there the tab offers to create the first one.
   registerRoadmapRoutes,
+  // App-local, not a package: the scored backlog, read from and written back to
+  // content/backlog/*.md. Named Backlog rather than Roadmap so it does not collide
+  // with section-roadmap above — they answer different questions.
+  registerBacklogRoutes,
   // Reads ~/.claude/sessions and ~/.claude/projects — nothing in this repo. It
   // reports no sessions rather than failing when those are absent or unreadable.
   registerClaudeSessionsRoutes,
