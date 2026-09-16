@@ -8,6 +8,7 @@ import { roadmapSection } from '@asucregonzalez/section-roadmap';
 import { deliveryProjectsSection } from '@asucregonzalez/section-delivery-projects';
 import { HomeView } from './HomeView';
 import { GuideView } from './GuideView';
+import { BacklogView } from './BacklogView';
 import { WORK_TYPES } from './work-types';
 
 /**
@@ -63,6 +64,15 @@ export const sections: DashboardSection[] = [
       // package ships the table and none of anyone's stories.
       { ...deliveryProjectsSection, id: 'projects', label: 'Projects', path: '/plan/projects' },
       { ...roadmapSection, id: 'roadmap', label: 'Roadmap', path: '/plan/roadmap' },
+      // Backlog is app-local rather than a package, like HomeView and GuideView: it
+      // reads and writes the markdown tables in `content/backlog/*.md`. It sits beside
+      // Roadmap because it answers a different question — Roadmap is initiatives and
+      // capacity, Backlog is the individual items held back from a launch, each with a
+      // priority you can set here or by editing the file. Its board, products and
+      // capacity line live in `./backlog-config`.
+      { id: 'backlog', label: 'Backlog', icon: '🛒', path: '/plan/backlog', visibility: 'shared',
+        View: BacklogView,
+        blurb: 'The scored backlog: what each priority band costs in weeks, and how it splits between your products.' },
     ],
   },
   {

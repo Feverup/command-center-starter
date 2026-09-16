@@ -156,6 +156,21 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'backlog', icon: '🛒', title: 'Backlog',
+    items: [
+      { kind: 'in-app', text: 'A scored backlog as an editable table — the items held back from a launch, not the initiatives above them. Click any cell to edit, use the dropdowns for priority and status, and "+ Add item" for anything new.' },
+      { kind: 'in-app', text: 'The summary is capacity arithmetic, not row counts: each priority band totals the WEEKS behind it. Thirty items tells you nothing; P0 at nine weeks against a six-week quarter tells you what to cut.' },
+      { kind: 'in-app', text: 'The top row splits the committed band by product, in weeks. That is the allocation question — which product is this quarter actually going to — and a row count cannot answer it, because the two products’ items are not the same size.' },
+      { kind: 'in-app', text: 'Only Backlog items count toward those totals. Draft is unreviewed, In flight is someone else’s capacity, and Dropped is hidden behind a toggle so a decision not to build something stays visible instead of vanishing.' },
+      { kind: 'in-app', text: 'An item whose effort the parser cannot read counts as unsized and is reported separately, never as zero — a total that quietly treats unknowns as free is worse than no total.' },
+      { kind: 'in-app', text: 'Every item has a ref like EX-07 — that is what you quote in a thread, a doc or a meeting. Refs are retired on delete, never reissued, so a ref written down somewhere always means the same thing.' },
+      { kind: 'in-app', text: 'The × on a row asks before it acts: mark as dropped (keeps the row, its notes and its ref) or delete permanently. Dropped is the default — delete is for duplicates and typos.' },
+      { kind: 'both', text: 'An unscored row sorts FIRST, above P0 — not because it is urgent, but because it is the only state needing an action from you rather than the team. New rows land there and stay in your eyeline until they have a priority.' },
+      { kind: 'both', text: 'Your board, products, committed band and capacity line live in src/backlog-config.ts — edit that, not the view. It ships pointing at content/backlog/example.md; rename the board, write your own file, delete the example.' },
+      { kind: 'both', text: 'It is one markdown table under `## Items`. Edit it there or in the app — both write the same file, and the prose above the table is preserved on every save.' },
+    ],
+  },
+  {
     section: ['setup', 'how-to', 'faq'], icon: '📖', title: 'Guide (this tab)',
     items: [
       { kind: 'in-app', text: 'Three parts: Setup for first-run, How to use for what each tab does, FAQs for what goes wrong. Cards start collapsed — the count on the right is how many notes are inside.' },

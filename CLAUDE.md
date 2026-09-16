@@ -51,6 +51,7 @@ all three touch the same files, and git is the safety net.
 | Tasks | `content/tasks/active.md` |
 | Journal | `content/tasks/journal.md` |
 | Meetings | `content/meetings/` |
+| Plan ▸ Backlog | `content/backlog/<board>.md` — scored, split by product |
 | Guide | — (setup, how-to and FAQs; content lives in `src/GuideView.tsx`) |
 | Claude sessions (panel on Day) | reads `~/.claude/sessions` + `~/.claude/projects` — never written to |
 
@@ -68,6 +69,8 @@ No child `CLAUDE.md` files yet. The places to look:
 | [src/sections.ts](src/sections.ts) | The single list deciding which tabs you run | sections, tabs, registry |
 | [src/GuideView.tsx](src/GuideView.tsx) | The in-app guide — edit when you add or remove a section | guide, setup, faq, docs |
 | [src/work-types.ts](src/work-types.ts) | Your role's work-type buckets for the task board | work types, role, buckets |
+| [content/backlog/](content/backlog/) | Scored backlogs, one table per board; Plan ▸ Backlog reads and writes these | backlog, priorities, quarter, capacity |
+| [src/backlog-config.ts](src/backlog-config.ts) | Plan ▸ Backlog's board, products and capacity line — edit here, not in the view | backlog, products, capacity, config |
 | [server/index.ts](server/index.ts) | Express server; mounts each section's API | api, routes, content root |
 | [makefile](makefile) | Shortcuts: dev, build, run Claude, bootstrap, link check | make, targets, setup, run |
 | [README.md#recommended-rtk](README.md) | rtk: compresses bash output before the agent reads it | rtk, tokens, efficiency, cost |
