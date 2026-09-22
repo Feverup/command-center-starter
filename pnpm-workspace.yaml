@@ -3,7 +3,7 @@
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
-  - '@asucregonzalez/section-delivery-projects@0.11.2'
+  - '@asucregonzalez/section-delivery-projects@0.11.3'
   - '@asucregonzalez/section-eng-health@0.1.0'
   - '@asucregonzalez/section-worktrees@0.1.1'
   - '@asucregonzalez/section-worktrees@0.2.0'
