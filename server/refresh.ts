@@ -31,6 +31,15 @@ const SKILL_PROMPTS: Record<string, string> = {
     'Run the daily-briefing skill for today. Run fully autonomously — do not ask any questions and do not wait for confirmation at any checkpoint; if a source is unreachable (Slack, Gmail, Calendar or a Granola/Drive connector may be unavailable in a headless run), record that lane as no-evidence, continue with the rest, and say plainly at the end which lanes were not covered — never write an unverified negative. Another headless run may be appending action items to content/tasks/active.md at the same time: re-read that file immediately before you write it and merge, never overwrite lines that appeared after your first read.',
   meetings:
     'Run the meeting-processor skill to pull the latest meetings from Granola into content/meetings/. Run fully autonomously — do not ask any questions; if Granola is unreachable, say so plainly and state which meetings were not covered rather than reporting success. Another headless run (daily-briefing) may be rewriting content/tasks/active.md at the same time: re-read that file immediately before appending action items, and never overwrite a Today or Standing block you did not see on your first read.',
+  // The Drive-folder alternative to `meetings` above. Both skills ship with this
+  // template and write the same content/meetings/<bucket>.md files from different
+  // sources, so they are an either/or, not a pair — run whichever matches where
+  // your notes come from. Listed here so the Home button is one line away from
+  // using it, and because README.md and CLAUDE.md both document it as a choice:
+  // dropping it from this allowlist would leave those docs pointing at a skill the
+  // UI cannot reach.
+  'sync-meetings':
+    'Run the sync-meetings skill to sync meeting notes from the configured Google Drive folder into content/meetings/. Run fully autonomously — do not ask any questions; if the folder is unreachable, say so plainly rather than reporting success.',
 };
 
 // How long each skill gets before it's killed. Per-skill because the spread is
