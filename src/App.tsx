@@ -8,8 +8,9 @@ import { sections } from './sections';
  *  - ownerName: your name as it appears in an `Owner:` field, so the Meetings
  *    section can split action items into yours vs everyone else's. Set
  *    VITE_OWNER_NAME in .env.
- *  - refreshEnabled: false because this app serves no /api/refresh route, so
- *    sections hide their "Regenerate" buttons instead of offering a dead one.
+ *  - refreshEnabled: true because server/index.ts mounts /api/refresh/:skill, so
+ *    the Home "Run morning sync" button and each section's ↻ are live. Drop those
+ *    routes and this must go back to false, or the buttons stay visible and 404.
  *  - defaultOrganizations: the GitHub orgs you track, from VITE_GITHUB_ORGS in
  *    .env. The PR section ships with none — it must not guess an org — so a new
  *    project is prefilled from this, and with it unset you name the org yourself
@@ -19,7 +20,7 @@ import { sections } from './sections';
  */
 const DASHBOARD_CONFIG: DashboardConfig = {
   ownerName: import.meta.env.VITE_OWNER_NAME as string | undefined,
-  refreshEnabled: false,
+  refreshEnabled: true,
   defaultOrganizations: ((import.meta.env.VITE_GITHUB_ORGS as string | undefined) ?? '')
     .split(',')
     .map((o) => o.trim())
