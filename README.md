@@ -3,8 +3,8 @@
 Your own dashboard, running only the sections you install. Nothing here reads
 anyone else's data: your notes live in this folder, and the tokens are yours.
 
-Wired up out of the box, grouped into **Today**, **Archives**, **Plan** and
-**Guide**:
+Wired up out of the box, grouped into **Today**, **Archives**, **Plan**,
+**Signals** and **Guide**:
 
 | Tab | What it does | Reads / writes |
 |---|---|---|
@@ -13,6 +13,7 @@ Wired up out of the box, grouped into **Today**, **Archives**, **Plan** and
 | 🔀 Today ▸ PRs | Per-squad PR checkpoints from GitHub, stacked-PR chains, per-PR CI status linking straight to the failing build, who is reviewing each PR, a review order that answers what to pick up next, optional grouping by ticket, Slack channel signals, and a ready-to-paste Slack draft | `.data/` |
 | 📓 Archives ▸ Journal | Per-day journal | `content/tasks/journal.md` |
 | 📅 Archives ▸ Meetings | Meeting notes by bucket, with live action-item checkboxes and archiving | `content/meetings/` |
+| 🏥 Signals ▸ Eng Health | Breached SLOs, open incidents, top errors and the monthly deploy/revert trend, each tile with a one-line verdict; ↻ re-runs the `eng-health` skill | `content/team/eng-health.json` |
 | 🗺️ Plan ▸ Roadmap | Initiatives with effort, impact and build/rollout state, plus KPIs, projects and sprints — one roadmap per squad, picked from the sidebar | `content/team/roadmaps/` |
 | 📖 Guide | Setup, How to use, FAQs — describing *your* tabs | — (`src/GuideView.tsx`) |
 
@@ -68,7 +69,7 @@ seeded files in `content/`, which double as format documentation.
 
 ## The skills
 
-`.claude/skills/` ships ten Claude Code skills. These five keep the dashboard's
+`.claude/skills/` ships ten Claude Code skills. These six keep the dashboard's
 data current, so you're not hand-editing markdown:
 
 | Skill | What it does |
@@ -77,6 +78,7 @@ data current, so you're not hand-editing markdown:
 | `daily-briefing` | Reconciles yesterday, gathers calendar + mail + Slack + PR queue + backlog, proposes today's Top 3, writes the Today block and archives yesterday to the journal |
 | `meeting-processor` | Pulls yesterday's meetings from Granola into `content/meetings/`, and their action items into your task list |
 | `sync-meetings` | Same, but from a Google Drive folder — use whichever matches where your notes live |
+| `eng-health` | Refreshes Signals ▸ Eng Health: SLOs and incidents from your Datadog MCP, top errors from Datadog Error Tracking, merged-PR and revert throughput from `gh` — scoped by `content/team/eng-health-scope.json` |
 | `google-workspace-cli` | Reference for the `gws` CLI, which the two Google-backed skills above rely on |
 
 **Each needs a few blanks filled in before first use** — your GitHub login, Slack

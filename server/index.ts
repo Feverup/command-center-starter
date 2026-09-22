@@ -10,6 +10,7 @@ import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-ses
 import { registerRoadmapRoutes } from '@asucregonzalez/section-roadmap/server';
 import { registerDeliveryProjectsRoutes } from '@asucregonzalez/section-delivery-projects/server';
 import { registerWorktreesRoutes } from '@asucregonzalez/section-worktrees/server';
+import { registerEngHealthRoutes } from '@asucregonzalez/section-eng-health/server';
 import { startRefresh, getRefreshJob } from './refresh.js';
 
 /**
@@ -88,6 +89,8 @@ const routers = [
   // Scans WORKTREES_SCAN_ROOT for git repos. Reads nothing in this repo, and
   // reports a missing scan root rather than returning an empty list.
   registerWorktreesRoutes,
+  // Reads content/team/eng-health.json, written by the eng-health skill.
+  registerEngHealthRoutes,
 ];
 
 for (const register of routers) {

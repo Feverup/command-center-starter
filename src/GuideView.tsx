@@ -131,6 +131,15 @@ const USAGE: Card[] = [
     ],
   },
   {
+    section: 'eng-health', icon: '🏥', title: 'Signals ▸ Eng Health',
+    items: [
+      { kind: 'in-app', text: 'Four headline tiles — SLOs breached, open incidents, deploys in the last 7 days, revert rate — each with a one-line "so what", then the SLO list, incidents, top errors and a month-by-month deploy and revert table with the reverted PRs linked.' },
+      { kind: 'chat', text: 'Refresh it with the eng-health skill ("refresh eng health") or the ↻ button. It pulls SLOs, incidents and top errors from your Datadog MCP and merged-PR / revert counts from gh, and writes content/team/eng-health.json. Until the first run you see example numbers.' },
+      { kind: 'both', text: 'Scope lives in content/team/eng-health-scope.json: your GitHub org, the squad\'s handles (or the PR-tab project whose roster to reuse) and your Datadog team tag. Ask the skill once in chat and it fills the file in; the ↻ button will not guess it for you.' },
+      { kind: 'in-app', text: 'A list that shows "Not loaded" means its source did not return (null in the file), not that there was nothing to report ([]). A gap is never shown as a zero.' },
+    ],
+  },
+  {
     section: 'projects', icon: '📦', title: 'Projects',
     items: [
       { kind: 'in-app', text: 'Your projects, their epics and their stories — from content/team/prd-readiness.json. The sidebar lists the projects; Status says where one stands, Scope holds the epics and the story matrix.' },

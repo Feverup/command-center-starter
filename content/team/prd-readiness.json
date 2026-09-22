@@ -3405,7 +3405,29 @@
           "phaseWas": 4
         }
       ],
-      "asksHeadline": "PROPOSAL: full B2BM target ~Oct 30 · 12 devs + Tech-Support cover"
+      "asksHeadline": "PROPOSAL: full B2BM target ~Oct 30 · 12 devs + Tech-Support cover",
+      "storyIdLegend": [
+        {
+          "prefix": "D-",
+          "label": "Distributor"
+        },
+        {
+          "prefix": "O-",
+          "label": "Organizer"
+        },
+        {
+          "prefix": "SO-",
+          "label": "Sales Ops"
+        },
+        {
+          "prefix": "SYS-",
+          "label": "Platform"
+        },
+        {
+          "prefix": "F-",
+          "label": "Foundations"
+        }
+      ]
     },
     {
       "id": "multipay-surcharge",

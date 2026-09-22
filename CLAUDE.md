@@ -51,6 +51,7 @@ all three touch the same files, and git is the safety net.
 | Tasks | `content/tasks/active.md` |
 | Journal | `content/tasks/journal.md` |
 | Meetings | `content/meetings/` |
+| Signals ▸ Eng Health | `content/team/eng-health.json` (written by `eng-health`, scoped by `content/team/eng-health-scope.json`) |
 | Guide | — (setup, how-to and FAQs; content lives in `src/GuideView.tsx`) |
 | Claude sessions (panel on Day) | reads `~/.claude/sessions` + `~/.claude/projects` — never written to |
 
@@ -81,6 +82,7 @@ No child `CLAUDE.md` files yet. The places to look:
 | `meeting-processor` | Pull yesterday's meetings from Granola into `content/meetings/` |
 | `leads-checkin` | Team health numbers for the async leads check-in — bug flow, SLOs, post-mortem & security SLAs → a drafted reply (leads only) |
 | `sync-meetings` | The same, from a Google Drive folder instead |
+| `eng-health` | Refresh Signals ▸ Eng Health from Datadog + `gh` into `content/team/eng-health.json` |
 | `google-workspace-cli` | Driving the `gws` CLI (Drive, Docs, Sheets, Gmail, Calendar) |
 | `wiki` | Ingest documents into `content/memory/`, query it, lint it |
 | `memory-claude-md-sync` | Keeps the memory navigation honest on every wiki write |

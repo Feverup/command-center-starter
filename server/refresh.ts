@@ -40,6 +40,11 @@ const SKILL_PROMPTS: Record<string, string> = {
   // UI cannot reach.
   'sync-meetings':
     'Run the sync-meetings skill to sync meeting notes from the configured Google Drive folder into content/meetings/. Run fully autonomously — do not ask any questions; if the folder is unreachable, say so plainly rather than reporting success.',
+  // Writes only content/team/eng-health.json, so it can run alongside anything.
+  // An unconfigured content/team/eng-health-scope.json makes it stop without
+  // writing — the button then reports that rather than blanking the tab.
+  'eng-health':
+    'Run the eng-health skill to refresh content/team/eng-health.json. Run fully autonomously — do not ask any questions. If content/team/eng-health-scope.json is not configured, do not write anything and say which fields are missing. If Datadog or gh is unreachable, leave that lane null, keep going, and say plainly which lanes were not covered — never carry an old value forward.',
 };
 
 // How long each skill gets before it's killed. Per-skill because the spread is
@@ -57,6 +62,7 @@ const DEFAULT_TIMEOUT_MS = 10 * 60 * 1000;
 const SKILL_TIMEOUT_MS: Record<string, number> = {
   'daily-briefing': 50 * 60 * 1000,
   meetings: 30 * 60 * 1000,
+  'eng-health': 20 * 60 * 1000,
 };
 
 export interface RefreshJob {
