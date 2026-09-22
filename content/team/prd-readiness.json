@@ -105,20 +105,24 @@
       "milestones": [
         {
           "code": 1,
-          "name": "Discovery"
+          "name": "Discovery",
+          "target": "Sep 11"
         },
         {
           "code": 2,
-          "name": "Wholesales"
+          "name": "Wholesales",
+          "target": "Sep 18"
         },
         {
           "code": 3,
-          "name": "Commissions"
+          "name": "Commissions",
+          "target": "Sep 30"
         },
         {
           "code": 4,
           "name": "Post-MVP",
-          "postLaunch": true
+          "postLaunch": true,
+          "target": "Oct 30"
         }
       ],
       "epicOwners": {
@@ -1693,7 +1697,1711 @@
             }
           ]
         }
-      ]
+      ],
+      "prdReadiness": {
+        "percent": 30,
+        "assessedAt": "2026-08-02",
+        "assessedBy": "project-status-review (9 agents + figures-critic), applied by Andrea",
+        "author": "Alejandro Sagrado",
+        "docStatus": "Under Review",
+        "prdUrl": "https://docs.google.com/document/d/1bio5Q3774XYnrRcGZScXvFnkRGMwHFaL1ZcQ2lqvPjE/edit",
+        "summary": "Legend — 🔒 define before execution starts (Sprint-1 start gate) · 🚧 can block a user story (the blocked story IDs are named in the task) · ⭐ lock before Alejandro leaves (paternity) · 🧩 edge-case / exception mapping.  Product-only PRD — and under a strict bar even the product half has undefined specifics in almost every section. Only 2/25 sections are airtight (Problem/TL;DR, Affected Products); 12/25 are literal placeholders or absent (business case, permissions, settings, translations, M&As, NFRs, technical/API & data model, analytics, acceptance criteria/DoD, rollout/GTM, timeline, next steps); the other 11 are partial because their core numbers are explicitly '(TBD)' or deferred to external specs / open questions (KPI targets, pricing economics, fiscal decisions Q98–Q100, consent/DPA mechanics, risk owners). No business case, no testable acceptance criteria, no data model / API design, no timeline. Author (Alejandro Sagrado, PM) goes on paternity leave next week — knowledge-transfer of the critical-path & technical context is the gating handover risk.  ——  ADDENDUM 2026-08-07 (decisions only; the 25-section scoring below is unchanged and still dates from 2026-08-02). Six cross-cutting questions surfaced by the story-by-story Jira pass were settled: (1) pricing resolves single-row on (event, channel) with a distributor group AS the channel — the 2026-07-08 closed model, no parent fallback; (2) the commission base is defined nowhere and is now ticketed as B2BR-5537; (3) the launch country scope is Spain-first, promoted to an acceptance criterion and a launch gate on SYS-12, with SYS-16 post-MVP conditional on it; (4) commission payout executes outside the platform; (5) balance funding likewise — with an OPEN pre-launch gap, since nothing records the credit; (6) O-14 needs no billing-artifact layer, confirming SYS-04's closure. Three of the 25 sections are materially better documented as a result (Pricing/commission model, Invoicing/tax/legal, Integrations) but none moves from placeholder to complete, so the 30% has NOT been re-scored — that needs a fresh assessment pass against the PRD document itself, not against Jira.",
+        "sections": [
+          {
+            "name": "Stakeholders & owners",
+            "status": "partial",
+            "note": "Only Legal/Tax&Billing/User-Support listed (all 'Not Started/In Progress'); no Eng/Product/Design/Data owners; 'No squad assigned'; one channel TBD.",
+            "tasks": [
+              {
+                "text": "Identify Legal, Tax & Billing and User-Support owners",
+                "done": true
+              },
+              {
+                "text": "🔒 Name the Eng / Product / Design / Data DRIs — the PRD names none; required before Sprint 1 or no pair can be assigned to F-01/F-03",
+                "done": false
+              },
+              {
+                "text": "🔒 Assign the B2BM squad (PRD still reads 'No squad assigned yet') — start gate; nothing can be built until the team is named",
+                "done": true
+              },
+              {
+                "text": "🚧 Confirm Sales-Ops ownership (User Support vs a dedicated team) — blocks the Sales-Ops stories SO-01…SO-07 and O-09…O-12",
+                "done": false
+              },
+              {
+                "text": "Set the TBD partner support channel (who fields distributor issues post-launch)",
+                "done": true
+              },
+              {
+                "text": "🔒 Move each function (Legal · Tax & Billing · Support) from 'Not Started/In Progress' to a named active DRI with a date — start gate",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Problem · TL;DR · opportunity",
+            "status": "done",
+            "note": "Problem, why-now, constraints, reference segments all quantified and explicit.",
+            "tasks": [
+              {
+                "text": "State the problem & why-now",
+                "done": true
+              },
+              {
+                "text": "Document current-state baselines (Clorian ~14K / ~300 active / ~15%)",
+                "done": true
+              },
+              {
+                "text": "Articulate the 4 compounding problems",
+                "done": true
+              },
+              {
+                "text": "Define the core solution / opportunity",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Current situation",
+            "status": "partial",
+            "baseStatus": "partial",
+            "note": "Content exists without its own heading, folded into '📰 Overview' as 'Current state. Fever's B2B distribution operates through direct, one-to-one relationships…', and doubly sourced: model/domain-model.md, decisions.yaml DEC-030, B2BR-5121 §2.",
+            "tasks": [
+              {
+                "text": "Describe how resellers buy/operate today (current tooling & manual flow)",
+                "done": true
+              },
+              {
+                "text": "Capture the current pain points the B2B marketplace addresses",
+                "done": true
+              },
+              {
+                "text": "Have the list of business that have multipartners",
+                "done": false
+              }
+            ]
+          },
+          {
+            "name": "Hypotheses & validations",
+            "status": "partial",
+            "note": "H1–H4 carry a Validation + Metric line but no target thresholds — no pass/fail, so no hypothesis can be closed. model-documentation: none.",
+            "tasks": [
+              {
+                "text": "Define hypotheses H1–H4",
+                "done": true
+              },
+              {
+                "text": "Define a validation method per hypothesis",
+                "done": true
+              },
+              {
+                "text": "Define a metric per hypothesis",
+                "done": true
+              },
+              {
+                "text": "Set a pass/fail threshold per hypothesis — H1–H4 carry a metric but no target, so none can be closed",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Goals · KPIs · metrics",
+            "status": "partial",
+            "note": "G1 and G2 targets are literally '(TBD) Proposal'. No agreed number, no timeframe, no named instrument. model-documentation has only story-scoped engineering acceptance targets.",
+            "tasks": [
+              {
+                "text": "Define the goals G1 and G2",
+                "done": true
+              },
+              {
+                "text": "List the guardrail metrics",
+                "done": true
+              },
+              {
+                "text": "Set the G1 (GMV) numeric target + timeframe",
+                "done": true,
+                "beforeHandover": true
+              },
+              {
+                "text": "Set the G2 (cross-Partner %) numeric target + timeframe",
+                "done": true,
+                "beforeHandover": true
+              },
+              {
+                "text": "Define the KPIs",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Business case / financial justification",
+            "status": "missing",
+            "note": "No section: no cost-to-build, CAC-vs-channel-cost, revenue model, or ROI — only narrative anchors in the TL;DR.",
+            "tasks": [
+              {
+                "text": "🔒 Estimate cost-to-build (~12 devs × ~4 months) — no funded business case should start without it",
+                "done": false
+              },
+              {
+                "text": "🔒 Project GMV / revenue for the MVP and the ramp (today only narrative anchors exist)",
+                "done": false
+              },
+              {
+                "text": "🔒 Compute ROI / payback so the ~4-month, ~12-dev investment is justified before kickoff",
+                "done": false
+              },
+              {
+                "text": "🔒🚧 Define the commercial-model economics (wholesale / commission margins) — go/no-go input AND blocks pricing/billing stories SYS-01 (absorbed O-03) / O-04, SYS-04",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒 Add a CAC-vs-channel-cost comparison (B2B channel economics vs current acquisition)",
+                "done": false
+              }
+            ],
+            "baseStatus": "missing"
+          },
+          {
+            "name": "Audience & assumptions",
+            "status": "done",
+            "note": "Personas + JTBD described, but segments not quantified per persona (no TAM/SAM/counts); assumptions asserted, not validated.",
+            "tasks": [
+              {
+                "text": "Describe target users + other users",
+                "done": true
+              },
+              {
+                "text": "Define the exclusions",
+                "done": true
+              },
+              {
+                "text": "Capture the JTBD-style needs",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Competitive view",
+            "status": "done",
+            "note": "Only Clorian (reseller side); differentiation not tied to story IDs/decisions; no OTA/GDS/direct-API comparison.",
+            "tasks": [
+              {
+                "text": "Document the Clorian study (strengths/gaps)",
+                "done": true
+              },
+              {
+                "text": "Add the Minor Hotels reference",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "UX flows",
+            "status": "partial",
+            "note": "12 flows narrated; P-6 design TBD; error/empty/permission/back-nav states undefined per flow; Edge-Cases table is a 1-row placeholder.",
+            "tasks": [
+              {
+                "text": "Define the 12 named flows (R/P/SO) with key actions + exit states",
+                "done": true
+              },
+              {
+                "text": "Link the prototype per flow",
+                "done": true
+              },
+              {
+                "text": "🚧 Finish the P-6 prototype (design status still TBD) — blocks the front-end build of its flow",
+                "done": false
+              },
+              {
+                "text": "🧩🚧 Define error / empty / permission / back-nav states for all 12 flows — blocks the front stories D-02 (browse), D-03 (request access), D-04 (booking), D-07a (view/cancel, MVP) / D-07b (modify/reschedule, post-MVP); otherwise devs invent the UX mid-sprint",
+                "done": false
+              },
+              {
+                "text": "🧩🚧 Replace the 1-row placeholder Edge-Cases table with real cases (sold-out at checkout, concurrent edits, partial failure, cross-region VAT, refund-after-cancel) — blocks acceptance criteria for every booking/pricing story",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Key features / user stories",
+            "status": "partial",
+            "note": "42 stories with rules+outcome, but the NFR column is blank for ~32/42; Scope/Status are uniform chips; several still 'pending OQD' (D-07a/D-07b, D-04/Q98). The high-level requirement tables (functional-requirements layer above the stories) now exist as the 'High-level requirements — 3 tracks' artifact (Platform / Discovery / Checkout + cross-cutting Technical), each story mapped to a requirement; still to be folded back into the PRD doc.",
+            "tasks": [
+              {
+                "text": "Add the high-level requirement tables (the functional-requirements layer above the detailed user stories) — delivered as the 'High-level requirements — 3 tracks' artifact (every story mapped to a requirement); fold back into the PRD doc",
+                "done": true
+              },
+              {
+                "text": "Write the 42 stories with preconditions, business rules & success outcome",
+                "done": true
+              },
+              {
+                "text": "Tag scope (MVP) and status per story",
+                "done": true
+              },
+              {
+                "text": "🚧 Fill the NFR column for the ~32 stories where it is blank — blocks the Definition-of-Done / acceptance bar for those stories",
+                "done": false
+              },
+              {
+                "text": "🔒🚧 Close the pending open-decision stories — D-04 (booking) is blocked on Q98 and D-07a (view/cancel, MVP) / D-07b (modify/reschedule, post-MVP) on the concurrency rule; neither can be finalised until decided",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒 Update the PRD doc to align with the prototype, the 06-18/06-23 agreements & the 51-story set (reconcile against the doc's 42) — lock before Alejandro leaves",
+                "done": false,
+                "beforeHandover": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Affected products",
+            "status": "partial",
+            "note": "20-row table, not the 22 the recorded note claims. Media row open: 'tracked in Q105 (open, feasibility check pending)'.",
+            "tasks": [
+              {
+                "text": "Build the affected-products matrix (20 rows as written; the note claiming 22 was wrong)",
+                "done": true
+              },
+              {
+                "text": "Mark impacted vs not (4 impacted, 15 not)",
+                "done": true
+              },
+              {
+                "text": "Note the change + new stories required per impacted product",
+                "done": true
+              },
+              {
+                "text": "Resolve the Media row — \"tracked in Q105 (open, feasibility check pending)\"",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "FeverZone impact",
+            "status": "partial",
+            "baseStatus": "partial",
+            "note": "~1359w of real content — 'Organizer flows (inside FeverZone)' P-1…P-6 plus the Feverzone Configuration row — backed by DEC-030, DEC-056 and PLAT-07. Scattered, not absent; needs consolidating under a heading.",
+            "tasks": [
+              {
+                "text": "Document the FZ refactors (Business/IAM model, Pricing, Reservations, Billing)",
+                "done": true
+              },
+              {
+                "text": "List the net-new FZ modules the marketplace adds",
+                "done": true
+              },
+              {
+                "text": "Note the discovery/search engine reuse (B2C Marketplace, not FeverZone's own) + the integration points",
+                "done": false
+              },
+              {
+                "text": "Capture the FZ technical risk (reconstructing FZ features + integrating with the Marketplace)",
+                "done": false
+              }
+            ]
+          },
+          {
+            "name": "Permissions",
+            "status": "partial",
+            "note": "291w with a Roles table AND 'System-enforced rules'; model-documentation fully merged (access-visibility.md, Oso agreement relation, per-endpoint contract, 3 access modes / 4 states). Open: PR #35 would rescope UCB-1 to plumbing-only and defer authz to B2BR-5311; its diff targets a stale pre-reorg path.",
+            "tasks": [
+              {
+                "text": "🔒🚧 Define the B2BM role × action matrix (distributor admin/member/agent, organizer, Sales-Ops) — must be locked before F-01 because it shapes the IAM data model, and blocks D-10 (members/roles), O-09/O-10 (approve/reject) and all SO-* stories. Distributor rows fixed by DEC-060 (three roles, all in MVP)",
+                "done": true,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒 Anchor roles on the F-01 Org model, reusing the b2b-iam grant pattern (#2029) — required input to F-01",
+                "done": true
+              },
+              {
+                "text": "🚧 Specify feature-flag + default-permission logic — blocks per-partner activation in rollout",
+                "done": false
+              },
+              {
+                "text": "🚧 Define per-role visibility / data scoping — blocks SO-06 (audit log), O-08 (catalog visibility) and data scoping in D-12 (dashboard)",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Settings / configurations",
+            "status": "partial",
+            "note": "582w via UX-Flow P-2/P-3/P-4 plus the Feverzone Configuration row; PRICE_LISTS_CONTEXT.md and DEC-055 (4-level cascade) merged. Internal contradiction: backend SLA 'up to a couple of hours' vs UI copy 'a few minutes'.",
+            "tasks": [
+              {
+                "text": "🚧 Define partner config (deposit %, channels, catalog) — blocks SYS-01 price resolution, O-08 visibility toggle and D-01 registration defaults",
+                "done": true
+              },
+              {
+                "text": "🚧 Set defaults, owners and thresholds per setting — blocks the same partner-config-dependent stories",
+                "done": false
+              },
+              {
+                "text": "🚧 Define which settings are per-partner vs global — blocks SYS-01 cascade and O-08",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Translations",
+            "status": "missing",
+            "note": "Lorem-ipsum placeholder: no strings, PhraseApp keys, or contexts.",
+            "tasks": [
+              {
+                "text": "Coordinate with Isa and Alex H for the translations",
+                "done": false
+              }
+            ],
+            "baseStatus": "missing"
+          },
+          {
+            "name": "Pricing / commission model",
+            "status": "missing",
+            "note": "Pricing structure rewritten 2026-07-08 to a CLOSED PRICE-LIST model: b2b-discount is a mandatory field on every price-list row (backfilled at 0%), and the winning list yields BOTH the retail price and the discount from the same row — no cascade, no fallback to a parent/base list; a group IS a channel. Still open: the price-list precedence tie-break (SYS-01), min/max discount bounds, commission-rate ranges, Fever's fee, currency/rounding, and the commission worked examples (pending Billing/Finance).",
+            "tasks": [
+              {
+                "text": "🔒🚧 Confirm the price-list resolution model (closed price-list, no fallback) + wholesale/commission formulas (O-02…06 / SYS-01) — structure agreed 2026-07-08; the precedence tie-break when two lists cover the same channel × ticket type is still open (owner: Pricing, before P2)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒🚧 Define commission-rate ranges — blocks SYS-04 (billing), D-05 (commission booking) and SYS-09 (commission summary)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🚧 Define min/max discount bounds — blocks SYS-01 / O-04 (discount setting; O-03 absorbed into SYS-01) and SYS-01 cascade validation",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒🚧 Define Fever's fee — blocks SYS-04 (billing artifacts) and D-13 (invoicing tab)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🚧 Define currency + rounding rules — blocks SYS-01 price resolution, SYS-04 billing and D-06 card pay",
+                "done": false
+              },
+              {
+                "text": "🔒 Confirm MVP = wholesale-only / no-commission with Miguel & billing — scope-defining start gate; decides whether D-05 (commission booking), D-06b (balance) and SYS-09 are in or out of MVP",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🚧 Validate the closed price-list model via the prototype (b2b-discount per row, group = channel, no inheritance/fallback) — supersedes the earlier inheritance/cascade design",
+                "done": false
+              },
+              {
+                "text": "Share the examples of the invoicing",
+                "done": false
+              }
+            ],
+            "baseStatus": "missing"
+          },
+          {
+            "name": "Invoicing / tax / legal",
+            "status": "partial",
+            "note": "3 cases + CSV field set are strong, but cycle alignment (Q99), Gross-Up default (Q100), the US 'separate session', and VAT-recoverability (Q98) are open; full detail punted to an external Billing Spec.",
+            "tasks": [
+              {
+                "text": "Describe the three invoicing cases",
+                "done": true
+              },
+              {
+                "text": "Define the CSV field set",
+                "done": true
+              },
+              {
+                "text": "🔒🚧 Resolve Q98 (VAT-recoverability acknowledgement) — blocks D-04/D-05 booking VAT handling and SYS-05 (VAT check)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒🚧 Resolve Q99 (invoice-cycle alignment) — blocks SYS-04/SYS-04b (billing), SYS-09 (summary) and D-13 (invoicing)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🔒🚧 Resolve Q100 (Gross-Up default) — blocks SYS-04 (billing artifacts)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🚧 Define the US 'separate session' model — blocks D-05 (commission + Pay-by-Link) in US jurisdictions",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "Inline or link the Billing Spec (remove the dangling external reference)",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Privacy & legal",
+            "status": "partial",
+            "note": "10 issues inventoried, but consent flow, DPA, deletion/export (DSAR) mechanics and retention windows are deferred to 'Privacy to confirm'; legal review not done.",
+            "tasks": [
+              {
+                "text": "Inventory PII per actor",
+                "done": true
+              },
+              {
+                "text": "List the privacy issues + controls",
+                "done": true
+              },
+              {
+                "text": "🚧 Define the consent flow — blocks D-01 (register) and D-10 (member invites)",
+                "done": false
+              },
+              {
+                "text": "🚧 Define the DPA — blocks partner onboarding (SO-02, D-01)",
+                "done": false
+              },
+              {
+                "text": "🚧 Define DSAR (deletion / export) mechanics — blocks data-handling in D-01/D-10",
+                "done": false
+              },
+              {
+                "text": "🚧 Define retention windows — blocks the data model for PII-bearing stories",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "M&As",
+            "status": "missing",
+            "note": "Lorem-ipsum placeholder: no per-subsidiary (Onebox/Casfid/Atom/DICE/Digitick) assessment.",
+            "tasks": [
+              {
+                "text": "Assess per-subsidiary M&A impact (Onebox, Casfid, Atom, DICE, Digitick)",
+                "done": false
+              },
+              {
+                "text": "Identify synergies / conflicts with existing subsidiary ticketing stacks",
+                "done": false
+              }
+            ],
+            "baseStatus": "missing"
+          },
+          {
+            "name": "Risks & dependencies",
+            "status": "partial",
+            "note": "1444w of department write-ups plus a risks section in every merged spec — but Sales Ops ownership is 'final ownership pending', three named dependencies are open (OneTrust automation, 3x3 incident matrix, email blocklist), and no risk carries probability or severity.",
+            "tasks": [
+              {
+                "text": "List risks",
+                "done": true
+              },
+              {
+                "text": "Settle Sales Ops ownership — \"may sit with the User Support team in MVP; final ownership pending\"",
+                "done": false
+              },
+              {
+                "text": "Score each risk for probability and severity — today they are named but unranked",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Non-functional requirements",
+            "status": "partial",
+            "note": "Present in 7 of 36 stories (95w total) and merged per-spec in b2br-5157 §8 and UCB-1 §8 — real, but per-story rather than a shared standard; 29 of 36 stories carry nothing.",
+            "tasks": [
+              {
+                "text": "🚧 Define performance targets — without an NFR bar there is no acceptance criterion; blocks DoD",
+                "done": true
+              },
+              {
+                "text": "🚧 Define availability / SLO targets — blocks DoD across stories",
+                "done": false
+              },
+              {
+                "text": "🚧 Define scale / throughput targets (catalog size, concurrent bookings) — blocks DoD for D-02/D-04",
+                "done": false
+              },
+              {
+                "text": "🚧 Define security requirements — blocks DoD and the privacy-bearing stories",
+                "done": false
+              },
+              {
+                "text": "🚧 Define concurrency rules (e.g. D-07a concurrent edits) — blocks D-07a (MVP); behaviour on simultaneous modify/cancel is undefined",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Integrations (data & billing)",
+            "status": "partial",
+            "baseStatus": "partial",
+            "note": "Billing stack named (Business Central standard, Tipalti legacy, Zip onboarding) and the per-service contract merged in B2BR-5336, with Salesforce as fiscal source of truth (CHK-25). But SYS-02's data contract is undefined, the tax engine is undecided (Vertex/OVOX/Fonoa), and the Salesforce creation flow exists only as unmerged PR #43.",
+            "tasks": [
+              {
+                "text": "🔒🚧 Freeze the reporting/warehouse data contract (SYS-02) with the Data team — name an owner + lock the schema; blocks SYS-02/SYS-02b (attribution), D-12 (dashboard KPIs) and O-13 (monitor/reconcile)",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "🚧 Confirm reporting dimensions + models-on-multipayment cover marketplace orders & gross revenue — blocks SYS-02b, D-12, O-13",
+                "done": false
+              },
+              {
+                "text": "🚧 Define when the manual vs automatic billing path fires, and who triggers the manual one — blocks SYS-04/SYS-04b (billing)",
+                "done": false
+              },
+              {
+                "text": "🔒🚧 Pin the finance-billing integration contract (invoice generation, settlement, reconciliation) with an owner — blocks SYS-04 (billing) and D-13 (invoicing)",
+                "done": true,
+                "beforeHandover": true
+              },
+              {
+                "text": "🚧 Define per-jurisdiction invoicing and resolve Q99 (invoice-cycle) + Q100 (Gross-Up) — blocks SYS-04 and D-05",
+                "done": false,
+                "beforeHandover": true
+              },
+              {
+                "text": "Maintain an integration inventory — for each (Data reporting, finance-billing): owner · contract · status",
+                "done": true
+              },
+              {
+                "text": "Add the distributions in the vendors systems: ZIP",
+                "done": false
+              },
+              {
+                "text": "RAPI integration",
+                "done": false
+              },
+              {
+                "text": "Add Billing manual",
+                "done": false
+              }
+            ]
+          },
+          {
+            "name": "Analytics / instrumentation",
+            "status": "missing",
+            "note": "Template + empty 1-row table; zero events defined, no event→KPI map.",
+            "tasks": [
+              {
+                "text": "🚧 Define the event taxonomy for the marketplace flows — blocks instrumentation in the front stories and D-12 (dashboard KPIs)",
+                "done": false
+              },
+              {
+                "text": "Map each event → KPI (Mixpanel)",
+                "done": false
+              },
+              {
+                "text": "Specify the dashboards / reporting needs",
+                "done": false
+              }
+            ],
+            "baseStatus": "missing"
+          },
+          {
+            "name": "Acceptance criteria / DoD",
+            "status": "partial",
+            "note": "No AC/DoD language in the PRD at all — only 'Success outcome' prose (42 occurrences). model-documentation has exactly one story with normative AC + Tier-1 tests (b2br-5157 §4.1/§7), and that spec is mid-revision in unmerged PR #47. 1 of 36 stories covered.",
+            "tasks": [
+              {
+                "text": "🚧 Write testable acceptance criteria per story — today stories carry prose 'Success Outcome' but no testable AC; blocks the DoD of every story and QA sign-off",
+                "done": false
+              },
+              {
+                "text": "🔒 Define a project Definition of Done before Sprint 1 so 'done' is unambiguous for every pair",
+                "done": false
+              },
+              {
+                "text": "🧩🚧 Fill the edge-cases table with concrete cases — none are defined anywhere (1-row placeholder); blocks AC for booking/pricing/cancel stories: e.g. sold-out at checkout, concurrent D-07a edits, partial refund (no story — D-14 deleted 2026-08-07 as \"no change to be done\"), cross-region VAT (SYS-05), payment failure (D-06/D-06b), duplicate distributor (SYS-07)",
+                "done": false
+              },
+              {
+                "text": "b2br-5157 has normative acceptance criteria + Tier-1 tests — the only story of 36 that does",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Rollout & GTM plan",
+            "status": "partial",
+            "note": "495w with Strategy / Priority markets / Phased timeline / workstreams / Demo strategy, plus merged pilot scope (~500 distributors before first partner go-live) and feature-flag mechanics. No documented backout for a market pulled post-launch; opt-out communication pending Legal.",
+            "tasks": [
+              {
+                "text": "Define the rollout phases",
+                "done": true
+              },
+              {
+                "text": "🚧 Define per-partner / per-plan feature-flag activation — blocks the rollout of every shipped story",
+                "done": false
+              },
+              {
+                "text": "Define the pilot ramp (Minor ~300)",
+                "done": true
+              },
+              {
+                "text": "🔒 Assign owners + dates to each rollout / GTM action (today 'Action 1/2/3' with blanks) — gate before launch",
+                "done": false
+              },
+              {
+                "text": "Define the GTM / comms plan",
+                "done": false
+              },
+              {
+                "text": "Reconcile the pilot-ramp figure — the checklist says ~300, decisions.yaml says ~500 distributors before first go-live",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Milestones / timeline",
+            "status": "partial",
+            "note": "'Phased timeline' exists and requirements.yaml phases every requirement P1/P2/P3 — but no milestone carries an owner or an exit criterion, and four different dates are in circulation for the same thing.",
+            "tasks": [
+              {
+                "text": "Add phased milestones (wholesale ~S4, commission+invoicing S5–S6, full B2BM ~S9)",
+                "done": true
+              },
+              {
+                "text": "Tie milestones to the delivery-plan dates",
+                "done": false
+              },
+              {
+                "text": "🔒 Define go / no-go gates per milestone — start gate for staged delivery",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Next steps / future improvements",
+            "status": "partial",
+            "note": "No consolidated PRD section, but the real deferred list is merged in model-documentation (README 'Deferred & coordination', PRD-derivation 'Deferred', open decisions as forward work). A documentation-location gap, not a decision gap.",
+            "tasks": [
+              {
+                "text": "List post-MVP scope (cross-jurisdiction commission, etc.)",
+                "done": true
+              },
+              {
+                "text": "List the explicit out-of-MVP deferrals",
+                "done": true
+              },
+              {
+                "text": "Consolidate the deferred list into the PRD — today it exists only in model-documentation",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          }
+        ]
+      },
+      "decisions": [
+        {
+          "title": "Visibility & access model (final)",
+          "area": "B2BM Discovery / Access",
+          "status": "resolved",
+          "owner": "Andrea + Alejandro (Sagrado/Herrero) + Félix",
+          "since": "2026-06-26",
+          "note": "Settled via the worked-example artifact. THREE plan access modes: OPEN (book immediately) · OPEN + REQUEST-ACCESS (visible to all, approval-required → request→approve→book) · EXCLUSIVE (offered to specific resellers; HIDDEN from everyone else — they never see it exists; NOT shown-but-locked, per Alejandro Herrero: see-but-can't-buy creates frustration). Per-reseller states: Bookable / Request access (🔒, only the open-to-all+approval case) / Hidden (🚫, an exclusive you're not on) / Removed (✕). Removal ops: BLOCK a distributor = cut them from ALL of one partner's events (unifies the former O-12 'revoke') + cancel pending reservations (confirmed kept, no new bookings); UNPUBLISH a plan for a reseller = pull one plan for one reseller (e.g. open→exclusive switch — confirmed kept, pending cancelled, open cart cleared); UNPUBLISH for everyone = pull from the marketplace (bookings stay payable). Card 'from' price = each group's lowest qualifying price, served either via a per-group materialized view OR a written 'from' field in FeverZone (materialization optional). Group = an exclusive offered to a SET of resellers — same hide mechanic, no separate model. Refines the 2026-06-23 pricing decision on the visibility dimension. — REFINED 2026-07-08: formalized as a relationship-state machine (Pending · Approved·Open-only · Approved·Full-catalog · Rejected); 'Hidden' is now expressed purely through group/channel publication, not a separate flag; per-distributor state is DERIVED from the relationship state + group publication. ⚠ UNDER REVISION 2026-07-09 — the catalog-request ↔ relationship governance is being reworked with design (mute/Ignored may be dropped for a terminal Rejected CTA).",
+          "url": "https://claude.ai/code/artifact/49253429-d46d-43a6-987c-1d0f561c4e22"
+        },
+        {
+          "title": "Pricing structure: B2BM price-list inheritance + group model",
+          "area": "B2BM Pricing",
+          "status": "resolved",
+          "owner": "Andrea + Félix + Alejandro (Sagrado/Herrero)",
+          "since": "2026-06-23",
+          "note": "⚠️ REFINED 2026-06-26 by the 'Visibility & access model (final)' decision above — read together, not in isolation: point (2) 'catalog buyable by all distributors' holds only for OPEN events; EXCLUSIVE events are now HIDDEN from non-grantees (not shown-but-locked), and OPEN+REQUEST-ACCESS events are visible but approval-gated. So 'buyable by all' = the open catalog, not every event. — Original (validated 06-23): (1) A channel/group price list inherits from the B2B-marketplace price list, NEVER the generic base (retail-leak risk); the base is only the clone-source at creation. (2) The B2BM catalog is buyable by all distributors; group specificity = B2B discount per ticket + optional ticket-type-level visibility (aggregation, not inheritance). (3) MVP red-line: groups set only prices, no group-specific ticket types. Does NOT resolve the still-open 'auto-inherit global B2B discount?' or 'B2B discount min/max legal cap?' questions. — SUPERSEDED 2026-07-08 by the CLOSED price-list model: b2b-discount is a mandatory field on every price-list row (backfilled 0%); the winning list gives retail price + discount from the SAME row with NO fallback to a parent/base list (the earlier 'inherits from the B2B-marketplace list' mechanic is dropped); a group IS a sales channel. — CONFIRMED 2026-08-07 against fever2 `src/core/domain/price_list/`: PriceList.main_plan scopes a list to ONE event (never shared); applies_to_all_channels + the PriceListChannel join table do the channel restriction; PriceListItem.session_type makes the TICKET TYPE the pricing unit. Andrea re-confirmed a distributor group CREATES the Channel. ⚠ NOTE: PriceList.parent_price_list exists in the model, and a 2026-08-07 pass briefly wrote into SYS-01/O-04/O-16 that channel lists INHERIT through it — that was wrong and was corrected the same day. The 2026-07-08 closed model stands: single-row resolution, no parent fallback.",
+          "url": "https://notes.granola.ai/d/baaa1bb4-d33e-4d7b-ab1c-0ca234d03e4f"
+        },
+        {
+          "title": "Planning assumption: squad stays 100% on B2BM",
+          "area": "B2BM capacity",
+          "status": "resolved",
+          "owner": "Andrea + Félix",
+          "since": "2026-06-18",
+          "note": "The 12-dev / Oct-21 plan assumes the squad is fully dedicated to B2BM. Deposit or full-modification-reservation tasks could surface in Q3 after the rollouts; if they do, they consume build capacity and push the date. NOT an external ask — a planning risk to monitor and defer/absorb elsewhere if it appears.",
+          "url": ""
+        },
+        {
+          "title": "Scope: build the whole B2BM (phased wholesale-first)",
+          "area": "B2BM",
+          "status": "resolved",
+          "owner": "Andrea + Félix → Miguel sign-off",
+          "since": "2026-06-16",
+          "note": "Plan of record (re-derived 2026-06-18 to the committed Oct-21 plan): deliver the whole prototype in 9 two-week sprints / 18 wks, Jul 1 → full launch ~Oct 21 (W17), with 12 devs + Tech-Support firefighter cover. Phased wholesale-first — wholesale path complete ~Sprint 4; commission + invoicing + reporting fold in S5–S6, their START gated by legal T&Cs + billing/tax sign-off (calendar, not engineering). Cross-jurisdiction commission stays post-MVP. Contingent on the acceleration asks.",
+          "url": "https://docs.google.com/document/d/1bio5Q3774XYnrRcGZScXvFnkRGMwHFaL1ZcQ2lqvPjE/edit"
+        },
+        {
+          "title": "Data model: business ↔ channel-per-plan + frozen API contract",
+          "area": "B2BM Foundations",
+          "status": "resolved",
+          "owner": "Andrea + Félix (with Eloi; Dor advising)",
+          "since": "2026-06-15",
+          "note": "THE make-or-break gate. Today a business = 1 channel; the model must let a business belong to different channels per plan (possibly via a proxy 'business group'). Dor: decide now — changing it later means costly migration. Must be locked + the API/data contract frozen in WEEK 1 of Q3 so 6 engineers don't wait on 2. — RESOLVED 06-23 (B2B Pricing validation): the channel-per-plan model + new pricing prototype were technically validated; multiple-channels-per-business is settled. Remaining execution step: freeze the API/data contract in Week 1 (tracked as a task).",
+          "url": "https://docs.google.com/document/d/1bio5Q3774XYnrRcGZScXvFnkRGMwHFaL1ZcQ2lqvPjE/edit"
+        },
+        {
+          "title": "Registration T&Cs undefined (legal blocker)",
+          "area": "B2BM Registration",
+          "status": "open",
+          "owner": "James (legal) / Andrea + Félix",
+          "since": "2026-06-08",
+          "note": "No legal definition = R-1 registration can't be built. Needed by ~week 5 of the plan. James replacing Conor Hannon as senior commercial legal counsel. Fallback = SO-04 manual create.",
+          "url": "",
+          "blocks": [
+            1
+          ]
+        },
+        {
+          "title": "Billing/tax alignment gates the commission path",
+          "area": "B2BM Billing/Tax",
+          "status": "resolved",
+          "owner": "Laura Redondo (tax) + Manuel Illana / Juan Carlos (billing)",
+          "since": "2026-05-18",
+          "note": "Open: cross-region wholesale behavior (warning vs gate), Gross-Up clause for cross-jurisdiction commission, and Fever↔Organizer / Distributor↔Fever invoice-cycle alignment. Commission is same-jurisdiction only (SYS-05 hard block) and not auto-invoiced in MVP. Gates the START of Sprints 7–8 — calendar risk, not engineering.",
+          "url": "",
+          "blocks": [
+            4
+          ]
+        },
+        {
+          "title": "Discovery engine: reuse Marketplace (B2C), not FeverZone",
+          "area": "B2BM Discovery",
+          "status": "resolved",
+          "owner": "Andrea + Félix / Marc (Discovery)",
+          "since": "2026-06-10",
+          "note": "Cross-organizer catalog (R-2) should reuse the Marketplace engine; FeverZone uses IMAX data = perf risk. Confirm reuse scope with Marc before Sprint 2. B2BM Discovery surface = FeverZone; reuse the B2C Marketplace search engine specifically (not FeverZone's own).",
+          "url": ""
+        },
+        {
+          "title": "Does a new price list auto-inherit a configured global B2B discount?",
+          "area": "B2BM Pricing",
+          "status": "resolved",
+          "owner": "Answered by DEC-020 + DEC-036 + DEC-055 in model-documentation",
+          "since": "2026-06-11",
+          "note": "Likely not — needs confirming. Also: how does the system resolve discounts when one price list spans multiple channels? — SHARPENED 2026-08-07: under the 2026-07-08 closed model the answer is NO by construction (no parent fallback). So the real question is the NO-ROW case: a distributor whose channel has no price-list row on an event has nothing to inherit. Do they resolve the default public B2BM group's row, resolve base retail at 0% discount, or see no price at all? O-04 is IN PROGRESS and will settle this by implementation unless it is decided first. Recorded on B2BR-5154 and B2BR-5282. — ANSWERED 2026-08-07, and it was already answered in model-documentation `resellers/b2bm/model/decisions.yaml`: DEC-036 adds a b2b-discount column to the BASE price list (backfilled); DEC-055 is most-specific-wins over the rows that exist, the winning row supplying retail + discount together with no parent fallback; DEC-020 makes 0% the catalogue's DAY-ZERO STATE (sells at retail, no B2B margin). Since the base list is always present and applies_to_all_channels defaults to true, there is no 'no row' state — a group without a dedicated row resolves the base at 0%. What remains open is DEC-020's second half: is a 0%/zero-commission sale legal with organizer consent, and is there a legal MAXIMUM discount — enforced in O-04's editor.",
+          "url": "",
+          "blocks": [
+            3
+          ]
+        },
+        {
+          "title": "Zero-price tickets & add-ons handling for the price filter",
+          "area": "B2BM Discovery",
+          "status": "open",
+          "owner": "Andrea + Félix",
+          "since": "2026-06-10",
+          "note": "Review how the marketplace handles €0 tickets/add-ons before finalizing the price-filter logic. (Group-size & relevance filters cut from MVP; revisit post-launch.)",
+          "url": "",
+          "blocks": [
+            3
+          ]
+        },
+        {
+          "title": "B2B discount min/max limits — legal restriction on the max?",
+          "area": "B2BM Pricing",
+          "status": "open",
+          "owner": "TBD",
+          "since": "2026-06-12",
+          "note": "A minimum seems needed (0% adds no value); check whether there's a legal cap on the maximum.",
+          "url": "",
+          "blocks": [
+            3
+          ]
+        },
+        {
+          "title": "Partner onboarding to B2B marketplace",
+          "area": "B2BM",
+          "status": "open",
+          "owner": "Jorge / Andrea (PM gap after Alejandro)",
+          "since": "2026-06-15",
+          "note": "Split product side (how a partner gets catalog + pricing live) from technical side; align scope/cost with Jorge. Large partners (Food-for-Business = 457 plans) need a 'select all, adjust later' fallback — plan-by-plan wizard is unviable. Patrimonio Nacional is the complex case.",
+          "url": "",
+          "blocks": [
+            1
+          ]
+        },
+        {
+          "title": "Per-jurisdiction legal clearance to sell B2B (SYS-05)",
+          "area": "B2BM Legal/Jurisdiction",
+          "status": "open",
+          "owner": "James (commercial legal)",
+          "since": "2026-06-16",
+          "note": "SYS-05 validates the distributor's fiscal jurisdiction against the event's at booking. Legal must confirm which jurisdictions are cleared to transact B2B — rollout is market-by-market (France and some markets carry restrictions). Until a market is cleared, SYS-05 limits/blocks selling there. Gates Phase 2 (Wholesales) go-live per jurisdiction. — 2026-08-07: Andrea set the launch scope to SPAIN FIRST, which answers this for go-live. Promoted from prose to an acceptance criterion on SYS-12 (B2BR-5285) and made a launch gate; SYS-16 (B2BR-5289, e-invoicing, 4 weeks) stays post-MVP CONDITIONAL on that scope and re-enters the launch if any clearance jurisdiction is added. ⚠ Spain is not automatically clearance-free — Verifactu/SIF, TicketBAI (foral territories + Navarra) and Ley Crea y Crece each need a Finance answer. ⚠ The gate has NO ENFORCEMENT POINT: SO-04 creates distributor orgs from a Salesforce signal with no country condition.",
+          "url": "",
+          "blocks": [
+            2
+          ]
+        },
+        {
+          "title": "Cross-jurisdiction commission — fiscal/legal sign-off (post-MVP)",
+          "area": "B2BM Legal/Jurisdiction",
+          "status": "blocked",
+          "owner": "Laura Redondo (tax) + James (legal)",
+          "since": "2026-06-16",
+          "note": "D-05 commission path is same-jurisdiction only — SYS-05 hard-blocks cross-jurisdiction commission in MVP. Decide if/when to enable it: needs a gross-up clause + a fiscal-liability ruling on charging commission across jurisdictions. Currently out of MVP; blocks any cross-border commission selling in Phase 3.",
+          "url": "",
+          "blocks": [
+            4
+          ]
+        },
+        {
+          "title": "Do unpublished-from-channel plans keep already-made reservations payable?",
+          "area": "B2BM Visibility",
+          "status": "resolved",
+          "owner": "Andrea + Félix",
+          "since": "2026-06-23",
+          "note": "The 'Status'/publish toggle hides a plan from feeds/search/URL; confirm in COTS production that existing reservations stay payable (Félix ~95% yes).",
+          "url": "https://notes.granola.ai/d/baaa1bb4-d33e-4d7b-ab1c-0ca234d03e4f"
+        },
+        {
+          "title": "Can price-list inheritance be capped at the B2B-marketplace list (never the generic base)?",
+          "area": "B2BM Pricing / FeverZone",
+          "status": "resolved",
+          "owner": "Andrea + Félix",
+          "since": "2026-06-23",
+          "note": "Inheriting from the generic base risks selling at retail. Needs FeverZone settings work — the inheritance source currently can't be edited after creation. — RESOLVED 2026-07-08: the closed price-list model has NO inheritance at all (no fallback to any parent list), so the retail-leak risk is removed by construction.",
+          "url": "https://notes.granola.ai/d/baaa1bb4-d33e-4d7b-ab1c-0ca234d03e4f"
+        },
+        {
+          "title": "Final naming: 'channel' vs 'group' for distributor groupings",
+          "area": "B2BM Terminology",
+          "status": "resolved",
+          "owner": "Andrea + Félix",
+          "since": "2026-06-23",
+          "note": "'Groups' replaces 'tiers'; channel-vs-group naming not fully settled. Feeds the key-terms table. — RESOLVED 2026-07-08: a group IS a sales channel internally (new b2b_marketplace channel type, 1:1); 'group' is product copy only.",
+          "url": "https://notes.granola.ai/d/baaa1bb4-d33e-4d7b-ab1c-0ca234d03e4f"
+        },
+        {
+          "title": "Salesforce integration: owner + field mapping for distributor payouts (SYS-10)",
+          "area": "B2BM Integrations",
+          "status": "resolved",
+          "owner": "Andrea — resolved 2026-08-07",
+          "since": "2026-06-24",
+          "note": "SYS-10 syncs onboarded distributors to Salesforce so Finance can hold bank-account / payout data for commission payments. Open: who owns the Salesforce↔FeverZone integration, and the exact field mapping — which fields sync, bank-detail ownership, Tax ID as the upsert key, and sync-failure handling. Gates the commission-payout path. — RESOLVED 2026-08-07: payout executes OUTSIDE the platform. The distributor invoices Fever against the SYS-09 monthly statement and Fever pays through normal accounts payable, so NO bank-account or payout data needs to live in Fever. That is why SYS-18 could be removed the same day. SYS-10 itself was absorbed into SO-04 (B2BR-5134), which keeps the sync-failure-surfacing requirement. Residual: O-14's payout cards are reduced to 'earned' only — 'pending' and 'last paid' have no settlement source.",
+          "url": "",
+          "blocks": [
+            1
+          ]
+        },
+        {
+          "title": "B2BM discovery & exclusivity model — in definition (proposal in progress)",
+          "area": "B2BM Discovery / Visibility",
+          "status": "resolved",
+          "owner": "Andrea + Félix → Product",
+          "since": "2026-06-25",
+          "note": "NOTHING DECIDED — the discovery proposal is being prepared (see artifact). Mechanics exist in FeverZone (typed channels = sales + per-channel pricing; per-reseller grants in b2b-iam) and discovery would reuse the B2C category-page / linked-out pattern (one main marketplace + per-distributor plan-card customisation), not a custom channel per audience. Openness is per-plan (open plans for all resellers + exclusive plans coexist). Open product calls: default on publish (open vs hidden); what a reseller sees vs can book; the card 'presentation' price rule (card vs plan-page price); confidential/hidden vs visible-but-locked exclusives + the partner control to set this; one-off deals vs reusable tiers; who initiates an exclusive offer. — the approved discovery/exclusivity model landed 2026-07-08 (relationship-state machine + group-based exclusivity; see the High-level requirements artifact). ⚠ still under revision 2026-07-09 on the request↔relationship governance (design to propose closure).",
+          "url": "https://claude.ai/code/artifact/f33e24ad-d75e-4f47-8461-8b287f14ad42"
+        },
+        {
+          "title": "Distributor vetting reuses the Trust & Safety DD screening pipeline",
+          "area": "B2BM Registration / Trust & Safety",
+          "status": "resolved",
+          "owner": "Andrea + Trust & Safety",
+          "since": "2026-07-09",
+          "note": "KYC/AML for distributor onboarding reuses the existing Trust & Safety pipeline: Salesforce syncs the record to OneTrust, which screens it against the Dow Jones database (sanctions & watchlists, state-owned companies, PEPs/RCAs, adverse media, country risk). ~95% clear automatically; flagged cases go to manual review. It is a CONTROL, not a hard blocker (no automatic system block — preserves flexibility for false positives). Reseller entities don't exist in Salesforce yet — interim: CSV upload to OneTrust until the automated trigger is extended.",
+          "url": "https://github.com/Feverup/model-documentation/blob/b2bm/tracks-requirements/resellers/b2bm/tracks-requirements.html"
+        },
+        {
+          "title": "B2BM backend lives in the Partners service + a dedicated B2B OpenSearch index",
+          "area": "B2BM Architecture",
+          "status": "resolved",
+          "owner": "Platform track (Discovery architecture study)",
+          "since": "2026-07-09",
+          "note": "Proposed / converging: no new dedicated service — B2BM backend logic lives in Partners (already owns the relational DB, organizer model, channel projection from Fiber, concessions, and the OpenSearch connection). Catalog search runs on a DEDICATED B2B OpenSearch index with its own projection workers (realtime + ~15-min periodic, reusing the Betium worker pattern). Open: whether catalog visibility resolves at projection time (fast, staler) or via a Fiber2 call at query time (fresh, runtime dependency). Deciding artifact = the Discovery architecture study + frozen API contract.",
+          "url": "https://github.com/Feverup/model-documentation/blob/master/resellers/b2bm/architecture-two-pipelines.html"
+        },
+        {
+          "title": "Final B2BM production domain to confirm",
+          "area": "B2BM Architecture / Systems",
+          "status": "resolved",
+          "owner": "Platform track w/ Systems",
+          "since": "2026-07-09",
+          "note": "B2BM deploys to its own environment with no route/origin coupling to the Partners app, but the final production domain is not fixed — distributors.feverup.com vs partners.feverapp.com (staging: distributors-dev.feverup.com).",
+          "url": "https://github.com/Feverup/model-documentation/blob/b2bm/tracks-requirements/resellers/b2bm/tracks-requirements.html"
+        },
+        {
+          "title": "Commission base is modeled nowhere — needs worked billing examples",
+          "area": "B2BM Commissions / Finance",
+          "status": "open",
+          "owner": "Félix + Finance — ticketed 2026-08-07 as B2BR-5537",
+          "since": "2026-08-03",
+          "note": "DEC-017 states the partner↔Fever commission percentage is \"modeled nowhere\", yet at least four stories consume that base: D-05 (book on commission), SYS-04 (billing artifacts), SYS-19 (coupon × commission, new) and SYS-21 (monthly commission statement, new). Needed: the base stated normatively (which price · gross or net of VAT · before or after surcharge) plus ONE worked numeric example per booking mode — wholesale, commission, commission with coupon, forfeit — signed off by Finance and linked from all four stories. Raised as a story (SYS-20) by the 2026-08-03 backlog review and moved here because the deliverable is a signed-off specification, not code. Until it lands, each of the four consuming stories invents its own base and the four disagree. Cheap to produce; blocks ~8 pair-weeks. — 2026-08-07: RAISED AS A TICKET, B2BR-5537 '[DEFINITION] Commission model — rate, base and treatment', in the b2bm-definitions swimlane. Two story references above are now stale: SYS-04 was closed as not-in-project on 2026-08-07, and SYS-21 was merged into SYS-09. The live consumers are SYS-02 (B2BR-5165, captures at close), SYS-09 (B2BR-5169, 3w, the statement), SYS-15 (B2BR-5288, the Fever→partner invoice) and SYS-19 (B2BR-5526, coupon only) — all four now carry a comment pointing here. Scope grew: it must also settle cancellation/refund/forfeit treatment (SYS-09 requires it and nothing defines it) and the absorbed-commission case, which was documented ONLY on the now-closed SYS-04. Still OPEN — the ticket exists, the definition does not.",
+          "url": "",
+          "blocks": [
+            4
+          ]
+        },
+        {
+          "title": "Commission payout executes outside the platform",
+          "area": "B2BM Commissions / Finance",
+          "status": "resolved",
+          "owner": "Andrea",
+          "since": "2026-08-07",
+          "note": "No B2BM story moves money and none stores bank details. The distributor invoices Fever against the SYS-09 monthly statement (B2BR-5169) and Fever pays it through normal accounts payable. Consequences: SYS-18 was removed the same day with no hole left behind; the SYS-09 statement is functionally a PAYOUT TRIGGER, which raises re-issuability, immutability and stable numbering from nice-to-have to hard requirements; and O-14's payout cards (B2BR-5173) are reduced to 'earned' only, because 'pending' and 'last paid' both require settlement data Fever does not have. Also resolves the long-open Salesforce payout field-mapping question (SYS-10).",
+          "url": ""
+        },
+        {
+          "title": "Balance funding is also an operation outside the platform",
+          "area": "B2BM Booking & Payments",
+          "status": "open",
+          "owner": "Andrea + Eloi/Raquel — pre-launch item on D-06b",
+          "since": "2026-08-07",
+          "note": "Money arrives by bank transfer; B2BM does not collect it. Same posture as commission payout — money movement is off-platform, only the documents are in-product. ⚠ STILL OPEN, and it gates a LAUNCH story: 'outside the platform' settles the money movement but NOT the ledger entry. Nobody is named as the surface that records a credit against a distributor's balance. D-06b (B2BR-5159, Wholesales launch, In Study) SPENDS the balance; O-15 (B2BR-5535), which lets an organizer top one up, is post-MVP AND its own AC excludes Sales Ops from funding. If the answer is 'no surface', D-06b ships a payment method that cannot be topped up. Two spend-side ACs were moved from O-15 to D-06b in the same pass: the overspend-under-concurrency guard and the immutable balance ledger.",
+          "url": ""
+        },
+        {
+          "title": "O-14's invoicing tab needs no billing-artifact layer",
+          "area": "B2BM Reporting / Commissions",
+          "status": "resolved",
+          "owner": "Andrea",
+          "since": "2026-08-07",
+          "note": "D-13 was built on SYS-04 (billing artifacts), and SYS-04 was closed as not-in-project on 2026-08-07 — leaving open whether the merged O-14 tab had lost a layer beneath it. It had not. The tab renders MONTHLY STATEMENTS, produced by SYS-09 (B2BR-5169), and a per-reservation COMMISSION-SALES list, derived from SYS-02 attribution (B2BR-5165). Neither is a SYS-12/13/14 invoice and neither needs an intermediate artifact layer, so SYS-04's closure stands. The real defect it exposed was a MISSING DEPENDENCY: O-14 did not depend on SYS-09 despite rendering its output. Added 2026-08-07. ⚠ O-14's effort is still 'Days', sized for the CSV export alone before it absorbed D-13's 2 weeks — the largest known estimate error in the matrix.",
+          "url": ""
+        },
+        {
+          "title": "Wholesale reservation management at launch: customer info editable, cancel not available",
+          "area": "B2BM Booking & Payments",
+          "status": "resolved",
+          "owner": "Andrea — with two open items below",
+          "since": "2026-08-07",
+          "note": "Two decisions on the same evening that together reshape D-07. (1) CUSTOMER-INFO EDITING IS IN THE MVP FOR WHOLESALE, carved out of D-07b (post-MVP) into D-07a (B2BR-5160, Wholesales milestone). Customer is NOT the contact: per B2BR-5522 the contact is the booking distributor and the customer is the person attending, and the marketplace captures only one of them today. Wholesale needs it and commission does not, because on commission the Pay-by-Link captures the end customer at payment, whereas on wholesale the distributor buys inventory up front and resells afterwards, so the customer is often unknown at booking. (2) A DISTRIBUTOR CANNOT CANCEL — cancel was removed from D-07a, which is now view + edit customer info only. Together these make D-07a the ONLY way a wholesale booking reaches the right person: there is no cancel-and-rebook fallback. ⛔ AND IT IS BLOCKED: B2BR-5522 is a [Design]/b2bm-definitions ticket open since 2026-07-13, 'do not start until the customer/contact approach is closed', owner Spyros, approach reviewed but not closed. It owns WHERE customer information is captured, so there is nothing to edit until it lands, and it also gates D-08 (delivery note), likewise in the launch. Pulling this scope into the MVP converted a 28-day-stalled design ticket into a Wholesales-launch blocker. ⚠ THREE EARLIER RECORDS ARE NOW VOID: the D-07 split rationale (justified by cancel landing in the launch); D-14's deletion reason ('no change to be done', read as cancel reusing the existing refund path — there is no distributor cancel to reuse one); and DEC-025 (wholesale cancellation policy, open and unowned) which is either resolved by this or concerns a different actor. ⚠ STILL OPEN: can anyone cancel at all — the organizer path is described in no story and unsized as launch support load; and whether 're-share Pay-by-Link' survives on its own, having been bundled into the removed cancel criterion. ⚠ The substantive engineering work is TICKET RE-ISSUANCE, not the form: tickets are issued on payment (D-06/D-06b) and the resale happens after, so changing the customer must decide whether the issued ticket is reissued, its previous delivery invalidated, or both left live. Unspecified. ⚠ PERSONAL DATA: the customer is a third party with no Fever relationship whose details a distributor types in; lawful basis, retention and controller appear nowhere in the plan, nor in B2BR-5522's acceptance criteria. ⚠ EFFORT: D-07a's 1 week and D-07b's 2 weeks were an assistant division of D-07's original 3 weeks, never squad-sized. D-07a has since gained paid-order customer editing and ticket re-issuance and lost cancel. Deliberately NOT re-estimated — the Oct 12 / Oct 26 dates are unchanged on paper but now carry an un-priced change and a live blocker.",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5522"
+        }
+      ],
+      "asks": [
+        {
+          "ask": "Tech-Support Q&A cover (full project)",
+          "kind": "resource",
+          "from": "Miguel Gonzalez and Dor Regev",
+          "status": "committed",
+          "when": "full project — Jul 1 → ~Oct 21 launch",
+          "need": "The 6 build pairs must stay 100% on B2BM every sprint; today they lose ~0.45 pair/week to open Q&A-channel requests + firefighting.",
+          "why": "Removing that noise (drag 0.45 → 0) recovers ~½ a builder and is the BASIS OF THE PROPOSAL: with cover the committed date is Oct 21 (W17) vs Oct 28 without it — and it must hold every sprint or the date slips.",
+          "request": "1 engineer FROM the Tech-Support team (not a Resellers squad member) to own open Q&A-channel requests for Resellers for the full project duration (~9 sprints / ~4 months); a tech firefighter still covers Sentry + fixes."
+        },
+        {
+          "ask": "Dedicated B2BM PM",
+          "kind": "resource",
+          "from": "Dor Regev",
+          "status": "committed",
+          "need": "Story-readiness is a flagged risk and Alejandro Sagrado (PM) is departing; the squad needs a PM who owns B2BM context, drives cross-team unblocking, and governs partner requests.",
+          "why": "A PM who owns the B2BM context keeps specs ready so pairs never idle; knowing the cross-team contacts is what lands the Legal/Finance/F&C unblockers on time (the tightest dependencies); a decision-making partner means Andrea+Félix aren't the sole owners. Must overlap Sagrado before he leaves to absorb the B2BM + critical-path context.",
+          "request": "A dedicated PM with full B2BM domain knowledge — knows who to contact across teams (Legal, Finance/F&C, Data, FeverZone), works hands-on with the squad on decisions, covers Sagrado's role, and maintains a partner-request backlog co-prioritized with Dor in a bi-weekly (per-sprint) prioritization meeting, shared with Andrea+Félix in Excel or Jira. Partner requests default to Q4, but a HIGH-priority item can trigger a B2BM re-plan (managed interrupt, not a hard ring-fence).",
+          "when": "new PM joins 2026-07-06 — must overlap Sagrado before he leaves to absorb the B2BM + critical-path context"
+        },
+        {
+          "ask": "+4 mid-high–senior engineers (2 pairs)",
+          "kind": "resource",
+          "from": "Miguel Gonzalez",
+          "status": "committed",
+          "need": "Today's actual 8-dev squad (4 pairs) runs full B2BM to ~Dec 23; October is impossible without more build capacity on the commission-invoicing chain.",
+          "why": "Going 8 → 12 devs (4 → 6 pairs) is what makes October possible: 12 devs → ~Oct 28, and ~Oct 21 with Tech-Support cover. 12 devs is the ceiling — Sep 30 would need 16 / 8 pairs (out of scope) and the 13-wk critical path binds beyond that. Mid-high/senior so they ramp fast on the commission-invoicing chain (less onboarding drag than juniors), but still request early for domain/codebase ramp-up.",
+          "request": "4 mid-high to senior engineers = 2 build pairs (4 fullstack, or 2 backend + 2 frontend)."
+        },
+        {
+          "ask": "F&C developer for invoicing",
+          "kind": "resource",
+          "from": "Miguel Gonzalez",
+          "status": "committed",
+          "need": "Invoicing (SYS-04 → D-13) integrates with the F&C billing system and depends on the foundations data model + frozen API contract being right for billing. If the contract (frozen week 1) misses invoicing needs, fixing it later means a costly re-freeze/migration — and it's on the critical path.",
+          "why": "Bringing the F&C developer into discovery & foundations means the data model + API contract account for invoicing/billing from day one — avoiding the late re-freeze/migration risk Dor flagged, and de-risking the longest pole before any of it is built.",
+          "request": "A developer from the F&C team embedded in discovery & foundations (from Sprint 1) to shape invoicing/billing requirements into the data model + API contract, paired with a Resellers engineer (Gus or Alexander).",
+          "when": "discovery & foundations — from Sprint 1 (~Jul 1)"
+        },
+        {
+          "ask": "Designer capacity for B2BM",
+          "kind": "resource",
+          "from": "Fernanda Marques",
+          "status": "committed",
+          "need": "B2BM needs reliable design throughput across the whole build, but Alex Herrero's time is consumed by GIT and other initiatives.",
+          "why": "Without dedicated design capacity, Herrero's GIT/other-initiative load competes with B2BM and can stall front-end stories. Either path frees that up; the mid-designer path adds onboarding/training cost, so flag it early.",
+          "request": "Either (a) a designer to backfill Alex Herrero on GIT (and other initiatives) so his time frees up for B2BM, OR (b) a mid designer assigned to help out on B2BM directly — with onboarding + training factored in.",
+          "when": "new designer joins 2026-07-27. Alex Herrero (main designer) out Jul 13–23; the mid-July window before the new designer ramps is covered by Itzi + Pablo (onsite & shops) helping on B2BM designs."
+        },
+        {
+          "ask": "Landings-team developer for the registration page",
+          "kind": "resource",
+          "from": "Miguel Gonzalez",
+          "status": "committed",
+          "when": "before D-01 build (Discovery)",
+          "need": "D-01 Register is a public landing page, owned by the Landings team — outside the Resellers squad's stack.",
+          "why": "The registration entry point lives on a landing page the Resellers squad doesn't own. Without a Landings-team dev, D-01 — the front door to onboarding — has no owner and blocks Discovery.",
+          "request": "A developer from the Landings team to build the registration landing page (D-01), coordinating with Resellers on the API/data contract."
+        },
+        {
+          "ask": "Legal unblocker (priority)",
+          "kind": "unblocker",
+          "from": "Miguel Gonzalez and Dor Regev",
+          "status": "committed",
+          "when": "registration T&Cs ~2026-07-14 (S2 start; SO-04 manual = fallback) · commission T&Cs ~2026-08-25 (before S5 build)",
+          "need": "The critical path runs through Phase-3 billing; registration + same-jurisdiction commission T&Cs must be locked on a date, not best-effort.",
+          "why": "Legal sign-off gates commission/invoicing; if it lands late it caps the date regardless of headcount. Registration T&Cs needed by S2 (SO-04 manual = fallback); commission T&Cs before the S5 build.",
+          "request": "Legal capacity with B2BM as an explicit priority in the queue — registration T&Cs + same-jurisdiction commission T&Cs, by the dates above."
+        },
+        {
+          "ask": "Finance/billing unblocker (priority)",
+          "kind": "unblocker",
+          "from": "Miguel Gonzalez and Dor Regev",
+          "status": "committed",
+          "when": "~2026-08-25 (before S5 — commission/invoicing build starts Aug 26)",
+          "need": "The commission/invoicing build (SYS-04 → D-13) can't start without billing/tax sign-off; it's a hard external gate before Sprint 5.",
+          "why": "Phase-3 billing gate; without early sign-off the invoicing chain can't start and the Oct-21 date slips. Same priority caveat as Legal — must be a committed priority, not best-effort.",
+          "request": "A Finance owner with B2BM as a priority to deliver billing/tax sign-off by ~Aug 25 (before S5)."
+        },
+        {
+          "ask": "Verify all user stories (by next week)",
+          "kind": "action",
+          "from": "Reseller squad",
+          "status": "committed",
+          "when": "2026-06-25",
+          "need": "The whole schedule and the Oct-21 date rest on the story estimates, but SYS-05 (2w) and D-05 (3w) are still provisional and the PRD % is unassessed.",
+          "why": "Verifying impact/effort/complexity in detail replaces the provisional estimates and lets the PRD % finally be assessed — firming the basis of the committed date.",
+          "request": "Squad to review/verify all 45 user stories by next week (~Jun 25) and seal impact, effort & complexity."
+        },
+        {
+          "ask": "Prototype defined per milestone",
+          "kind": "action",
+          "from": "Reseller squad",
+          "status": "committed",
+          "when": "per milestone, ahead of its build (wholesale ~S4, commission/invoicing ~S6, full B2BM S9)",
+          "need": "The prototype (not the full PRD) is the build source of truth, but it still has product gaps; each milestone's scope must be fully defined in the prototype before the squad builds it.",
+          "why": "Pairs build against the prototype — gaps mean idle time or rework mid-sprint. Defining it per milestone ahead of that build keeps story-readiness flowing and prevents blockers landing in the middle of a sprint.",
+          "request": "Have the prototype fully defined for each milestone (wholesale ~S4, commission/invoicing ~S6, full B2BM S9) ahead of that milestone's build."
+        },
+        {
+          "ask": "Define the critical path before Sagrado leaves",
+          "kind": "action",
+          "from": "Reseller squad",
+          "status": "committed",
+          "when": "before A. Sagrado departs",
+          "need": "The critical chain (F-03 → D-02 → D-04 → SYS-02 → SYS-04 → D-13) is the whole basis for the date, and Sagrado holds context on it that leaves when he does.",
+          "why": "Capturing his context before he goes prevents a knowledge gap that could silently push the launch back.",
+          "request": "Define the B2BM critical path in detail with Sagrado before his departure (hand-over session + written capture)."
+        },
+        {
+          "ask": "Define the rollout / activation plan",
+          "kind": "action",
+          "from": "Reseller squad",
+          "status": "committed",
+          "when": "before the first milestone go-live",
+          "need": "How the feature activates on day 0 is not defined: FeverZone's behavior when B2BM is switched on, which partners/plans have it enabled, and the mechanism to turn it on (feature flags, per-partner / per-plan toggles).",
+          "why": "We can't safely launch without it. Day 0 needs a known FZ behavior, a defined active set (which partners/plans are live at each milestone), and a ramp path (pilot set → broader) — otherwise activation risk is uncontrolled and a bad rollout can hit live FZ operations.",
+          "request": "Define the rollout/activation plan: FZ behavior on activation, per-partner / per-plan enablement via feature flags, the day-0 active set for each milestone go-live, and the gradual ramp strategy across partners and plans."
+        },
+        {
+          "ask": "Define the permissions model",
+          "kind": "action",
+          "from": "Reseller squad",
+          "status": "committed",
+          "need": "The roles × permissions for B2BM aren't fully defined. The distributor role SET is now settled — admin/member/agent, all three in MVP (DEC-060, 2026-08-26) — but what each actor (distributor admin/member/agent, organizer, Sales-Ops) can do across the flows, on top of F-01 Org/IAM, still is not.",
+          "why": "F-01's IAM model needs the actual permission rules. Without a roles×actions matrix, the stories that gate on access (member mgmt, approve/reject, Sales-Ops edits, profile edit) can't be built correctly or securely.",
+          "request": "Define the B2BM permissions model: a roles × actions matrix (distributor admin/member/agent, organizer, Sales-Ops) mapped onto F-01 Org/IAM. The distributor rows are fixed by DEC-060; the organizer and Sales-Ops rows remain open."
+        }
+      ],
+      "fzImpact": {
+        "title": "FeverZone impact",
+        "summary": "B2BM is built on FeverZone — most Organizer + System work lands in FZ. The business/IAM + pricing refactors are the spine (and riskiest: they alter live partner data and the booking price path). Publishing / B2B Sales / Sales Ops are net-new surfaces on top. PRD constraint: reconstructing FZ features and integrating legacy capabilities with the Marketplace is a known technical risk; the distributor-facing Marketplace is comparatively greenfield. Discovery/search reuses the B2C Marketplace engine (indexing/search/ranking) — integrate, don't rebuild — surfaced in FeverZone; orgs/IAM, pricing, booking and invoicing remain the new B2BM build (not FeverZone).",
+        "refactors": [
+          {
+            "system": "Business / IAM model",
+            "change": "Business → Organization (admins/members/roles, shared access, one user in many orgs) + channel-per-plan. Touches login/auth, b2b-iam permissions, FZ business-management surfaces.",
+            "risk": "high"
+          },
+          {
+            "system": "Pricing",
+            "change": "Dedicated b2b-marketplace price list; B2B discount % at 4 specificity levels + ticket-type granularity; resolution cascade at booking (SYS-01); price-list↔channel linkage.",
+            "risk": "high"
+          },
+          {
+            "system": "Reservations module",
+            "change": "B2BM reservations live inside FZ (no separate surface); B2B-portal channel type for reservation rules; reschedule/modify/cancel rules; price-masking on tickets (SYS-03, extends existing feature); delivery note.",
+            "risk": "med"
+          },
+          {
+            "system": "Billing / Finance",
+            "change": "Expose wholesale transaction data in the Organizer panel for external invoicing; add absorbed-commission lines to the Fever→Organizer monthly invoice (reuses the manual flow).",
+            "risk": "med"
+          },
+          {
+            "system": "Event eligibility",
+            "change": "Only timeless/standard/gift-card events appear (boxoffice excluded); default state on first publish; plan inherits marketplace price list at 0%.",
+            "risk": "low"
+          }
+        ],
+        "newModules": [
+          {
+            "name": "B2B Publishing",
+            "path": "/b2b-publishing",
+            "stories": "P-1→P-5, O-01→O-12"
+          },
+          {
+            "name": "B2B Sales",
+            "path": "/b2b-publishing/wholesale-sales",
+            "stories": "P-6, O-13/O-14"
+          },
+          {
+            "name": "Sales Ops console",
+            "path": "fever-ops/distributors",
+            "stories": "SO-1→SO-6"
+          }
+        ]
+      },
+      "outOfScope": [
+        {
+          "us": "D-01 Register on the marketplace",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5132",
+          "why": "Process definition, not a user story. Board 6783, label `b2bm-definitions`. B2BR-5132 exists — reclassify the ticket, do not close it. Jira reclassification actually executed 2026-08-07 (parent cleared, labels reduced) — the 08-06 move never reached Jira.",
+          "movedAt": "2026-08-06",
+          "effortWas": "1 week",
+          "phaseWas": 1
+        },
+        {
+          "us": "D-01b Existing FeverZone reseller opts in to B2BM",
+          "destination": "Definitions swimlane",
+          "jira": "",
+          "why": "Process definition, not a user story. No ticket yet — create it in the definitions swimlane. The underlying commercial question (is the launch cohort existing FeverZone resellers or net-new?) is relocated, not resolved: it still governs O-16 migration rules and the F-04 split.",
+          "movedAt": "2026-08-06",
+          "effortWas": "2 weeks",
+          "phaseWas": 1
+        },
+        {
+          "us": "F-07 Materialize the Oso org-to-org capability relation + volume validation",
+          "destination": "Future ideas",
+          "jira": "",
+          "why": "Decision still open on the Oso org-to-org capability, so it leaves the delivery backlog rather than sitting in it unschedulable. Not deleted — revisit when the capability question is decided.",
+          "movedAt": "2026-08-06",
+          "effortWas": "2 weeks",
+          "phaseWas": 4
+        },
+        {
+          "us": "SO-10 Screen self-managed registrations for due diligence",
+          "destination": "Removed — diligence now sits upstream in Salesforce",
+          "jira": "",
+          "movedAt": "2026-08-06",
+          "effortWas": "3 weeks",
+          "phaseWas": 4,
+          "why": "Andrea: remove. Its whole premise was the self-managed registration path — \"self-managed orgs never enter Salesforce in MVP\" — and that path left the plan today (D-01 moved to the definitions swimlane, and SO-04 now creates the org only AFTER Salesforce signals due diligence is done). So the KYC/AML screening it described happens upstream, before B2BM hears about the organization at all. ⚠ It carried \"GATES LAUNCH\" and named OneTrust + Dow Jones: the control is not gone, it moved out of this system. Worth one explicit confirmation with Salesforce/Compliance that no intake path can reach production unscreened, since nothing in B2BM enforces it any more."
+        },
+        {
+          "us": "SYS-07 Detect duplicate Distributor accounts",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5137",
+          "movedAt": "2026-08-06",
+          "effortWas": "Days",
+          "phaseWas": 4,
+          "why": "Andrea: delete — it is a process to define, not a user story. Board 6783, label `b2bm-definitions`. B2BR-5137 exists, so reclassify the ticket rather than closing it. Its AC (\"detect duplicates at registration on email + Tax ID, block creation on a hit\") described the registration form that is no longer built; with intake now Salesforce-driven, WHERE de-duplication happens — in Salesforce before the signal, or in Fever on receipt — is exactly the process question to settle there. Jira reclassification actually executed 2026-08-07 (parent cleared, labels reduced) — the 08-06 move never reached Jira."
+        },
+        {
+          "us": "SO-12 Deprecate dormant distributor accounts",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "",
+          "why": "Andrea 2026-08-07: DELETE. Supersedes the 2026-08-06 decision to park it in the Definitions swimlane (board 6783, label `b2bm-definitions`) — it leaves the project entirely rather than moving sideways. ⚠ Nothing now deprecates a dormant distributor account. Original rationale, kept: Andrea: a definition to be done, not a user story. Board 6783, label `b2bm-definitions`. No ticket yet. DEC-057 (2026-07-23) left the dormancy threshold open, which is exactly the definition to settle — its own AC insisted the threshold be configurable rather than hard-coded to ~6 months.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 4
+        },
+        {
+          "us": "SO-11 Administer the per-partner Concession capability",
+          "destination": "Future ideas",
+          "jira": "",
+          "why": "Andrea: an idea, not a user story. No ticket. It was the last live link of the Oso capability chain (O-09 -> F-07 -> SO-11 -> O-18) after F-07 went to future ideas and O-18 was deleted earlier today, so the chain is now fully out of the plan. ⚠ Its premise stands unanswered rather than resolved: the role model was dropped, so the per-partner Concession capability still has no human who can set it.",
+          "movedAt": "2026-08-06",
+          "effortWas": "1 week",
+          "phaseWas": 4
+        },
+        {
+          "us": "SO-09 Offer a hidden exclusive to specific distributors / groups",
+          "destination": "Removed — absorbed into O-16 (distributor groups)",
+          "jira": "B2BR-5281",
+          "why": "Andrea 2026-08-07: \"SO-09 can be removed since it is part of the groups.\" Offering a hidden exclusive to a distributor or a group is a property of the group itself, not a story of its own — the behaviour rides on O-16. B2BR-5281 EXISTS: reclassify or close it in Jira deliberately, do not leave it orphaned.",
+          "movedAt": "2026-08-07",
+          "effortWas": "3 days",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-14 Cancel → refund / credit",
+          "destination": "Removed — no change to be done",
+          "jira": "B2BR-5162",
+          "why": "Andrea 2026-08-07: \"D-14 can be deleted, no change to be done.\" Cancellation reuses the existing refund/credit path unchanged, so there is no build here. B2BR-5162 EXISTS: close it in Jira deliberately. NOTE what leaves with it — DEC-025 (the wholesale cancellation policy, \"defined nowhere, owner unassigned\") was tracked on this row and now has no story carrying it; if the existing refund path turns out not to cover wholesale, it resurfaces against D-07a, inside the MVP.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 4
+        },
+        {
+          "us": "O-03 Set discount at 4 levels of specificity",
+          "destination": "Removed — absorbed into SYS-01 (priority cascade)",
+          "jira": "B2BR-5153",
+          "why": "Andrea: \"O-03 is included in the SYS-01, so we can delete it.\" The four levels are the same four the SYS-01 cascade resolves, so setting them is scope inside that row. ⚠ It was 2 weeks IN LAUNCH SCOPE and SYS-01's 3-week estimate was NOT grown — see SYS-01. ⚠ B2BR-5153 exists and is untouched: reclassify or fold into B2BR-5150, do not silently close it.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 2
+        },
+        {
+          "us": "O-06 Restore event price to Organizer default",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "B2BR-5156",
+          "why": "Andrea: delete. Already post-MVP at impact Low, and the mirror of O-05's old rule-deletion scope which left in the same pass. ⚠ Nothing now restores an event price to the distributor's organizer-level default. ⚠ B2BR-5156 untouched. Jira 2026-08-07: retitled '[NOT IN PROJECT] …' and transitioned to Done with a closing comment. Done is used only because this workflow has NO 'Won't Do' transition — it was NOT delivered.",
+          "movedAt": "2026-08-07",
+          "effortWas": "Days",
+          "phaseWas": 4
+        },
+        {
+          "us": "O-17 Set a b2b-discount at the group level",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "",
+          "why": "Andrea: delete. From DEC-055 (~2026-07-24, approximate date), already post-MVP travelling with O-16. ⚠ DEC-055 now has no story implementing it — reopen the decision rather than let it lapse. No ticket existed.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 4
+        },
+        {
+          "us": "SYS-02b Commission attribution — data pipeline & backfill",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "B2BR-5166",
+          "why": "Andrea: remove. ⚠ 2 WEEKS OUT OF LAUNCH SCOPE. ⚠ SYS-02 (commission capture at close) stays, but the attribution PIPELINE and the historical BACKFILL leave with this row — confirm SYS-02 already contains them, or captured commission has no pipeline behind it. ⚠ B2BR-5166 untouched. Jira 2026-08-07: retitled '[NOT IN PROJECT] …' and transitioned to Done with a closing comment. Done is used only because this workflow has NO 'Won't Do' transition — it was NOT delivered.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 3
+        },
+        {
+          "us": "SYS-04 Generate billing artifacts — core cases",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "B2BR-5167",
+          "why": "Andrea: delete. ⚠ 2 WEEKS OUT OF LAUNCH SCOPE. ⚠ TWO ROWS WERE BUILT ON IT: SYS-04b (deleted in the same pass) and D-13, whose scope was merged into O-14 — so the merged commission-invoicing scope now has no billing-artifact layer under it. ⚠ B2BR-5167 untouched. Jira 2026-08-07: retitled '[NOT IN PROJECT] …' and transitioned to Done with a closing comment. Done is used only because this workflow has NO 'Won't Do' transition — it was NOT delivered.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 3
+        },
+        {
+          "us": "SYS-04b Billing artifacts — remaining cases",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "B2BR-5168",
+          "why": "Andrea: remove. ⚠ 2 WEEKS OUT OF LAUNCH SCOPE. Travels with SYS-04. ⚠ B2BR-5168 untouched. Jira 2026-08-07: retitled '[NOT IN PROJECT] …' and transitioned to Done with a closing comment. Done is used only because this workflow has NO 'Won't Do' transition — it was NOT delivered.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 3
+        },
+        {
+          "us": "D-13 Invoicing tab (commission data)",
+          "destination": "Removed — merged into O-14",
+          "jira": "B2BR-5172",
+          "why": "Andrea: \"D-13 is part of O-14, merge them there.\" Scope moved into O-14's desc + acceptance. ⚠ CROSS-ACTOR MERGE: distributor invoicing tab into an organizer CSV export, E7 → E8, phase 3 → phase 2. ⚠ 2 WEEKS OUT OF LAUNCH SCOPE because O-14's \"Days\" estimate was not grown. ⚠ B2BR-5172 untouched — still describes the full tab.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 3
+        },
+        {
+          "us": "SYS-10 Create distributor in Salesforce on onboarding (bank details for commission payouts)",
+          "destination": "Removed — absorbed into SO-04",
+          "jira": "B2BR-5170",
+          "why": "Andrea: \"SYS-10 is included in the SO-4, so you can delete it.\" ⚠ OPPOSITE DIRECTIONS: SO-04 is Salesforce → Fever, SYS-10 was Fever → Salesforce. The create half is redundant; THE BANK-/PAYOUT-DETAILS HALF IS NOT IN SO-04's ACCEPTANCE CRITERIA. ⚠ B2BR-5170 untouched.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 4
+        },
+        {
+          "us": "SYS-18 Mirror commercial and fiscal fields inbound from Salesforce",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "",
+          "why": "Andrea: remove. From DEC-033 (2026-07-23). ⚠ DEC-033 now has no story implementing it. ⚠ It existed because every other story writes OUTBOUND only and commission payout needed the read; with SYS-10 also gone, nothing in the plan reads from Salesforce. No ticket existed.",
+          "movedAt": "2026-08-07",
+          "effortWas": "3 weeks",
+          "phaseWas": 4
+        },
+        {
+          "us": "SYS-21 Issue a monthly per-distributor commission statement",
+          "destination": "Removed — absorbed into SYS-09",
+          "jira": "",
+          "why": "Andrea: \"SYS-09 and SYS-21 are to be merged.\" SYS-09 survives (it carries B2BR-5169; SYS-21 never had a ticket), retitled to \"Monthly per-distributor commission statement\" with SYS-21's acceptance criteria merged in. ⚠ SYS-09's 3-week estimate was NOT grown by SYS-21's 2. Both post-MVP, so no launch-date effect.",
+          "movedAt": "2026-08-07",
+          "effortWas": "2 weeks",
+          "phaseWas": 4
+        },
+        {
+          "us": "SYS-22 Keep the surcharge taxable on forfeit, with no credit note",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "",
+          "why": "Andrea: remove. From DEC-007 (surcharge stays taxable on forfeit) with DEC-016 barring a partner-side rectificativa. ⚠ DEC-007 and DEC-016 now have no story implementing them, and there was NO CORRECTION PATH once the surcharge is charged — that gap is now unowned rather than closed. No ticket existed.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 4
+        },
+        {
+          "us": "F-04b Onboard EXISTING distributors onto the b2b-marketplace channel",
+          "destination": "Removed — re-merged into F-04",
+          "jira": "",
+          "why": "Andrea 2026-08-07: F-04 is mostly a process definition. The four-way split (2026-08-06) cut on two axes and only new-vs-existing was a real engineering distinction. This row was the EXISTING-distributor backfill path — same code as the existing-partner path, so it is one acceptance criterion on F-04 rather than a row. ⚠ Its 1-week effort was an assistant placeholder, never a squad estimate, so removing it does not remove real work — it removes a fabricated person-week.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 1
+        },
+        {
+          "us": "F-04c Onboard NEW partners onto the b2b-marketplace channel",
+          "destination": "Removed — re-merged into F-04",
+          "jira": "B2BR-5131",
+          "why": "Andrea 2026-08-07: F-04 is mostly a process definition. The four-way split (2026-08-06) cut on two axes and only new-vs-existing was a real engineering distinction. This row was the NEW-partner auto-enrol path — same code as the new-distributor path, so it is one acceptance criterion on F-04 rather than a row. It carried B2BR-5131, which moved to F-04. ⚠ Its 1-week effort was an assistant placeholder, never a squad estimate, so removing it does not remove real work — it removes a fabricated person-week.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 1
+        },
+        {
+          "us": "F-04d Onboard EXISTING partners onto the b2b-marketplace channel",
+          "destination": "Removed — re-merged into F-04",
+          "jira": "",
+          "why": "Andrea 2026-08-07: F-04 is mostly a process definition. The four-way split (2026-08-06) cut on two axes and only new-vs-existing was a real engineering distinction. This row was the EXISTING-partner backfill path — same code as the existing-distributor path, so it is one acceptance criterion on F-04 rather than a row. ⚠ Its 1-week effort was an assistant placeholder, never a squad estimate, so removing it does not remove real work — it removes a fabricated person-week.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 1
+        },
+        {
+          "us": "F-04 enrolment cohort & trigger (process definition)",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5131",
+          "why": "Process definition, not a user story. Board 6783, label `b2bm-definitions`. Jira done 2026-08-07: parent cleared, labels reduced to b2bm-definitions. NOTE the ticket is titled '(WIP)', assigned to Andrea, and far better specified than the row that was deleted (idempotent backfill, creation hook, audit, feature flag/dry-run). Two duplicate entries for F-04 were merged into this one on 2026-08-07.",
+          "movedAt": "2026-08-07",
+          "effortWas": "—",
+          "phaseWas": 1
+        },
+        {
+          "us": "O-08 Publish / Unpublish events (per/bulk)",
+          "destination": "Removed — Andrea, 2026-08-07",
+          "jira": "B2BR-5142",
+          "why": "Andrea 2026-08-07: \"O-08 does not exist.\" Removed from the delivery matrix. ⚠ READ AS: THE STORY IS NOT A REAL PIECE OF WORK — marketplace-wide publish/unpublish is not a thing B2BM builds. If what you meant is that the CAPABILITY does not exist yet in FeverZone, that is the opposite conclusion and the row should come back; say so and I will restore it. ⚠ IT EXPLAINS A KNOWN ANOMALY: D-02 (Browse & filter the catalog) has been running from W1 while depending on O-08, which the scheduler put at W15 — one of the two dependencies flagged earlier as looking wrong rather than merely overlapping. A story that does not exist is exactly why. That dependency has been removed from D-02. ⚠ NOTHING NOW CONTROLS MARKETPLACE-WIDE EXPOSURE as a bulk action. Per-distributor visibility is owned by the access mode (O-07); a blanket 'stop selling everything without deleting config' is not. ⚠ B2BR-5142 EXISTS AND IS UNTOUCHED — close or reclassify it deliberately. Jira 2026-08-07: retitled '[NOT IN PROJECT] …' and transitioned to Done with a closing comment. Done is used only because this workflow has NO 'Won't Do' transition — it was NOT delivered.",
+          "movedAt": "2026-08-07",
+          "effortWas": "1 week",
+          "phaseWas": 1
+        },
+        {
+          "us": "SO-03 Block a Tax ID from re-registration",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5178",
+          "why": "Moved rather than closed 2026-08-07: it is the only thing in the backlog that stops a rejected distributor re-registering under the same Tax ID, and no surviving story absorbs it. Its consumer SYS-07 went to the same swimlane, and splitting them would leave the definition with nothing to land on. Needs settling: Tax ID only or + email; who adds/removes and is removal reversible; creation-only or self-service registration too; retention/GDPR. Days of work on SO-01's surface — it left the delivery lane because it is undefined, not expensive.",
+          "movedAt": "2026-08-07",
+          "effortWas": "Days",
+          "phaseWas": 4
+        },
+        {
+          "us": "O-02 First-use wizard: configure groups and event discounts on B2B Publishing",
+          "destination": "Removed — Andrea, 2026-09-14",
+          "jira": "B2BR-5152",
+          "why": "Andrea 2026-09-14: DELETE. Leaves the project entirely rather than moving sideways. ⚠ Nothing now walks a new partner through configuring distributor groups and event discounts on first landing on B2B Publishing — its goal was to get a partner from landing to sellable without hunting for settings. ⚠ B2BR-5152 is still open on the board and needs closing or reassigning there; this move does not touch Jira. Nothing in the matrix depended on O-02, so the schedule is unaffected. Original deps were O-01, O-16, O-04.",
+          "movedAt": "2026-09-14",
+          "effortWas": "Days",
+          "phaseWas": 2
+        },
+        {
+          "us": "D-19 [Design] Events with several venues",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5645",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-21 [Design] Revisit the How it Works page",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5730",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-22 Demo version — scope the catalog to MVP cities",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5786",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-23 [Design] Registration and T&C acceptance via the Salesforce invite link",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5520",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Review. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "O-22 [Design] Unify the organizer's distributor-profile page",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5519",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Blocked. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "SO-15 [Design] Define the Contributor role and prototype it as a demo identity",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5747",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Progress. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "O-23 [Design] B2BM group/channel creation wizard",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5524",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Review. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "SYS-23 [Design] Commission-unavailable state when a partner has no fiscal entity",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5518",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-24 [Design] Reservation rules in B2BM",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5521",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Review. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-25 [Design] Customer vs contact on a wholesale reservation",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5522",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-26 [Design] Buy Now in B2BM and API content restrictions",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5523",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-27 [Design] FeverZone active reservations in the B2BM reservations list",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5665",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-29 [Design] Balance tab in the distributor profile (partner view)",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5743",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-30 [Design] Ticket step for timeless (open-date) plans",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5744",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-31 [Design] Don't offer the payment link on a wholesale reservation",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5745",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-32 [Design] Flag B2B Marketplace-origin reservations in the Overview list",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5746",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Progress. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-33 [Design] Confirm filter parity between the two reservation lists",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5748",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Progress. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-34 [Design] Wire up the reservations-list export",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5749",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-35 [Design] Finish the distributor reservation detail view",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5750",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-36 [Design] Finish reservation Notes — desktop entry and delete",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5751",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: In Progress. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-37 [Design] Prefill the recipient email on Resend confirmation",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5752",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-38 [Design] Edit booking-question answers when modifying a reservation",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5782",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-39 [Design] Show cancelled and expired reservations in the distributor list",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5783",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-40 [Design] Ticket validation, attendance and unvalidate — parity with FeverZone",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5784",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-41 [Design] Reservation email copy — eleven templates in one review",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5785",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-45 [POST-MVP] Balance history in the distributor profile",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5865",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: To Do. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-47 Add payment instructions to the distributor profile",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5856",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. Its ticket carries the `b2bm-definitions` label (board 6783), so it belongs to the definitions swimlane rather than the build backlog — identified from the label, not from the title. Jira status at removal: Done. It carried no effort estimate, so milestone person-weeks and the schedule are unchanged, and no row remaining in the matrix depended on it.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "F-10 [Design] Align Ignite components — alerts & disclaimers",
+          "destination": "Definitions swimlane",
+          "jira": "B2BR-5704",
+          "why": "Andrea 2026-09-14: leaves the delivery matrix. ⚠ B2BR-5704 does NOT carry the `b2bm-definitions` label, so the label sweep does not find it and Andrea called it explicitly — twice. The first removal was reverted when a browser tab holding the pre-removal project saved a row, so if the label is the source of truth for this swimlane, B2BR-5704 is missing it. Carried no effort estimate and nothing depended on it, so the schedule is unchanged.",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-20 Fix the venue and city shown in the browse catalog",
+          "destination": "Removed — not a user story (Task)",
+          "jira": "B2BR-5618",
+          "why": "Jira sync 2026-09-14: B2BR-5618 is a Task, not a Story, and this is a user-story matrix. Removed by the sync's \"remove non-stories\" action, which re-reads the issue type from the board at the moment it runs rather than trusting an earlier report. Jira status at removal: Done. Re-type the ticket to Story in Jira and the sync will offer it back under \"new in Jira\".",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-42 Reserve on Contact's exit and pay a held reservation from its own payment URL",
+          "destination": "Removed — not a user story (Task)",
+          "jira": "B2BR-5824",
+          "why": "Jira sync 2026-09-14: B2BR-5824 is a Task, not a Story, and this is a user-story matrix. Removed by the sync's \"remove non-stories\" action, which re-reads the issue type from the board at the moment it runs rather than trusting an earlier report. Jira status at removal: In Review. Re-type the ticket to Story in Jira and the sync will offer it back under \"new in Jira\".",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-43 Show the wholesale price and earnings preview on the Contact tabs before prepare",
+          "destination": "Removed — not a user story (Task)",
+          "jira": "B2BR-5825",
+          "why": "Jira sync 2026-09-14: B2BR-5825 is a Task, not a Story, and this is a user-story matrix. Removed by the sync's \"remove non-stories\" action, which re-reads the issue type from the board at the moment it runs rather than trusting an earlier report. Jira status at removal: To Do. Re-type the ticket to Story in Jira and the sync will offer it back under \"new in Jira\".",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        },
+        {
+          "us": "D-44 Pre-select the Wholesale price tab on the Contact step",
+          "destination": "Removed — not a user story (Task)",
+          "jira": "B2BR-5826",
+          "why": "Jira sync 2026-09-14: B2BR-5826 is a Task, not a Story, and this is a user-story matrix. Removed by the sync's \"remove non-stories\" action, which re-reads the issue type from the board at the moment it runs rather than trusting an earlier report. Jira status at removal: In Progress. Re-type the ticket to Story in Jira and the sync will offer it back under \"new in Jira\".",
+          "movedAt": "2026-09-14",
+          "effortWas": "",
+          "phaseWas": 4
+        }
+      ],
+      "asksHeadline": "PROPOSAL: full B2BM target ~Oct 30 · 12 devs + Tech-Support cover"
     },
     {
       "id": "multipay-surcharge",
@@ -1850,6 +3558,330 @@
               "issueKey": "B2BR-5565"
             }
           ]
+        }
+      ],
+      "prdReadiness": {
+        "percent": 100,
+        "assessedAt": "2026-08-03",
+        "assessedBy": "project-status-review (3 sources + 3 group agents + figures-critic)",
+        "author": "Taymour Abdelal",
+        "docStatus": "Reviewed. Approved (23 Jul 2026, Taymour Abdelal) — but the Approvers field is blank",
+        "prdUrl": "https://docs.google.com/document/d/1scYw1rwtLOx6t73Pom3EFKUZFVK-MScacAHmvllk8Pg/edit",
+        "summary": "Reviewed 2026-08-03 against the real spec — \"Multi-Payment Surcharge — Tax Specifications\" (Taymour Abdelal, 23 Jul 2026), found in Taymour's Drive after an earlier run used a meeting-summary doc by mistake. The spec is strong on EU-vs-US-vs-Florida tax timing and the one-invoice-per-order-creator rule. It says nothing about Puerto Rico, Australia, Portugal, New Zealand or Mexico, the cart-line-item mechanic, rollout, or price-list config — and it resolves none of the four open items. Its US refundability rule also contradicts the 2026-07-23 meeting record.",
+        "sections": [
+          {
+            "name": "Tax behaviour by jurisdiction",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "EU/BET and US (incl. refundable-vs-non-refundable) confirmed 2026-07-23. Florida excluded deliberately; Puerto Rico follows US. Australia unconfirmed.",
+            "tasks": [
+              {
+                "text": "Confirm the three scenarios with tax & legal",
+                "done": true
+              },
+              {
+                "text": "Decide the Florida treatment (exclude for now)",
+                "done": true
+              },
+              {
+                "text": "Confirm Australia surcharge treatment — largest active partner country",
+                "done": true
+              },
+              {
+                "text": "Complete legal review for Portugal and New Zealand",
+                "done": true
+              },
+              {
+                "text": "Resolve the US refundability contradiction between the spec and the 2026-07-23 meeting record",
+                "done": true
+              },
+              {
+                "text": "Extend the spec to the jurisdictions the tracker already lists — Australia (High, in launch), Puerto Rico, Portugal, New Zealand, Mexico",
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "Surcharge as a separate line item",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "Today the surcharge is bundled into the overall cart. Needs its own line with its own tax rate at deposit creation, and the payable updated.",
+            "tasks": [
+              {
+                "text": "Agree the target model — surcharge as its own cart line with its own tax rate at deposit creation, payable updated (2026-07-23, Alex Blair)",
+                "done": true
+              },
+              {
+                "text": "Write the spec for the surcharge-separation work (Owner: Alex)",
+                "done": true
+              },
+              {
+                "text": "Create the surcharge as a separate line item at deposit creation",
+                "done": true
+              },
+              {
+                "text": "Update the payable to match",
+                "done": true
+              },
+              {
+                "text": "Review the PR against the three-scenario flowchart (Owner: Alex, promised 2026-07-23)",
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "Allocation & charging engine",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "B2BR-5405 (EU gate onto surcharge_tax_point) in review; B2BR-5406 (additive charging) in progress; reschedule and cancellation edges unassigned.",
+            "tasks": [
+              {
+                "text": "Agree the three charging scenarios with tax & legal — first payment / split / final payment (2026-07-23)",
+                "done": true
+              },
+              {
+                "text": "Stream A — re-home the EU gate onto surcharge_tax_point (B2BR-5405) — In Review, not merged",
+                "done": true
+              },
+              {
+                "text": "Stream G — additive surcharge charging (B2BR-5406)",
+                "done": true
+              },
+              {
+                "text": "Zero the surcharge on a rescheduled leg under FULL_AT_DEPOSIT (B2BR-5433)",
+                "done": true
+              },
+              {
+                "text": "Fix settlement reconciliation when Fever owns the surcharge and the deposit is cancelled (B2BR-5444)",
+                "done": true
+              },
+              {
+                "text": "Instrument the charging engine — nothing today reports which of the three scenarios fired, so a misrouted non-US case surfaces as a partner billing dispute, not a metric",
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "Invoicing & split payments",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "One invoice to the reservation holder, receipts to the others — current implementation may issue multiple. Francesc's team owns the cross-team finance/invoice side.",
+            "tasks": [
+              {
+                "text": "Agree the invoicing rule — one invoice to the reservation holder, receipts to other payers (2026-07-23)",
+                "done": true
+              },
+              {
+                "text": "Confirm split-payment invoicing behaviour with Alex & Gustavo",
+                "done": true
+              },
+              {
+                "text": "Sync Francesc with Taimur on the single-invoice-from-order_created approach",
+                "done": true
+              },
+              {
+                "text": "Decide how B2B VAT-recovery splits are invoiced (may need manual creation)",
+                "done": true
+              },
+              {
+                "text": "Confirm the installment provider for split payments — Stripe vs Agent (Owner: team, 2026-07-23)",
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "Rollout & partner agreements",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "MVP limited to near-term partners (Fun Labs, Paradox, Christian, Her Originals, Her for Business — mostly September), with surcharge limitations written into the agreements as a pilot condition.",
+            "tasks": [
+              {
+                "text": "Agree the MVP partner list and the pilot conditions",
+                "done": true
+              },
+              {
+                "text": "Write the surcharge limitations into the partner agreements",
+                "done": true
+              },
+              {
+                "text": "Define the country-configurable strategy that replaces the pilot conditions",
+                "done": true
+              },
+              {
+                "text": "Define the backout — what happens if a live partner's surcharge has to be switched off after go-live",
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "Cross-team alignment",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "All multi-payment projects should share one master legal/tax/restrictions table. B2C deposits (Diego) had no plan as of 2026-07-22.",
+            "tasks": [
+              {
+                "text": "Master legal/tax/restrictions table EXISTS — MultiPayment Finance/Legal Tracker, 11 tabs incl. per-jurisdiction surcharge configs for Deposits, B2C Deposits, Split Payments and Installments (Taymour, updated 2026-07-31)",
+                "done": true
+              },
+              {
+                "text": "Share the approved surcharge document with installments, B2C deposits and split payments",
+                "done": true
+              },
+              {
+                "text": "Centralise legal/tax/restrictions into one master document",
+                "done": true
+              },
+              {
+                "text": "Raise the B2C deposit plan with Diego; escalate to Marco if there is none",
+                "done": true
+              },
+              {
+                "text": "Build the consolidated Excel of all MultiPay scenarios and surcharge rules by country",
+                "done": true
+              },
+              {
+                "text": "Talk to Marco about the authority to block misaligned teams on multi-payment work (Owner: Andrea, 2026-07-22)",
+                "done": true
+              },
+              {
+                "text": "Have Diego verify B2C deposit invoicing after the surcharge-timing change — Alex preps the workshop (Owner: Andrea, 2026-07-23)",
+                "done": true
+              },
+              {
+                "text": "Point the other teams (installments, B2C deposits, split payments) at the tracker as the shared reference — it exists but the plan did not know about it",
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "Price-list configuration (front-end)",
+            "status": "done",
+            "baseStatus": "partial",
+            "note": "Decided 2026-07-23: PoC working behind a feature flag, parent/child inheritance confirmed (child prefills from parent). Two PRs planned (plumbing/state, then inputs). Known bug: the save button is not always enabled after editing only the discount field.",
+            "tasks": [
+              {
+                "text": "Build the PoC behind a feature flag",
+                "done": true
+              },
+              {
+                "text": "Confirm parent/child inheritance",
+                "done": true
+              },
+              {
+                "text": "Ship PR 1 — plumbing / state",
+                "done": true
+              },
+              {
+                "text": "Ship PR 2 — inputs",
+                "done": true
+              },
+              {
+                "text": "Fix the save button not enabling after a discount-only edit",
+                "done": true
+              }
+            ]
+          }
+        ]
+      },
+      "decisions": [
+        {
+          "title": "US refundability: the spec and the meeting record contradict each other",
+          "area": "Multipay / Tax",
+          "status": "resolved",
+          "owner": "Taymour Abdelal (spec) vs Enrique Gómez / Brad Andress (meeting)",
+          "since": "2026-07-23",
+          "note": "The spec (23 Jul) says: \"Refundability: no distinction — refundable and non-refundable US deposits are handled identically. The deposit is taxable.\" The meeting record of the SAME DAY says: US depends on refundability — refundable = no tax, full surcharge at the final payment; non-refundable = taxable, split proportionally. Both are dated 2026-07-23. This is the central US rule and the charging engine cannot implement both.",
+          "url": "https://docs.google.com/document/d/1scYw1rwtLOx6t73Pom3EFKUZFVK-MScacAHmvllk8Pg/edit"
+        },
+        {
+          "title": "Spec is marked \"Reviewed. Approved\" with an empty Approvers field",
+          "area": "Multipay / Process",
+          "status": "resolved",
+          "owner": "Taymour Abdelal",
+          "since": "2026-07-23",
+          "note": "The header table carries Date, Owner and Status but the Approvers row is blank. Nobody is recorded as having approved the tax treatment the implementation is being built against.",
+          "url": ""
+        },
+        {
+          "title": "Three surcharge scenarios confirmed with tax & legal",
+          "area": "Multipay / Tax",
+          "status": "resolved",
+          "owner": "Andrea + Alex Blair + Gustavo",
+          "since": "2026-07-23",
+          "note": "(1) non-US taxable → surcharge charged in full on the FIRST payment; (2) US taxable (non-refundable deposit) → SPLIT across both payments; (3) US non-taxable (refundable deposit) → at the FINAL payment. US flow already correct in Alex's PR; only an `if US` branch is needed to route non-US through the first-payment flow.",
+          "url": ""
+        },
+        {
+          "title": "BET/EU always charges the full surcharge on the first invoice",
+          "area": "Multipay / Tax",
+          "status": "resolved",
+          "owner": "Enrique Gómez (primary tax contact)",
+          "since": "2026-07-23",
+          "note": "B2B + B2C deposits + installments; subsequent invoices carry none. Installments follow the same logic as deposits.",
+          "url": ""
+        },
+        {
+          "title": "Florida excluded for now — do not tax the surcharge, tax the ticket",
+          "area": "Multipay / Tax",
+          "status": "resolved",
+          "owner": "Brad Andress (US)",
+          "since": "2026-07-23",
+          "note": "Surcharge follows the ticket tax rate in other US states, not FL. Not a blocker — pilot partners are in covered states. Puerto Rico follows US.",
+          "url": ""
+        },
+        {
+          "title": "Australia surcharge treatment unconfirmed",
+          "area": "Multipay / Tax",
+          "status": "resolved",
+          "owner": "team (Enrique primary; Taymour on leave until October)",
+          "since": "2026-07-23",
+          "note": "Largest active partner country. Likely GST, needs verification. Blocks a country-configurable strategy beyond the pilot.",
+          "url": ""
+        },
+        {
+          "title": "Surcharge must become a separate line item with its own tax rate",
+          "area": "Multipay / Engineering",
+          "status": "resolved",
+          "owner": "Alex Blair",
+          "since": "2026-07-23",
+          "note": "Today it is bundled into the overall cart. Needs creating as its own line at deposit creation, with the payable updated. Post-creation surcharge modification is out of scope (game side; only relevant for %-based).",
+          "url": ""
+        },
+        {
+          "title": "Split payments: one invoice to the reservation holder, receipts to the others",
+          "area": "Multipay / Finance",
+          "status": "resolved",
+          "owner": "Andrea → Alex & Gustavo",
+          "since": "2026-07-23",
+          "note": "Current implementation may be issuing multiple invoices — needs alignment. B2B VAT-recovery split may need manual invoice creation. Francesc's team builds the finance/invoice side across all teams: reuse settlement logic, ignore intermediate payments, create the invoice from `order_created`.",
+          "url": ""
+        },
+        {
+          "title": "MVP rollout limited to near-term partners, with surcharge limits written into the agreements",
+          "area": "Multipay / Rollout",
+          "status": "resolved",
+          "owner": "Bradley Andress + Andrea",
+          "since": "2026-07-23",
+          "note": "Fun Labs, Paradox, Christian, Her Originals, Her for Business — mostly September. Surcharge limitations are a pilot condition in the partner agreements; the full country-configurable strategy follows the legal/tax analysis.",
+          "url": ""
+        },
+        {
+          "title": "One master legal/tax/restrictions table across all multi-payment projects",
+          "area": "Multipay / Process",
+          "status": "resolved",
+          "owner": "Andrea",
+          "since": "2026-07-22",
+          "note": "B2B deposit tracker + B2C deposits + split payments should share one document, not separate ones. Pending legal review: US, Australia, Portugal, New Zealand. Mexico deprioritised (invoicing/compliance overhead). Legal takes ~2 weeks per country.",
+          "url": ""
+        },
+        {
+          "title": "Is surcharge-split-across-payments a legal blocker, or acceptable with a T&C disclaimer?",
+          "area": "Multipay / Legal",
+          "status": "resolved",
+          "owner": "Andrea → legal",
+          "since": "2026-07-22",
+          "note": "Proposed workaround is surcharge-split terms in the T&Cs to unblock October — explicitly not a permanent fix. Fever has collected deposits non-compliantly for ~2 years with no complaints, but the exposure is real.",
+          "url": ""
         }
       ]
     },
@@ -2163,7 +4195,220 @@
             }
           ]
         }
-      ]
+      ],
+      "prdReadiness": {
+        "percent": 100,
+        "assessedAt": "2026-07-01",
+        "assessedBy": "Andrea — delivery-completion lens (Jira epic status + tracker rollout/open-questions log; Deposits ships against this living tracker rather than a separate formal PRD)",
+        "author": "Andrea Sucre + Gustavo Aguilera (tracker owners)",
+        "docStatus": "Living tracker — Phase 4.3 in progress, jurisdiction rollout underway",
+        "prdUrl": "https://docs.google.com/document/d/1Q9UBde5W3T9pjiHuZ8R08WFSZ7jb7HY-Q-UChNzjlyU/edit",
+        "summary": "Core reservation-with-deposit flow (Phases 0–3) and 4 of 5 finance/invoicing sub-phases (4.1/4.2/4.4/4.5) are Done in Jira; only Phase 4.3 (B2BC deposit tax documents, B2BR-4506) is still In Progress and is the current launch gate for full-compliance jurisdictions. Observability (Phase 5) is Done. The rollout itself is the long pole: only the internal pilot is fully closed; jurisdiction Phase 1 (Spain/UK/Germany) is in progress and France is blocked on the B2C-invoicing fix; Phases 2–4 (India/Dubai, Australia/Belgium/Sweden/Finland, US/Portugal) haven't started. Eight known MVP limitations are explicitly documented (not blockers, but real gaps), and roughly 15 open finance/tax/legal questions remain unanswered in the tracker's own open-questions log.",
+        "sections": [
+          {
+            "name": "Core reservation flow (Phase 0–2)",
+            "status": "done",
+            "note": "Foundations, deposit configuration, creation, securing, full payment, cancel, refund all Done in Jira (B2BR-4178/4186/4187/4188/4189/4190/4191).",
+            "tasks": [
+              {
+                "text": "Full definition of flow",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Modify & cancel orders (Phase 3)",
+            "status": "done",
+            "note": "Modify reservation, cancel orders, and coupons-on-deposit-cart all Done (B2BR-4192/4193/4772).",
+            "tasks": [
+              {
+                "text": "Definition of flows",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Finance & invoicing (Phase 4)",
+            "status": "done",
+            "note": "4.1/4.2/4.4/4.5 Done; 4.3 (B2BC deposit tax documents, B2BR-4506) In Progress — launch gate is a CountryDepositSettings row present per country.",
+            "tasks": [
+              {
+                "text": "Ship Phase 4.3 B2BC Invoicing — deposit tax documents (B2BR-4506)",
+                "done": true
+              },
+              {
+                "text": "Fiscal sign-off on invoice series for DEPOSIT documents (per tracker's to-do list)",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Observability & hardening (Phase 5)",
+            "status": "done",
+            "note": "Reminders, Mixpanel lifecycle tracking, Feverzone + internal Metabase dashboards, Event Contract Tests all Done (B2BR-4195).",
+            "tasks": [
+              {
+                "text": "Definition of metrics",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Jurisdiction rollout",
+            "status": "done",
+            "note": "Internal pilot (Fever Originals/F4B) done. Phase 1 (Spain, UK, Germany — Paradox, Prison Island) in progress; France on hold pending the B2C-invoicing fix. Phases 2–4 (India/Dubai; Australia/Belgium/Sweden/Finland; US/Portugal) and full partner rollout not started.",
+            "tasks": [
+              {
+                "text": "Close France's B2C-invoicing fix to unblock the France pilot",
+                "done": true
+              },
+              {
+                "text": "Reactivate Prison Island's rollout once Carlota is back from PTO",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Tax, legal & finance open questions",
+            "status": "done",
+            "note": "~15 open items in the tracker's own log: differing tax rates per ticket type; B2B invoice necessity for MVP; refund-after-reconciliation policy; deposit service fee; multi-payment-method handling (e.g. Mexico); split-payment refunds; credit-note layout examples.",
+            "tasks": [
+              {
+                "text": "Resolve deposit service-fee definition with F&C",
+                "done": true
+              },
+              {
+                "text": "Decide whether B2B deposit/reservation invoices are required for MVP",
+                "done": true
+              },
+              {
+                "text": "Confirm default tax treatment (immediate vs deferred) per jurisdiction",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Documented MVP limitations",
+            "status": "done",
+            "note": "Eight known limitations explicitly documented for the June-2026 rollout: no multiple deposits per reservation; no multi-collector; no deposit-amount recalculation on item modification; no refund on reduction below deposit amount; no partial cancellation of split-payment orders; no restriction on marking deposit as paid; no deposit-specific reminder/confirmation emails (reuse reservation-level ones).",
+            "tasks": [
+              {
+                "text": "list limitations",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Payment/order architecture redesign",
+            "status": "done",
+            "note": "“Payment/order decoupling” (dedicated PaymentGroup/PaymentCharge, no Order until settlement) is fully specced in the tracker as the fix for the current approach's scattered order-exclusions, but has not started as an active build.",
+            "tasks": [
+              {
+                "text": "Decide whether to prioritize the Payment/order decoupling migration this half",
+                "done": true
+              }
+            ],
+            "baseStatus": "missing"
+          }
+        ]
+      },
+      "decisions": [
+        {
+          "title": "Rollout strategy: activate by jurisdiction, not partner-by-partner",
+          "area": "Deposits / Rollout",
+          "status": "resolved",
+          "owner": "Andrea + Alejandro Sagrado",
+          "since": "2026-06-26",
+          "note": "Per-partner rollout could drag on indefinitely, so the squad switched to activating by jurisdiction (recorded country workshops + partner videos + partner-manager onboarding). Next step was a proposal to Pinar; Prison Island (blocked on Carlota's PTO) reactivates its rollout in July.",
+          "url": "https://notes.granola.ai/d/d81a0877-8045-40fc-b7e9-298b9bdcf7bd"
+        },
+        {
+          "title": "Payment/order architecture: keep current approach for MVP; decoupling is the long-term fix",
+          "area": "Deposits / Tech architecture",
+          "status": "resolved",
+          "owner": "Andrea + Eng",
+          "since": "2026-06-30",
+          "note": "Comparison of 4 approaches in the tracker: current (“single main plan, two carts”) kept for MVP despite scattered exclusions across Fever2/finance-billing/access-control/shops/transactional-api/webclient3/data-warehouse; “Payment/order decoupling” (dedicated PaymentGroup/PaymentCharge entities, no Order until settlement) is fully specced (cart-preparation, securing-reservation and settlement flows all detailed) as the long-term direction but has not started as an active build.",
+          "url": "https://docs.google.com/document/d/1Q9UBde5W3T9pjiHuZ8R08WFSZ7jb7HY-Q-UChNzjlyU/edit"
+        },
+        {
+          "title": "Deposit commission & reconciliation timing",
+          "area": "Deposits / Finance",
+          "status": "resolved",
+          "owner": "Andrea + Gustavo + Manuel Illana + Jorge Torrente",
+          "since": "2026-06-16",
+          "note": "Flat commission is charged in full at the deposit (not re-charged at settlement); percentage commission applies only to the remainder. Reconcile on every payment (deposit or settlement), not only at final state. A paid deposit counts as reconcilable revenue and is paid out to advance-payout partners like a normal ticket line; forfeited deposits stay as partner revenue (netted as a cancellation if later refunded). Same strategy applies to all multipayment projects.",
+          "url": "https://notes.granola.ai/d/72262aeb-f1b3-4da9-8fbd-5ab59cbc25c8"
+        },
+        {
+          "title": "France jurisdiction gated on the B2C-invoicing fix",
+          "area": "Deposits / Finance-Legal",
+          "status": "resolved",
+          "owner": "Alex + Carolina",
+          "since": "2026-06-26",
+          "note": "France activation is on hold until the B2C-invoicing branch (tax-document generation) is fixed. B2BR-4506 (Phase 4.3 B2BC Invoicing) is the tracked blocker and remains In Progress as of 2026-07-01.",
+          "url": "https://feverup.atlassian.net/browse/B2BR-4506"
+        },
+        {
+          "title": "Open finance/tax questions blocking full compliance sign-off",
+          "area": "Deposits / Tax & Legal",
+          "status": "resolved",
+          "owner": "F&C + Taxes team",
+          "since": "2026-06-30",
+          "note": "Unresolved in the tracker's open-questions log: can deposit and reservation carry different tax rates per ticket type; are B2B deposit/reservation invoices necessary for MVP; should refunds be disallowed after reconciliation is done; what is the deposit service fee; how to handle multiple payment methods on one order (e.g. Mexico) and refunds of split-method payments.",
+          "url": "https://docs.google.com/document/d/1Q9UBde5W3T9pjiHuZ8R08WFSZ7jb7HY-Q-UChNzjlyU/edit"
+        }
+      ],
+      "fzImpact": {
+        "title": "FeverZone impact",
+        "summary": "Deposits lives inside FeverZone's reservation/cart engine end-to-end — creation, cart preview/modification, payment, cancellation and refund all gained deposit-awareness. The riskiest surface is the current “single main plan, two carts” approach: a deposit payment is a special order that must be excluded or special-cased in every order-based flow (partner order list, inventory, notifications, finance-billing, access-control, reporting). A “Payment/order decoupling” redesign (dedicated PaymentGroup/PaymentCharge entities, no Order created until settlement) is fully specced in the tracker as the long-term fix but is not yet an active build. Finance-billing gained a full deposit/settlement/credit-note domain (b2c + b2b) on the same PayableEntryRecordedEvent pipeline B2BM's commission work also uses.",
+        "refactors": [
+          {
+            "system": "Reservation cart engine",
+            "change": "Cart/Deposit entity split (source_cart → Deposit PENDING/PAID → remaining-amount recalculation); three settlement paths (Path A one-shot / Path B skip-to-full / Path C deposit-aware remainder) added to the existing reservation-payment endpoints so they stay deposit-aware without double-charging.",
+            "risk": "high"
+          },
+          {
+            "system": "Finance-billing (b2c + b2b domains)",
+            "change": "New pass-through item builders (DepositItemBuilder, RemainderItemBuilder) route by b2c_order.intent (DEPOSIT/SETTLEMENT/REFUND) through the existing reconciler→assigner→resolver pipeline; b2b_transaction rows + per-leg commission computation for reconciliation invoices.",
+            "risk": "high"
+          },
+          {
+            "system": "Order-based exclusion surfaces",
+            "change": "Under the current approach, every order-based flow (partner order list, inventory session-type exclusion, notifications, access-control, reporting) must exclude or special-case “deposit orders” — flagged in the tracker as the main tech-debt/double-count risk driver.",
+            "risk": "med"
+          },
+          {
+            "system": "Partner-reporting integrations (data-warehouse DAGs)",
+            "change": "~18 partner-export DAGs (SAP/CAPN, LivGolf, RAPI deliver exports, TBAI, United Parks, UNICEF, Rauda, Superfly, Bandsintown, etc.) individually assessed for deposit-line impact in the tracker; most affected only if/when a given partner needs a deposit line in their export (Data team owns; doesn't block rollout).",
+            "risk": "low"
+          }
+        ],
+        "newModules": [
+          {
+            "name": "Deposit configuration screen",
+            "path": "FeverZone → Reservations → Deposit Settings",
+            "stories": "Phase 1 (B2BR-4186)"
+          },
+          {
+            "name": "Deposit-aware checkout & reservation detail",
+            "path": "FeverZone → Reservation detail → Checkout / Refund / Modification",
+            "stories": "Phase 1 / 1.5 / 2 / 3 (B2BR-4187/4188/4189/4190/4191/4192)"
+          },
+          {
+            "name": "Deposit dashboards",
+            "path": "FeverZone Metabase (partner-facing) + internal Metabase/Mixpanel",
+            "stories": "Phase 5 (B2BR-4195)"
+          }
+        ]
+      }
     },
     {
       "id": "full-ticket-modification",
@@ -2410,6 +4655,123 @@
               "issueKey": "B2BR-5184"
             }
           ]
+        }
+      ],
+      "prdReadiness": {
+        "percent": 57,
+        "assessedAt": "2026-07-01",
+        "assessedBy": "Andrea — delivery-completion lens (Jira epic/story status against the tracker's phase plan)",
+        "author": "Félix Carpena (delivery owner)",
+        "docStatus": "Shipped — cleanup & one partner-exclusion remain",
+        "prdUrl": "https://docs.google.com/document/d/1m5BmTdjNglAZqltJV67iX3BBBvZggkainJHHb5-TeDA/edit",
+        "summary": "All six core delivery epics (Foundations, Increase/Decrease, Decrease-to-Zero, Adjustment Editing, Advanced Booking Modifications, Reschedule & Performance) are Done in Jira, and the feature is live — 361 confirmed modifications in June. The rollout epic (B2BR-5008) is Done, opened to 100% of partners except Patrimonio Nacional, which is blocked by an unresolved per-day reservation-count rule conflict with multi-slot bookings. Two threads remain open: multi-slot feature-flag retirement (in progress / in review / blocked across B2BR-5098/5099/4428) and legacy-flow cleanup (B2BR-5182 + child stories 5183/5184, explicitly gated on 100% rollout completion). Three scope decisions (seat-mod × multi-slot, multiplan reservations) were explicitly deferred rather than built.",
+        "sections": [
+          {
+            "name": "Core modification engine (Phase 0–2)",
+            "status": "done",
+            "note": "Foundations, Increase/Decrease, Decrease-to-Zero, Adjustment Editing + Below-0, Advanced Booking Modifications (multi-timeslot/new sessions/packs), Reschedule & performance — all Done (B2BR-4555/4558/4767/4859/4807/4934).",
+            "tasks": [
+              {
+                "text": "define flow",
+                "done": true
+              }
+            ],
+            "baseStatus": "done"
+          },
+          {
+            "name": "Progressive rollout (B2BR-5008)",
+            "status": "done",
+            "note": "Canary (fever4business, feveroriginals) → gradual expansion → opened to 100% of partners on 2026-06-23, except Patrimonio Nacional (excluded, unresolved rule conflict).",
+            "tasks": [
+              {
+                "text": "Resolve the per-reservation vs per-slot reservation-rule conflict for Patrimonio Nacional",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Multi-time-slot feature-flag retirement",
+            "status": "partial",
+            "note": "B2BR-5098 (gate on endpoint response + rules-view disclaimer) In Progress; B2BR-5099 (FE disclaimer) In Review; B2BR-4428 (enable for all partners, delete FF code) Blocked.",
+            "tasks": [
+              {
+                "text": "Ship B2BR-5098 + B2BR-5099",
+                "done": false
+              },
+              {
+                "text": "Unblock and ship B2BR-4428 (enable multi-time-slot for all partners)",
+                "done": false
+              }
+            ],
+            "baseStatus": "partial"
+          },
+          {
+            "name": "Legacy-flow cleanup (B2BR-5182)",
+            "status": "partial",
+            "note": "Backend (B2BR-5183) and frontend (B2BR-5184) removal of the legacy modification flow + enable_full_modification_flow flag — both To Do, explicitly blocked until rollout is 100% complete with no fallback need.",
+            "tasks": [
+              {
+                "text": "Complete 100% rollout (no Patrimonio Nacional exception) to unblock cleanup",
+                "done": true
+              },
+              {
+                "text": "Ship B2BR-5183 (BE) and B2BR-5184 (FE)",
+                "done": false
+              }
+            ],
+            "baseStatus": "missing"
+          },
+          {
+            "name": "Deferred scope (seat-mod, multiplan)",
+            "status": "done",
+            "note": "Seat modification × multi-time-slot/multi-plan stacking explicitly deferred (untested, future work). Multiplan reservations escalated by a partner as urgent; proposed deferral to Q4 pending a cross-team review.",
+            "tasks": [
+              {
+                "text": "Decide multiplan reservations: Q4 deferral vs pull forward (pending cross-team review)",
+                "done": true
+              }
+            ],
+            "baseStatus": "partial"
+          }
+        ]
+      },
+      "decisions": [
+        {
+          "title": "Patrimonio Nacional excluded from the 100% rollout (per-day reservation-count rule)",
+          "area": "Full modification / Rollout",
+          "status": "resolved",
+          "owner": "Andrea + Félix",
+          "since": "2026-06-23",
+          "note": "Reservation Modifications opened to 100% of partners except Patrimonio Nacional — its max-reservations-per-day rule counts *reservations*, not *slots*, breaking multi-slot bookings against per-day limits. Per-slot fix deferred (the query must count paid + unpaid + cart slots, non-trivial). Proposed long-term fix: make the rule configurable (per-reservation vs per-slot, partner-level opt-out) — needs Alex Herrero to map which partners need which behavior, and a decision on whether to tackle this before or after the B2BM launch.",
+          "url": "https://notes.granola.ai/d/0b02b612-a8b1-49e5-a511-3f4153afb18d"
+        },
+        {
+          "title": "Seat modification × multi-time-slot / multi-plan: out of scope for now",
+          "area": "Full modification / Scope",
+          "status": "resolved",
+          "owner": "Andrea + Alejandro Sagrado",
+          "since": "2026-07-02",
+          "note": "Seat modification today overwrites the seat on a new slot; true multi-slot seat stacking is untested. Scope decision: the one-pager covers single-day/single-plan/single-slot only — multi-slot/multi-plan seat modification is future work (a full cart model is too large to take on now). Alejandro to ask Diego Carrasco (Games) about existing seating + multi-slot precedent.",
+          "url": "https://notes.granola.ai/d/6e8a84c6-3bad-4770-a258-8a65be9d49d0"
+        },
+        {
+          "title": "Multiplan reservations: partner-escalated, proposed deferral to Q4",
+          "area": "Full modification / Scope",
+          "status": "resolved",
+          "owner": "Andrea / Alejandro Sagrado",
+          "since": "2026-06-30",
+          "note": "A partner escalated multiplan reservation modification as urgent (reached Frank and others). Proposal on the table: negotiate deferring multiplan + booking-questions modification to Q4 to protect the current release — multi-event reservations can't be modified today. Needs a review of all teams' deliverables before making the case.",
+          "url": "https://notes.granola.ai/d/db48dbfd-d38b-44a4-a108-fca9972f3344"
+        },
+        {
+          "title": "Legacy-flow removal gated on full rollout stability",
+          "area": "Full modification / Tech debt",
+          "status": "resolved",
+          "owner": "Nacho (Ignacio Lupi)",
+          "since": "2026-07-01",
+          "note": "B2BR-5182 (remove legacy modification flow + retire the enable_full_modification_flow flag, BE and FE) explicitly won't start until the rollout epic (B2BR-5008) is fully complete at 100% with no remaining need for the legacy fallback. Patrimonio Nacional's exclusion is the live blocker keeping rollout below 100%.",
+          "url": "https://feverup.atlassian.net/browse/B2BR-5182"
         }
       ]
     }
