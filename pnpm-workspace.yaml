@@ -5,3 +5,4 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@asucregonzalez/section-delivery-projects@0.7.0'
   - '@asucregonzalez/section-worktrees@0.1.1'
+  - '@asucregonzalez/section-worktrees@0.2.0'
