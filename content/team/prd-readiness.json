@@ -2413,7 +2413,11 @@
             ],
             "baseStatus": "partial"
           }
-        ]
+        ],
+        "gate": {
+          "reason": "before Alejandro Sagrado leaves",
+          "chip": "⭐ pre-leave"
+        }
       },
       "decisions": [
         {
