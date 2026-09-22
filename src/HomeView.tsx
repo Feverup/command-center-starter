@@ -1,10 +1,37 @@
 import useSWR from 'swr';
 import { jsonFetch } from '@asucregonzalez/http';
-import { useDashboardConfig, isOwnedByViewer } from '@asucregonzalez/ui';
+import {
+  useDashboardConfig,
+  isOwnedByViewer,
+  RefreshAllButton,
+  type RefreshJobSpec,
+} from '@asucregonzalez/ui';
 import type { TasksResponse } from '@asucregonzalez/section-tasks';
 import type { MeetingFile } from '@asucregonzalez/section-meetings';
 import { ClaudeSessionsPanel } from '@asucregonzalez/section-claude-sessions';
 import { sections, destinations } from './sections';
+
+/**
+ * The morning routine, as one button: the skills that have to run before today's
+ * plan is trustworthy, started together instead of one trip per tab.
+ *
+ * Each entry is a key from the allowlist in `server/refresh.ts`, and each spawns a
+ * real headless Claude run — so keep this list to the things you actually want on
+ * every click. `dataKeys` are the SWR keys that go stale when that skill finishes;
+ * revalidating a key no section is using is a harmless no-op.
+ *
+ * Both of these write content/tasks/active.md, so each prompt in server/refresh.ts
+ * carries an explicit re-read-before-write instruction. Nothing here serializes
+ * them.
+ */
+const MORNING_JOBS: RefreshJobSpec[] = [
+  {
+    skill: 'daily-briefing',
+    label: 'Briefing',
+    dataKeys: ['/api/tasks', '/api/journal', '/api/journal-raw'],
+  },
+  { skill: 'meetings', label: 'Meetings', dataKeys: ['/api/meetings', '/api/tasks'] },
+];
 
 /**
  * Home — a cockpit, not a landing page.
@@ -89,11 +116,23 @@ export function HomeView() {
 
   return (
     <div>
-      <div className="px-8 pt-8 pb-6">
-        <h1 className="text-2xl font-black text-ink">
-          Good {timeOfDay()}{config.ownerName ? `, ${config.ownerName}` : ''}
-        </h1>
-        <p className="mt-1 text-sm text-ink-mute">Here's your command center.</p>
+      <div className="px-8 pt-8 pb-6 flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-black text-ink">
+            Good {timeOfDay()}{config.ownerName ? `, ${config.ownerName}` : ''}
+          </h1>
+          <p className="mt-1 text-sm text-ink-mute">Here's your command center.</p>
+        </div>
+        {/* Renders nothing when refreshEnabled is false, so a host without the
+            /api/refresh routes shows no button rather than one that 404s. */}
+        <div className="pt-1">
+          <RefreshAllButton
+            jobs={MORNING_JOBS}
+            label="Run morning sync"
+            runningLabel="Syncing…"
+            title="Run the daily briefing and the meeting sync in parallel — each spawns a headless Claude run, a few minutes and real token cost"
+          />
+        </div>
       </div>
 
       {(has('tasks') || has('meetings')) && (

@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-07-28T09:00:00Z",
+  "source": "Example data shipped with the starter — replace with your squad's numbers.",
+  "summary": {
+    "slosBreached": 1,
+    "openIncidents": 0,
+    "deploysLast7d": 18,
+    "revertRate": "5.6%"
+  },
+  "slos": [
+    { "name": "Checkout API availability", "target": "99.9%", "actual": "99.95%", "status": "ok", "window": "30d" },
+    { "name": "Search p95 latency < 400ms", "target": "95%", "actual": "93.1%", "status": "breached", "window": "30d" },
+    { "name": "Webhook delivery success", "target": "99.5%", "actual": "99.6%", "status": "at-risk", "window": "7d" }
+  ],
+  "incidents": [
+    { "id": "INC-12", "title": "Example: payment provider timeouts", "severity": "SEV-3", "status": "resolved", "opened": "2026-07-20" }
+  ],
+  "sentry": [
+    { "issue": "TimeoutError: upstream search did not answer in 5s", "events": 412, "users": 57, "level": "error" },
+    { "issue": "TypeError: cannot read properties of undefined (reading 'price')", "events": 96, "users": 21, "level": "error" }
+  ],
+  "deploys": {
+    "last7d": 18,
+    "last30d": 71,
+    "revertPRs7d": 1,
+    "byMonth": [
+      { "month": "2026-05", "merged": 64, "reverts": 2, "revertRate": 3.1, "revertPrs": [] },
+      { "month": "2026-06", "merged": 70, "reverts": 1, "revertRate": 1.4, "revertPrs": [] },
+      { "month": "2026-07", "merged": 58, "reverts": 3, "revertRate": 5.2, "revertPrs": [] }
+    ]
+  }
+}

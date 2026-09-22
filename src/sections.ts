@@ -6,6 +6,7 @@ import { journalSection } from '@asucregonzalez/section-journal';
 import { meetingsSection } from '@asucregonzalez/section-meetings';
 import { roadmapSection } from '@asucregonzalez/section-roadmap';
 import { deliveryProjectsSection } from '@asucregonzalez/section-delivery-projects';
+import { createEngHealthSection } from '@asucregonzalez/section-eng-health';
 import { HomeView } from './HomeView';
 import { GuideView } from './GuideView';
 import { WORK_TYPES } from './work-types';
@@ -63,6 +64,18 @@ export const sections: DashboardSection[] = [
       // package ships the table and none of anyone's stories.
       { ...deliveryProjectsSection, id: 'projects', label: 'Projects', path: '/plan/projects' },
       { ...roadmapSection, id: 'roadmap', label: 'Roadmap', path: '/plan/roadmap' },
+    ],
+  },
+  {
+    id: 'signals', label: 'Signals', icon: '📡', path: '/signals', visibility: 'shared',
+    blurb: 'Is anything wrong?',
+    children: [
+      // Eng Health reads `content/team/eng-health.json` — SLOs, incidents, top errors
+      // and deploy/revert throughput — written by the `eng-health` skill, scoped by
+      // `content/team/eng-health-scope.json`. The example file is there so the tab
+      // renders before the first run. Its ↻ button runs the skill via server/refresh.ts;
+      // pass `refreshSkill: null` to hide it.
+      { ...createEngHealthSection({ refreshSkill: 'eng-health' }), id: 'eng-health', label: 'Eng Health', path: '/signals/eng-health' },
     ],
   },
   {

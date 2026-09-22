@@ -10,6 +10,8 @@ import { registerClaudeSessionsRoutes } from '@asucregonzalez/section-claude-ses
 import { registerRoadmapRoutes } from '@asucregonzalez/section-roadmap/server';
 import { registerDeliveryProjectsRoutes } from '@asucregonzalez/section-delivery-projects/server';
 import { registerWorktreesRoutes } from '@asucregonzalez/section-worktrees/server';
+import { registerEngHealthRoutes } from '@asucregonzalez/section-eng-health/server';
+import { startRefresh, getRefreshJob } from './refresh.js';
 
 /**
  * The API server. Each installed section with a backend gets its own router and a
@@ -87,6 +89,8 @@ const routers = [
   // Scans WORKTREES_SCAN_ROOT for git repos. Reads nothing in this repo, and
   // reports a missing scan root rather than returning an empty list.
   registerWorktreesRoutes,
+  // Reads content/team/eng-health.json, written by the eng-health skill.
+  registerEngHealthRoutes,
 ];
 
 for (const register of routers) {
@@ -99,6 +103,23 @@ for (const register of routers) {
 app.use(express.static(DIST));
 app.get(/^(?!\/api\/).*/, (_req, res) => {
   res.sendFile(path.join(DIST, 'index.html'));
+});
+
+// --- skill refresh ----------------------------------------------------------
+// Re-run a skill headlessly (allowlisted in refresh.ts) — what the Home page's
+// "Run morning sync" button and the sections' ↻ buttons call. Remove these two
+// routes and you must also set `refreshEnabled: false` in src/App.tsx, or the
+// buttons stay visible and 404.
+//
+// The run happens in ROOT, not contentRoot: the skills live in this repo's
+// .claude/skills, and `claude` resolves them from its working directory. Pointing
+// CONTENT_ROOT at a notes folder elsewhere doesn't move the skills.
+app.post('/api/refresh/:skill', (req, res) => {
+  const r = startRefresh(req.params.skill, ROOT);
+  res.status(r.ok ? 202 : 400).json(r);
+});
+app.get('/api/refresh/:skill', (req, res) => {
+  res.json(getRefreshJob(req.params.skill) ?? { status: 'idle' });
 });
 
 app.listen(PORT, () => {

@@ -1,0 +1,12 @@
+{
+  "squadName": "",
+  "github": {
+    "organizations": [],
+    "authors": [],
+    "authorsFromProject": ""
+  },
+  "datadog": {
+    "teamTag": "",
+    "errorQuery": ""
+  }
+}
