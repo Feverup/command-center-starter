@@ -27,7 +27,7 @@
     "@asucregonzalez/section-pull-requests": "^0.6.0",
     "@asucregonzalez/section-roadmap": "^0.1.1",
     "@asucregonzalez/section-tasks": "^0.3.0",
-    "@asucregonzalez/section-worktrees": "^0.1.1",
+    "@asucregonzalez/section-worktrees": "^0.2.0",
     "@asucregonzalez/theme": "^0.2.0",
     "@asucregonzalez/ui": "^0.3.0",
     "dotenv": "^16.4.5",
